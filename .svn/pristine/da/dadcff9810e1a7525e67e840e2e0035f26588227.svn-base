@@ -1,0 +1,18 @@
+package com.benqzl.service.production;
+
+import java.util.List;
+import java.util.Map;
+
+import com.benqzl.pojo.production.Qxclxx;
+import com.benqzl.pojo.production.Qxlb;
+import com.benqzl.pojo.production.Qxlzxx;
+
+public interface QxlbService {
+	List<Qxlb> selectQxlbs(Map<String, Object> map)throws Exception;
+	Qxlb selectQxlbByQxbh(String qxbh)throws Exception;
+	Qxclxx selectQxclxxByQxbh(String qxbh)throws Exception;
+	List<Qxlzxx> selectQxlzxxsByQxbh(String qxbh)throws Exception;
+	int insertQxlbs(List<Qxlb> qxlbs)throws Exception;
+	int insertQxclxxs(List<Qxclxx> qxclxxs)throws Exception;
+	int insertQxlzxxs(List<Qxlzxx> qxlzxxs)throws Exception;
+}

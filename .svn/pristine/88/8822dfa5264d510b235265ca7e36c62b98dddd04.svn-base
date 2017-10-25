@@ -1,0 +1,6 @@
+mina.ip=192.168.1.41
+mina.port=11250
+mina.bufferSize=102400
+mina.readIDETime=120
+mina.decoderMaxLineLength=102400
+mina.encoderMaxLineLength=102400

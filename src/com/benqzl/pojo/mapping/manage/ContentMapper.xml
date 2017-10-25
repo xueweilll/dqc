@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.manage.ContentMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.manage.Content" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="VARCHAR" />
+    <result column="title1" property="title1" jdbcType="VARCHAR" />
+    <result column="title2" property="title2" jdbcType="VARCHAR" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="ctop" property="ctop" jdbcType="INTEGER" />
+    <result column="viewnum" property="viewnum" jdbcType="INTEGER" />
+    <result column="ding" property="ding" jdbcType="INTEGER" />
+    <result column="cdate" property="cdate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sort, title1, title2, color, content, name, ctop, viewnum, ding, cdate
+  </sql>
+  <select id="findByType" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from ma_content
+    where sort = #{sort,jdbcType=VARCHAR}
+    order by cdate desc
+    limit #{p1}, #{p2}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ma_content
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ma_content
+    where sort=#{sort,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="java.util.List" >
+    insert into ma_content (id, sort, title1, 
+      title2, color, content, 
+      name, ctop, viewnum, 
+      ding, cdate)
+    values
+    <foreach collection="list" item="item" index="index" separator="," >  
+      (#{item.id,jdbcType=VARCHAR}, #{item.sort,jdbcType=VARCHAR}, #{item.title1,jdbcType=VARCHAR}, 
+      #{item.title2,jdbcType=VARCHAR}, #{item.color,jdbcType=VARCHAR}, #{item.content,jdbcType=VARCHAR}, 
+      #{item.name,jdbcType=VARCHAR}, #{item.ctop,jdbcType=INTEGER}, #{item.viewnum,jdbcType=INTEGER}, 
+      #{item.ding,jdbcType=INTEGER}, #{item.cdate,jdbcType=TIMESTAMP}) 
+    </foreach>
+  </insert>
+</mapper>

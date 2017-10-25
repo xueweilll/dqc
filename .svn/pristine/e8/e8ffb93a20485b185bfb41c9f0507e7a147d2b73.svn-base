@@ -1,0 +1,65 @@
+package com.benqzl.pojo.production;
+
+import java.util.Date;
+
+public class Qxlzxx {
+//    private String id;
+
+    private String qxbh;
+
+    private Date clsj;
+
+    private String czmc;
+
+    private String czbm;
+
+    private String czr;
+
+   /* public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }*/
+
+    public String getQxbh() {
+        return qxbh;
+    }
+
+    public void setQxbh(String qxbh) {
+        this.qxbh = qxbh == null ? null : qxbh.trim();
+    }
+
+    public Date getClsj() {
+        return clsj;
+    }
+
+    public void setClsj(Date clsj) {
+        this.clsj = clsj;
+    }
+
+    public String getCzmc() {
+        return czmc;
+    }
+
+    public void setCzmc(String czmc) {
+        this.czmc = czmc == null ? null : czmc.trim();
+    }
+
+    public String getCzbm() {
+        return czbm;
+    }
+
+    public void setCzbm(String czbm) {
+        this.czbm = czbm == null ? null : czbm.trim();
+    }
+
+    public String getCzr() {
+        return czr;
+    }
+
+    public void setCzr(String czr) {
+        this.czr = czr == null ? null : czr.trim();
+    }
+}

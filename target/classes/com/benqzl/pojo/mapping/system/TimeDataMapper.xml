@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.system.TimeDataMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.system.Systimedate" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="sysid" property="sysid" jdbcType="VARCHAR" />
+    <result column="cdate" property="cdate" jdbcType="VARCHAR" />
+    <result column="pvalue" property="pvalue" jdbcType="VARCHAR" />
+    <association property="sysparameter" javaType="com.benqzl.pojo.system.SysParameter">
+   		<id column="sysid" property="id" jdbcType="VARCHAR" />
+	    <result column="name" property="name" jdbcType="VARCHAR" />
+	    <result column="pkey" property="pkey" jdbcType="VARCHAR" />
+	    <result column="memo" property="memo" jdbcType="VARCHAR" />
+	    <result column="rating" property="rating" jdbcType="VARCHAR" />
+	    <result column="ptype" property="ptype" jdbcType="INTEGER" />
+    </association>
+  </resultMap>
+   <resultMap id="BaseResultMap2" type="com.benqzl.pojo.system.Unittimedate" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="unitid" property="unitid" jdbcType="VARCHAR" />
+    <result column="cdate" property="cdate" jdbcType="VARCHAR" />
+    <result column="pvalue" property="pvalue" jdbcType="VARCHAR" />
+    <association property="unitparameter" javaType="com.benqzl.pojo.system.UnitParameter">
+   		<id column="unitid" property="id" jdbcType="VARCHAR" />
+	    <result column="name" property="name" jdbcType="VARCHAR" />
+	    <result column="pkey" property="pkey" jdbcType="VARCHAR" />
+	    <result column="measurement" property="measurement" jdbcType="VARCHAR" />
+	    <result column="isdel" property="isdel" jdbcType="VARCHAR" />
+	    <result column="memo" property="memo" jdbcType="VARCHAR" />
+	    <result column="sysid" property="sysid" jdbcType="INTEGER" />
+    </association>
+  </resultMap>
+  <select id="findbypage" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select a.*,b.memo,b.name,b.pkey,b.ptype,b.rating 
+    from sys_timedate a,sys_parameter b where a.sysid=b.id
+  </select>
+  <select id="findUnittimedataBypage" resultMap="BaseResultMap2" parameterType="java.util.Map" >
+  	select a.*,b.isdel,b.measurement,b.memo,b.Name,b.pkey,b.sysid
+	from unit_timedate a,unit_parameter b where a.unitid=b.Id
+  </select>
+  <insert id="insertTimedateList" parameterType="java.util.List">
+  	insert into sys_timedate(id,sysid,cdate,pvalue)
+  	values
+  	<if test="systimedates !=null"> 		
+  		<foreach collection="systimedates" item="std" index="index" separator=",">
+  			(#{std.id},#{std.sysid},#{std.cdate},#{std.pvalue})
+  		</foreach>
+  	</if>
+  	
+  </insert>
+  <insert id="insertUnittimedateList" parameterType="java.util.List">
+  	insert into unit_timedate(id,unitid,cdate,pvalue)
+  	values		
+ 		<foreach collection="unittimedates" item="utd" index="index" separator=",">
+ 			(#{utd.id},#{utd.sysid},#{utd.cdate},#{utd.pvalue})
+ 		</foreach>
+  </insert>
+  <!-- <select id="selectAll" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_parameter
+    <if test="ptype != null">
+    	where ptype=#{ptype,jdbcType=INTEGER}
+    </if>
+  </select> -->
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.benqzl.pojo.system.SysParameter" >
+    update sys_parameter
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pkey != null" >
+        pkey = #{pkey,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="rating != null" >
+        rating = #{rating,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

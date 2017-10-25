@@ -1,0 +1,229 @@
+package com.benqzl.controller.production;
+
+import java.lang.reflect.Type;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.benqzl.controller.BasicController;
+import com.benqzl.pojo.production.Report;
+import com.benqzl.service.production.ReportQueryService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+
+@Controller
+@RequestMapping("unitReport")
+public class UnitReportController extends BasicController {
+	@Autowired
+	private ReportQueryService service;
+
+	public UnitReportController() {
+		super(UnitReportController.class);
+	}
+
+	static SimpleDateFormat sf = new SimpleDateFormat("dd");
+	static DecimalFormat df = new DecimalFormat("0.00");
+	static DecimalFormat dff = new DecimalFormat("0.0000");
+	/**
+	 * 综合指标报表天数查询功能
+	 * @param type
+	 * @param date
+	 * @param dateTime
+	 * @return
+	 */
+	@RequestMapping(value = "dayBind", method = RequestMethod.POST)
+	@ResponseBody
+	public String dayBind(String dateTime) {
+		Map<String, Object> resultMap = new HashMap<>();
+		try {
+			resultMap = service.selectTotalResult(dateTime);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+		}
+		gson = new Gson();
+		return gson.toJson(resultMap);
+	}
+	/**
+	 * 机组日统计功能
+	 * 
+	 * @param unit
+	 * @param dateTime
+	 * @return
+	 */
+	@RequestMapping(value = "resultBind", method = RequestMethod.POST)
+	@ResponseBody
+	public String resultBind(int type, int date, String dateTime) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("type", type);
+		map.put("riqi", dateTime);
+		final int style = type;
+		final int datestyle = date;
+		List<Report> reports = new ArrayList<>();
+		try {
+			switch (datestyle) {
+			case 0:
+				reports = service.selectResultByDay(map);
+				break;
+			case 1:
+				reports = service.selectResultByWeek(map);
+				break;
+			default:
+				reports = service.selectResultByYear(map);
+				break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+		}
+		gson = new GsonBuilder().registerTypeAdapter(Report.class,
+				new JsonSerializer<Report>() {
+					@Override
+					public JsonElement serialize(Report arg0, Type arg1,
+							JsonSerializationContext arg2) {
+						JsonObject json = new JsonObject();
+						switch (datestyle) {
+						case 0:
+							json.addProperty("riqi", sf.format(arg0.getRiqi()));
+							break;
+						default:
+							json.addProperty("riqi", arg0.getId());
+							break;
+						}
+						switch (style) {
+						case 0:// 全厂电量
+							json.addProperty("fdlrj1",
+									df.format(arg0.getFdlrj1()));
+							json.addProperty("fdlrj2",
+									df.format(arg0.getFdlrj2()));
+							json.addProperty("fdlrj3",
+									df.format(arg0.getFdlrj3()));
+							json.addProperty("fdlrj4",
+									df.format(arg0.getFdlrj4()));
+							json.addProperty("fdlrj5",
+									df.format(arg0.getFdlrj5()));
+							json.addProperty("fdlrj6",
+									df.format(arg0.getFdlrj6()));
+							break;
+						case 1:// 供热管损
+							json.addProperty("grlrr",
+									df.format(arg0.getGrlrr()));
+							json.addProperty("grgs", df.format(arg0.getGrgs()));
+							break;
+						case 2:// #1/2
+							json.addProperty("fdlrj1",
+									df.format(arg0.getFdlrj1()));
+							json.addProperty("fdlrj2",
+									df.format(arg0.getFdlrj2()));
+							double result = (arg0.getFdlrj1()+arg0.getFdlrj2())*arg0.getZhcydl1();
+							json.addProperty("zhcydl1",
+									df.format(result));
+							json.addProperty("fdqh1",
+									dff.format(arg0.getFdqh1()));
+							break;
+						case 3:// #3/4
+							json.addProperty("fdlrj3",
+									df.format(arg0.getFdlrj3()));
+							json.addProperty("fdlrj4",
+									df.format(arg0.getFdlrj4()));
+							double result2 = (arg0.getFdlrj3()+arg0.getFdlrj4())*arg0.getZhcydl2();
+							json.addProperty("zhcydl2",
+									df.format(result2));
+							json.addProperty("fdqh2",
+									dff.format(arg0.getFdqh2()));
+							break;
+						case 4:// #56/78
+							json.addProperty("fdlrj5",
+									df.format(arg0.getFdlrj5()));
+							json.addProperty("fdlrj6",
+									df.format(arg0.getFdlrj6()));
+							double result3 = (arg0.getFdlrj5()+arg0.getFdlrj6())*arg0.getZhcydl3();
+							json.addProperty("zhcydl3",
+									df.format(result3));
+							json.addProperty("fdqh3",
+									dff.format(arg0.getFdqh3()));
+							break;
+						default:
+							break;
+						}
+						return json;
+					}
+				}).create();
+		String jsonStr = gson.toJson(reports);
+		return jsonStr;
+	}
+	@RequestMapping(value = "monthByTime", method = RequestMethod.POST)
+	@ResponseBody
+	public String monthByTime(String dateTime,int type){
+		Map<String,Object> resultMap = new HashMap<>();
+		try {
+			resultMap=service.selectResultByMonth(dateTime, type);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+		}
+		gson = new Gson();
+		return gson.toJson(resultMap);
+	}
+	
+
+	@RequestMapping(value = "saveTest", method = RequestMethod.POST)
+	@ResponseBody
+	public String saveTest(String time) {
+		Date date = new Date();
+		try {
+			date = dateFormat.parse(time);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+		}
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		for (int i = 1; i < 365; i++) {
+			Report report = new Report();
+			report.setId(UUID.randomUUID().toString());
+			calendar.set(Calendar.DATE, calendar.get(Calendar.DATE) - 1);
+			report.setRiqi(calendar.getTime());
+			report.setFdlrj1(new Double(0));
+			report.setFdlrj2(new Double(0));
+			report.setFdlrj3(new Double(0));
+			report.setFdlrj4(new Double(0));
+			report.setFdlrj5(new Double(0));
+			report.setFdlrj6(new Double(0));
+			
+			report.setEswdl(new Double(0));
+			report.setFswdl(new Double(0));
+			report.setFswdl34(new Double(0));
+			
+			report.setXwdl(new Double(0));
+			report.setXwdl34(new Double(0));
+			report.setXwdlrr(new Double(0));
+			
+			report.setFhql24(new Double(0));
+			report.setFhql3424(new Double(0));
+			report.setEhql24(new Double(0));
+			
+			report.setEsrl(new Double(0));
+			report.setGrlrr(new Double(0));
+			service.insert(report);
+		}
+		return "true";
+	}
+}

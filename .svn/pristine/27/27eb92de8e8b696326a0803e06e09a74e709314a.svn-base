@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.production.AqyxtsMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.production.Aqyxts" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="jnaqqsr" property="jnaqqsr" jdbcType="TIMESTAMP" />
+    <result column="qcaqts" property="qcaqts" jdbcType="TIMESTAMP" />
+    <result column="rj1aqqsr" property="rj1aqqsr" jdbcType="TIMESTAMP" />
+    <result column="rj2aqqsr" property="rj2aqqsr" jdbcType="TIMESTAMP" />
+    <result column="rj3aqqsr" property="rj3aqqsr" jdbcType="TIMESTAMP" />
+    <result column="rj4aqqsr" property="rj4aqqsr" jdbcType="TIMESTAMP" />
+    <result column="rr5aqqsr" property="rr5aqqsr" jdbcType="TIMESTAMP" />
+    <result column="rr6aqqsr" property="rr6aqqsr" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, qcaqts, rj1aqqsr, rj2aqqsr, rj3aqqsr, rj4aqqsr, rr5aqqsr, rr6aqqsr,jnaqqsr
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from pd_aqyxts
+    where 1=1
+  </select>
+  <delete id="deleteByPrimaryKey">
+    delete from pd_aqyxts
+    where 1=1
+  </delete>
+  <insert id="insert" parameterType="com.benqzl.pojo.production.Aqyxts" >
+    insert into pd_aqyxts (id, qcaqts, rj1aqqsr, 
+      rj2aqqsr, rj3aqqsr, rj4aqqsr, 
+      rr5aqqsr, rr6aqqsr,jnaqqsr)
+    values (#{id,jdbcType=VARCHAR}, #{qcaqts,jdbcType=TIMESTAMP}, #{rj1aqqsr,jdbcType=TIMESTAMP}, 
+      #{rj2aqqsr,jdbcType=TIMESTAMP}, #{rj3aqqsr,jdbcType=TIMESTAMP}, #{rj4aqqsr,jdbcType=TIMESTAMP}, 
+      #{rr5aqqsr,jdbcType=TIMESTAMP}, #{rr6aqqsr,jdbcType=TIMESTAMP}, #{jnaqqsr,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.benqzl.pojo.production.Aqyxts" >
+    update pd_aqyxts
+    <set >
+      <if test="qcaqts != null" >
+        qcaqts = #{qcaqts,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rj1aqqsr != null" >
+        rj1aqqsr = #{rj1aqqsr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rj2aqqsr != null" >
+        rj2aqqsr = #{rj2aqqsr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rj3aqqsr != null" >
+        rj3aqqsr = #{rj3aqqsr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rj4aqqsr != null" >
+        rj4aqqsr = #{rj4aqqsr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rr5aqqsr != null" >
+        rr5aqqsr = #{rr5aqqsr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rr6aqqsr != null" >
+        rr6aqqsr = #{rr6aqqsr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jnaqqsr != null" >
+        jnaqqsr = #{jnaqqsr,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = '84d5743c-1b01-4d43-8f2c-fa9897584395'
+  </update>
+</mapper>

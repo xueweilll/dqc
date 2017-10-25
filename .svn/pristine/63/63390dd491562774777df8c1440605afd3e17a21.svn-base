@@ -1,0 +1,7 @@
+#mssql version database druid setting
+
+validationQuery=SELECT 1
+#jdbc.driverClassName=com.microsoft.jdbc.sqlserver.SQLServerDriver
+jdbc.url=jdbc:sqlserver://192.168.1.26;DatabaseName=qdc
+jdbc.username=sa
+jdbc.password=asdf@123

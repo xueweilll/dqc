@@ -1,0 +1,117 @@
+package com.benqzl.core;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class LeeTree<T> extends BasicCore{
+	public LeeTree(){
+		children = new ArrayList<>();
+	}
+	
+	/** 
+	* <p>Title: </p> 
+	* <p>Description: 构造函数</p> 
+	* @param id
+	* @param text
+	* @param pareId
+	* @param obj
+	* @param isLeaf 
+	*/
+	public LeeTree(String id,String text,String pareId,Object obj,String state){
+		children = new ArrayList<>();
+		this.id = id;
+		this.text = text;
+		this.pareId = pareId;
+		this.obj = obj;
+		this.state = state;
+	}
+	
+	/** 
+	* @Fields id : TODO(唯一标识) 
+	*/ 
+	private String id;
+	
+	/** 
+	* @Fields text : TODO(显示信息) 
+	*/ 
+	private String text;
+	
+	/** 
+	* @Fields isLeaf : TODO(是否展开) 
+	*/ 
+	private String state;
+	
+	/** 
+	* @Fields pareId : TODO(父节点标识) 
+	*/ 
+	private String pareId;
+	
+	/** 
+	* @Fields children : TODO(子节点) 
+	*/ 
+	private List<LeeTree<T>> children;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+
+	public String getPareId() {
+		return pareId;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public void setPareId(String pareId) {
+		this.pareId = pareId;
+	}
+
+	public List<LeeTree<T>> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<LeeTree<T>> children) {
+		this.children = children;
+	}
+	
+	/** 
+	* @Title: add 
+	* @Description: TODO(添加子节点) 
+	* @param @param node    设定文件 
+	* @return void    返回类型 
+	* @throws 
+	*/
+	public void add(LeeTree<T> node){
+		if(node.getId().isEmpty()||node.getId()==null||node.getId().equals("0")){
+			this.children.add(node);
+		}else if(node.getPareId().equals(this.id)){
+			this.children.add(node);
+		}else{
+			for(LeeTree<T> tmp_node : children){
+				tmp_node.add(node);
+			}
+		}
+	}
+	
+	public void addNode(LeeTree<T> node){
+		this.children.add(node);
+	}
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.manage.WatchMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.manage.Watch" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="bm" property="bm" jdbcType="VARCHAR" />
+    <result column="riqi" property="riqi" jdbcType="TIMESTAMP" />
+    <result column="shijian" property="shijian" jdbcType="TIMESTAMP" />
+    <result column="renyuan" property="renyuan" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, bm, riqi, shijian, renyuan, sort
+  </sql>
+  <select id="findByPage" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from ma_watch
+    <where>
+    	<if test="endTime !=null">
+    		riqi &lt;=#{endTime,jdbcType=DATE}
+    	</if>
+    	<if test="startTime !=null ">
+    		and	riqi &gt;=#{startTime,jdbcType=DATE}
+    	</if>
+    </where>
+    order by riqi asc
+    limit #{p1},#{p2}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ma_watch
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="java.util.List" >
+    insert into ma_watch (id, bm, riqi, 
+      shijian, renyuan, sort
+      )
+    values
+    <foreach collection="list" item="item" index="index" separator="," >  
+      (#{item.id,jdbcType=VARCHAR}, #{item.bm,jdbcType=VARCHAR}, #{item.riqi,jdbcType=TIMESTAMP}, 
+      #{item.shijian,jdbcType=TIMESTAMP}, #{item.renyuan,jdbcType=VARCHAR}, #{item.sort,jdbcType=VARCHAR})  
+    </foreach>
+  </insert>
+</mapper>

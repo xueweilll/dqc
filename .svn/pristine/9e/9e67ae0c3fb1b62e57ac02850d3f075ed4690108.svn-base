@@ -1,0 +1,116 @@
+package com.benqzl.pojo.production;
+
+import java.util.Date;
+import java.util.List;
+
+public class Qxlb {
+    private String qxbh;
+
+    private String yzdw;
+
+    private String sbmc;
+
+    private String qxms;
+
+    private String qxlb;
+
+    private String zrbm;
+
+    private Date dlsj;
+
+    private String dqzt;
+    
+    private String jz;
+    
+    private List<Qxlzxx> qxlzxxs;
+    
+    private Qxclxx qxclxx;
+
+    public List<Qxlzxx> getQxlzxxs() {
+		return qxlzxxs;
+	}
+
+	public void setQxlzxxs(List<Qxlzxx> qxlzxxs) {
+		this.qxlzxxs = qxlzxxs;
+	}
+
+	public Qxclxx getQxclxx() {
+		return qxclxx;
+	}
+
+	public void setQxclxx(Qxclxx qxclxx) {
+		this.qxclxx = qxclxx;
+	}
+
+	public String getJz() {
+		return jz;
+	}
+
+	public void setJz(String jz) {
+		this.jz = jz;
+	}
+
+	public String getQxbh() {
+        return qxbh;
+    }
+
+    public void setQxbh(String qxbh) {
+        this.qxbh = qxbh == null ? null : qxbh.trim();
+    }
+
+    public String getYzdw() {
+        return yzdw;
+    }
+
+    public void setYzdw(String yzdw) {
+        this.yzdw = yzdw == null ? null : yzdw.trim();
+    }
+
+    public String getSbmc() {
+        return sbmc;
+    }
+
+    public void setSbmc(String sbmc) {
+        this.sbmc = sbmc == null ? null : sbmc.trim();
+    }
+
+    public String getQxms() {
+        return qxms;
+    }
+
+    public void setQxms(String qxms) {
+        this.qxms = qxms == null ? null : qxms.trim();
+    }
+
+    public String getQxlb() {
+        return qxlb;
+    }
+
+    public void setQxlb(String qxlb) {
+        this.qxlb = qxlb == null ? null : qxlb.trim();
+    }
+
+    public String getZrbm() {
+        return zrbm;
+    }
+
+    public void setZrbm(String zrbm) {
+        this.zrbm = zrbm == null ? null : zrbm.trim();
+    }
+
+    public Date getDlsj() {
+        return dlsj;
+    }
+
+    public void setDlsj(Date dlsj) {
+        this.dlsj = dlsj;
+    }
+
+    public String getDqzt() {
+        return dqzt;
+    }
+
+    public void setDqzt(String dqzt) {
+        this.dqzt = dqzt == null ? null : dqzt.trim();
+    }
+}

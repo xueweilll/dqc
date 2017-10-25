@@ -1,0 +1,221 @@
+package com.benqzl.controller.production;
+
+import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.benqzl.controller.BasicController;
+import com.benqzl.pojo.production.Qxlb;
+import com.benqzl.pojo.production.Qxlzxx;
+import com.benqzl.service.production.QxlbService;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+@Controller
+@RequestMapping("qxlb")
+public class QxlbController extends BasicController{
+	@Autowired
+	private QxlbService service;
+	public QxlbController() {
+		super(QxlbController.class);
+	}
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ModelAndView index(HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("main/test");
+		return mv;
+	}
+	
+	@RequestMapping(value="/bind",method=RequestMethod.POST)
+	@ResponseBody
+	public String bind(int page,int rows,String qxlb,String zrbm){
+		Map<String, Object> map = new HashMap<String, Object>();
+		page = (page == 0 ? 1 : page);
+		rows = (rows == 0 ? 15 : rows);
+		int start = (page - 1) * rows;
+		//rows = start+rows;
+		logger.info("this page rows is " + page + "|" + rows);
+		map.put("p1", start);
+		map.put("p2", rows);
+		if(qxlb!=null&&!qxlb.trim().equals("全部")){
+			map.put("qxlb", qxlb);
+		}else{
+			map.put("qxlb", null);
+		}
+		if(zrbm!=null&&!zrbm.trim().equals("全部")){
+			map.put("zrbm", zrbm);
+		}else{
+			map.put("zrbm", null);
+		}
+		List<Qxlb> list = new ArrayList<>();
+		try {
+			list=service.selectQxlbs(map);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			
+		}
+		gson = new GsonBuilder().registerTypeAdapter(Qxlb.class, new JsonSerializer<Qxlb>() {
+			@Override
+			public JsonElement serialize(Qxlb arg0, Type arg1,
+					JsonSerializationContext arg2) {
+				// TODO Auto-generated method stub
+				JsonObject json = new JsonObject();
+				json.addProperty("qxbh", arg0.getQxbh());
+				json.addProperty("yzdw", arg0.getYzdw());
+				json.addProperty("sbmc", arg0.getSbmc());
+				json.addProperty("qxms", arg0.getQxms());
+				json.addProperty("qxlb", arg0.getQxlb());
+				json.addProperty("zrbm", arg0.getZrbm());
+				SimpleDateFormat sf= new SimpleDateFormat("MM-dd");
+				json.addProperty("dlsj", sf.format(arg0.getDlsj()));
+				json.addProperty("dqzt", arg0.getDqzt());
+				json.addProperty("jz", arg0.getJz());
+				return json;
+			}
+		}).create();
+		String jsonStr = "";
+		jsonStr=gson.toJson(list);
+		return jsonStr;
+	}
+	@RequestMapping(value="/qxlbInfo",method=RequestMethod.POST)
+	@ResponseBody
+	public String qxlbInfo(String qxbh){
+		Qxlb qxlb=null;
+		try {
+			qxlb = service.selectQxlbByQxbh(qxbh);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		gson = new GsonBuilder().registerTypeAdapter(Qxlb.class, new JsonSerializer<Qxlb>() {
+			@Override
+			public JsonElement serialize(Qxlb arg0, Type arg1,
+					JsonSerializationContext arg2) {
+				JsonObject json = new JsonObject();
+				json.addProperty("qxbh", arg0.getQxbh());
+				json.addProperty("yzdw", arg0.getYzdw());
+				json.addProperty("sbmc", arg0.getSbmc());
+				json.addProperty("qxms", arg0.getQxms());
+				json.addProperty("qxlb", arg0.getQxlb());
+				json.addProperty("zrbm", arg0.getZrbm());
+				json.addProperty("dlsj", datetimeFormat.format(arg0.getDlsj()));
+				json.addProperty("dqzt", arg0.getDqzt());
+				json.addProperty("jz", arg0.getDqzt());
+				if(arg0.getQxclxx()!=null){
+					JsonObject object = new JsonObject();
+					object.addProperty("qxbh", arg0.getQxclxx().getQxbh());
+					object.addProperty("clgc", arg0.getQxclxx().getClgc());
+					object.addProperty("clwcsj", datetimeFormat.format(arg0.getQxclxx().getClwcsj()));
+					object.addProperty("clbz", arg0.getQxclxx().getClbz());
+					object.addProperty("gzfzr", arg0.getQxclxx().getGzfzr());
+					object.addProperty("ysqk", arg0.getQxclxx().getYsqk());
+					object.addProperty("yssj", datetimeFormat.format(arg0.getQxclxx().getYssj()));
+					object.addProperty("ysr", arg0.getQxclxx().getYsr());
+					object.addProperty("jxyj", arg0.getQxclxx().getJxyj());
+					object.addProperty("yxyj", arg0.getQxclxx().getYxyj());
+					object.addProperty("sjbyj", arg0.getQxclxx().getSjbyj());
+					object.addProperty("zgyj", arg0.getQxclxx().getZgyj());
+					json.add("qxclxx", object);
+				}
+				SimpleDateFormat sf= new SimpleDateFormat("MM-dd");
+				if(arg0.getQxlzxxs().size()!=0){
+					JsonArray array =new JsonArray();
+					for (Qxlzxx qxlzxx : arg0.getQxlzxxs()) {
+						JsonObject object = new JsonObject();
+						object.addProperty("qxbh", qxlzxx.getQxbh());
+						object.addProperty("clsj", sf.format(qxlzxx.getClsj()));
+						object.addProperty("czmc", qxlzxx.getCzmc());
+						object.addProperty("czbm", qxlzxx.getCzbm());
+						object.addProperty("czr", qxlzxx.getCzr());
+						array.add(object);
+					}
+					json.add("qxlzxxs", array);
+				}
+				return json;
+			}
+		}).create();
+		String jsonStr = "";
+		jsonStr=gson.toJson(qxlb);
+		return jsonStr;
+	}
+	
+	/*@RequestMapping(value="/qxclxxInfo",method=RequestMethod.POST)
+	@ResponseBody
+	public String qxclxxInfo(String qxbh){
+		Qxclxx qxclxx=null;
+		try {
+			qxclxx=service.selectQxclxxByQxbh(qxbh);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		gson = new GsonBuilder().registerTypeAdapter(Qxclxx.class, new JsonSerializer<Qxclxx>() {
+			@Override
+			public JsonElement serialize(Qxclxx arg0, Type arg1,
+					JsonSerializationContext arg2) {
+				JsonObject json = new JsonObject();
+				json.addProperty("id", arg0.getId());
+				json.addProperty("qxbh", arg0.getQxbh());
+				json.addProperty("clgc", arg0.getClgc());
+				if(arg0.getClwcsj()!=null){
+					json.addProperty("clwcsj", datetimeFormat.format(arg0.getClwcsj()));
+				}
+				json.addProperty("clbz", arg0.getClbz());
+				json.addProperty("gzfzr", arg0.getGzfzr());
+				json.addProperty("ysqk", arg0.getYsqk());
+				if(arg0.getYssj()!=null){
+					json.addProperty("yssj", datetimeFormat.format(arg0.getYssj()));
+				}
+				json.addProperty("jxyj", arg0.getJxyj());
+				json.addProperty("yxyj", arg0.getYxyj());
+				json.addProperty("qxbhsjbyj", arg0.getSjbyj());
+				json.addProperty("zgyj", arg0.getZgyj());
+				return json;
+			}
+		}).create();
+		String jsonStr = "";
+		jsonStr=gson.toJson(qxclxx);
+		return jsonStr;
+	}
+	
+	@RequestMapping(value="/qxlzxxInfo",method=RequestMethod.POST)
+	@ResponseBody
+	public String qxlzxxInfo(String qxbh){
+		List<Qxlzxx> qxlzxxs = new ArrayList<>();
+		try {
+			qxlzxxs=service.selectQxlzxxsByQxbh(qxbh);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		gson = new GsonBuilder().registerTypeAdapter(Qxlzxx.class, new JsonSerializer<Qxlzxx>() {
+			@Override
+			public JsonElement serialize(Qxlzxx arg0, Type arg1,
+					JsonSerializationContext arg2) {
+				JsonObject json = new JsonObject();
+				json.addProperty("id", arg0.getId());
+				json.addProperty("qxbh", arg0.getQxbh());
+				json.addProperty("clsj", datetimeFormat.format(arg0.getClsj()));
+				json.addProperty("czmc", arg0.getCzmc());
+				json.addProperty("czbm", arg0.getCzbm());
+				json.addProperty("czr", arg0.getCzr());
+				return json;
+			}
+		}).create();
+		String jsonStr = "";
+		jsonStr=gson.toJson(qxlzxxs);
+		return jsonStr;
+	}*/
+}

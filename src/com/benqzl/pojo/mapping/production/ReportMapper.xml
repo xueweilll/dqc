@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.production.ReportMapper">
+	<resultMap id="BaseResultMap" type="com.benqzl.pojo.production.Report">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="fdlrj1" property="fdlrj1" jdbcType="DOUBLE" />
+		<result column="fdlrj2" property="fdlrj2" jdbcType="DOUBLE" />
+		<result column="fdlrj3" property="fdlrj3" jdbcType="DOUBLE" />
+		<result column="fdlrj4" property="fdlrj4" jdbcType="DOUBLE" />
+		<result column="fdlrj5" property="fdlrj5" jdbcType="DOUBLE" />
+		<result column="fdlrj6" property="fdlrj6" jdbcType="DOUBLE" />
+		<result column="zhcydl1" property="zhcydl1" jdbcType="DOUBLE" />
+		<result column="zhcydl2" property="zhcydl2" jdbcType="DOUBLE" />
+		<result column="zhcydl3" property="zhcydl3" jdbcType="DOUBLE" />
+		<result column="fdqh1" property="fdqh1" jdbcType="DOUBLE" />
+		<result column="fdqh2" property="fdqh2" jdbcType="DOUBLE" />
+		<result column="fdqh3" property="fdqh3" jdbcType="DOUBLE" />
+		<result column="grlrr" property="grlrr" jdbcType="DOUBLE" />
+		<result column="grgs" property="grgs" jdbcType="DOUBLE" />
+		<result column="riqi" property="riqi" jdbcType="TIMESTAMP" />
+		<result column="weeks" property="weeks" jdbcType="VARCHAR"/>
+	</resultMap>
+	<delete id="deleteByPrimaryKey" parameterType="java.util.Date">
+		delete from pd_report
+		where riqi = #{id,jdbcType=DATE}
+	</delete>
+	<insert id="insertSelective" parameterType="com.benqzl.pojo.production.Report">
+		insert into pd_report
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="fdlrj1 != null">
+				fdlrj1,
+			</if>
+			<if test="fdlrj2 != null">
+				fdlrj2,
+			</if>
+			<if test="fdlrj3 != null">
+				fdlrj3,
+			</if>
+			<if test="fdlrj4 != null">
+				fdlrj4,
+			</if>
+			<if test="fdlrj5 != null">
+				fdlrj5,
+			</if>
+			<if test="fdlrj6 != null">
+				fdlrj6,
+			</if>
+			<if test="eswdl != null">
+				eswdl,
+			</if>
+			<if test="fswdl != null">
+				fswdl,
+			</if>
+			<if test="fswdl34 != null">
+				fswdl34,
+			</if>
+			<if test="xwdlrr != null">
+				xwdlrr,
+			</if>
+			<if test="xwdl != null">
+				xwdl,
+			</if>
+			<if test="xwdl34 != null">
+				xwdl34,
+			</if>
+			<if test="grlrr != null">
+				grlrr,
+			</if>
+			<if test="esrl != null">
+				esrl,
+			</if>
+			<if test="fhql24 != null">
+				fhql24,
+			</if>
+			<if test="fhql3424 != null">
+				fhql3424,
+			</if>
+			<if test="ehql24 != null">
+				ehql24,
+			</if>
+			<if test="riqi != null">
+				riqi,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="fdlrj1 != null">
+				#{fdlrj1,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj2 != null">
+				#{fdlrj2,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj3 != null">
+				#{fdlrj3,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj4 != null">
+				#{fdlrj4,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj5 != null">
+				#{fdlrj5,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj6 != null">
+				#{fdlrj6,jdbcType=DOUBLE},
+			</if>
+			<if test="eswdl != null">
+				#{eswdl,jdbcType=DOUBLE},
+			</if>
+			<if test="fswdl != null">
+				#{fswdl,jdbcType=DOUBLE},
+			</if>
+			<if test="fswdl34 != null">
+				#{fswdl34,jdbcType=DOUBLE},
+			</if>
+			<if test="xwdlrr != null">
+				#{xwdlrr,jdbcType=DOUBLE},
+			</if>
+			<if test="xwdl != null">
+				#{xwdl,jdbcType=DOUBLE},
+			</if>
+			<if test="xwdl34 != null">
+				#{xwdl34,jdbcType=DOUBLE},
+			</if>
+			<if test="grlrr != null">
+				#{grlrr,jdbcType=DOUBLE},
+			</if>
+			<if test="esrl != null">
+				#{esrl,jdbcType=DOUBLE},
+			</if>
+			<if test="fhql24 != null">
+				#{fhql24,jdbcType=DOUBLE},
+			</if>
+			<if test="fhql3424 != null">
+				#{fhql3424,jdbcType=DOUBLE},
+			</if>
+			<if test="ehql24 != null">
+				#{ehql24,jdbcType=DOUBLE},
+			</if>
+			<if test="riqi != null">
+				#{riqi,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+   <!-- <sql id="Base_Column_List">
+		id, fdlrj1, fdlrj2, fdlrj3, fdlrj4, fdlrj5, fdlrj6, zhcydl1, zhcydl2,
+		zhcydl3, fdqh1,
+		fdqh2, fdqh3, grlrr, grgs, riqi
+	</sql> -->
+   <select id="selectResultByDay" resultMap="BaseResultMap" parameterType="java.util.Map"><!-- 日查询 -->
+   		select riqi,
+   		<if test="type==0"><!-- 查询全厂机组电量 -->
+   			ifnull(fdlrj1,0) as fdlrj1, ifnull(fdlrj2,0) as fdlrj2, ifnull(fdlrj3,0) as fdlrj3,
+   			ifnull(fdlrj4,0) as fdlrj4, ifnull(fdlrj5,0) as fdlrj5, ifnull(fdlrj6,0) as fdlrj6
+   		</if>
+   		<if test="type==1"><!-- 查询供热管损电量 -->
+   			ifnull(grlrr,0) as grlrr, ifnull((((grlrr-esrl)/grlrr)*100),0) as grgs
+   		</if>
+   		<if test="type==2"><!-- 查询#1/2电量、厂用电率、气耗 -->
+   			ifnull(fdlrj1,0) as fdlrj1, ifnull(fdlrj2,0) as fdlrj2,
+   			ifnull(((fdlrj1+fdlrj2-fswdl+xwdl)/(fdlrj1+fdlrj2)),0) as zhcydl1,
+   			ifnull((fhql24/(fdlrj1+fdlrj2)),0) as fdqh1
+   		</if>
+   		<if test="type==3"><!-- 查询#3/4电量、厂用电率、气耗 -->
+   			ifnull(fdlrj3,0) as fdlrj3, ifnull(fdlrj4,0) as fdlrj4, 
+   			ifnull(((fdlrj3+fdlrj4-fswdl34+xwdl34)/(fdlrj3+fdlrj4)),0) as zhcydl2, 
+   			ifnull((fhql3424/(fdlrj3+fdlrj4)),0) as fdqh2
+   		</if>
+   		<if test="type==4"><!-- 查询#56/78电量、厂用电率、气耗 -->
+   			ifnull(fdlrj5,0) as fdlrj5, ifnull(fdlrj6,0) as fdlrj6,
+   			ifnull(((fdlrj5+fdlrj6-eswdl+xwdlrr)/(fdlrj5+fdlrj6)),0) as zhcydl3,
+   			ifnull(((ehql24-(grlrr*93/10000))/(fdlrj5+fdlrj6)),0) as fdqh3
+   		</if>
+   		from pd_report where DATE_FORMAT(riqi,'%Y-%m')=#{riqi,jdbcType=VARCHAR}
+   		order by riqi asc
+   </select>
+   <select id="selectResultByWeek" resultMap="BaseResultMap" parameterType="java.util.Map"><!-- 周查询 -->
+   		select DATE_FORMAT(riqi,'%u') as id,
+   		<if test="type==0"><!-- 查询全厂机组电量 -->
+   			ifnull(SUM(fdlrj1),0) as fdlrj1, ifnull(SUM(fdlrj2),0) as fdlrj2, ifnull(SUM(fdlrj3),0) as fdlrj3,
+   			ifnull(SUM(fdlrj4),0) as fdlrj4, ifnull(SUM(fdlrj5),0) as fdlrj5, ifnull(SUM(fdlrj6),0) as fdlrj6
+   		</if>
+   		<if test="type==1"><!-- 查询供热管损电量 -->
+   			ifnull(SUM(grlrr),0) as grlrr, ifnull((((SUM(grlrr)-SUM(esrl))/SUM(grlrr))*100),0) as grgs
+   		</if>
+   		<if test="type==2"><!-- 查询#1/2电量、厂用电率、气耗 -->
+   			ifnull(SUM(fdlrj1),0) as fdlrj1, ifnull(SUM(fdlrj2),0) as fdlrj2,
+   			ifnull(((SUM(fdlrj1)+SUM(fdlrj2)-SUM(fswdl)+SUM(xwdl))/(SUM(fdlrj1)+SUM(fdlrj2))),0) as zhcydl1,
+   			ifnull((SUM(fhql24)/(SUM(fdlrj1)+SUM(fdlrj2))),0) as fdqh1
+   		</if>
+   		<if test="type==3"><!-- 查询#3/4电量、厂用电率、气耗 -->
+   			ifnull(SUM(fdlrj3),0) as fdlrj3, ifnull(SUM(fdlrj4),0) as fdlrj4, 
+   			ifnull(((SUM(fdlrj3)+SUM(fdlrj4)-SUM(fswdl34)+SUM(xwdl34))/(SUM(fdlrj4)+SUM(fdlrj3))),0) as zhcydl2,
+   			ifnull((SUM(fhql3424)/(SUM(fdlrj3)+SUM(fdlrj4))),0) as fdqh2
+   		</if>
+   		<if test="type==4"><!-- 查询#56/78电量、厂用电率、气耗 -->
+   			ifnull(SUM(fdlrj5),0) as fdlrj5, ifnull(SUM(fdlrj6),0) as fdlrj6,
+   			ifnull(((SUM(fdlrj5)+SUM(fdlrj6)-SUM(eswdl)+SUM(xwdlrr))/(SUM(fdlrj5)+SUM(fdlrj6))),0) as zhcydl3,
+   			ifnull(((SUM(ehql24)-(SUM(grlrr)*93/10000))/(SUM(fdlrj5)+SUM(fdlrj6))),0) as fdqh3
+   		</if>
+   		from pd_report where DATE_FORMAT(riqi,'%Y')=#{riqi,jdbcType=VARCHAR}
+   		group by DATE_FORMAT(riqi,'%u')
+   		order by id asc
+   </select>
+   <select id="selectResultByMonth" resultMap="BaseResultMap" parameterType="java.util.Map"><!-- 月同比查询 -->
+   		select 
+   		<if test="type==0"><!-- 查询全厂机组电量 -->
+   			ifnull(SUM(fdlrj1),0) as fdlrj1, ifnull(SUM(fdlrj2),0) as fdlrj2, ifnull(SUM(fdlrj3),0) as fdlrj3,
+   			ifnull(SUM(fdlrj4),0) as fdlrj4, ifnull(SUM(fdlrj5),0) as fdlrj5, ifnull(SUM(fdlrj6),0) as fdlrj6
+   		</if>
+   		<if test="type==1"><!-- 查询供热管损电量 -->
+   			ifnull(SUM(grlrr),0) as grlrr, ifnull((((SUM(grlrr)-SUM(esrl))/SUM(grlrr))*100),0) as grgs
+   		</if>
+   		<if test="type==2"><!-- 查询#1/2电量、厂用电率、气耗 -->
+   			ifnull(SUM(fdlrj1),0) as fdlrj1, ifnull(SUM(fdlrj2),0) as fdlrj2,
+   			ifnull(((SUM(fdlrj1)+SUM(fdlrj2)-SUM(fswdl)+SUM(xwdl))/(SUM(fdlrj1)+SUM(fdlrj2))),0) as zhcydl1,
+   			ifnull((SUM(fhql24)/(SUM(fdlrj1)+SUM(fdlrj2))),0) as fdqh1
+   		</if>
+   		<if test="type==3"><!-- 查询#3/4电量、厂用电率、气耗 -->
+   			ifnull(SUM(fdlrj3),0) as fdlrj3, ifnull(SUM(fdlrj4),0) as fdlrj4, 
+   			ifnull(((SUM(fdlrj3)+SUM(fdlrj4)-SUM(fswdl34)+SUM(xwdl34))/(SUM(fdlrj4)+SUM(fdlrj3))),0) as zhcydl2,
+   			ifnull((SUM(fhql3424)/(SUM(fdlrj3)+SUM(fdlrj4))),0) as fdqh2
+   		</if>
+   		<if test="type==4"><!-- 查询#56/78电量、厂用电率、气耗 -->
+   			ifnull(SUM(fdlrj5),0) as fdlrj5, ifnull(SUM(fdlrj6),0) as fdlrj6,
+   			ifnull(((SUM(fdlrj5)+SUM(fdlrj6)-SUM(eswdl)+SUM(xwdlrr))/(SUM(fdlrj5)+SUM(fdlrj6))),0) as zhcydl3,
+   			ifnull(((SUM(ehql24)-(SUM(grlrr)*93/10000))/(SUM(fdlrj5)+SUM(fdlrj6))),0) as fdqh3
+   		</if>
+   		from pd_report where
+   		<if test="month == null">
+   			riqi BETWEEN #{startTime,jdbcType=DATE} and #{endTime,jdbcType=DATE}
+   		</if>
+   		<if test="month != null">
+	   		DATE_FORMAT(riqi,'%Y-%m')=#{month,jdbcType=VARCHAR}
+   		</if>
+   </select>
+   <select id="selectResultByYear" resultMap="BaseResultMap" parameterType="java.util.Map"><!-- 月查询 -->
+   		select DATE_FORMAT(riqi,'%m') as id,
+   		<if test="type==0"><!-- 查询全厂机组电量 -->
+   			ifnull(SUM(fdlrj1),0) as fdlrj1, ifnull(SUM(fdlrj2),0) as fdlrj2, ifnull(SUM(fdlrj3),0) as fdlrj3,
+   			ifnull(SUM(fdlrj4),0) as fdlrj4, ifnull(SUM(fdlrj5),0) as fdlrj5, ifnull(SUM(fdlrj6),0) as fdlrj6
+   		</if>
+   		<if test="type==1"><!-- 查询供热管损电量 -->
+   			ifnull(SUM(grlrr),0) as grlrr, ifnull((((SUM(grlrr)-SUM(esrl))/SUM(grlrr))*100),0) as grgs
+   		</if>
+   		<if test="type==2"><!-- 查询#1/2电量、厂用电率、气耗 -->
+   			ifnull(SUM(fdlrj1),0) as fdlrj1, ifnull(SUM(fdlrj2),0) as fdlrj2,
+   			ifnull(((SUM(fdlrj1)+SUM(fdlrj2)-SUM(fswdl)+SUM(xwdl))/(SUM(fdlrj1)+SUM(fdlrj2))),0) as zhcydl1,
+   			ifnull((SUM(fhql24)/(SUM(fdlrj1)+SUM(fdlrj2))),0) as fdqh1
+   		</if>
+   		<if test="type==3"><!-- 查询#3/4电量、厂用电率、气耗 -->
+   			ifnull(SUM(fdlrj3),0) as fdlrj3, ifnull(SUM(fdlrj4),0) as fdlrj4, 
+   			ifnull(((SUM(fdlrj3)+SUM(fdlrj4)-SUM(fswdl34)+SUM(xwdl34))/(SUM(fdlrj4)+SUM(fdlrj3))),0) as zhcydl2,
+   			ifnull((SUM(fhql3424)/(SUM(fdlrj3)+SUM(fdlrj4))),0) as fdqh2
+   		</if>
+   		<if test="type==4"><!-- 查询#56/78电量、厂用电率、气耗 -->
+   			ifnull(SUM(fdlrj5),0) as fdlrj5, ifnull(SUM(fdlrj6),0) as fdlrj6,
+   			ifnull(((SUM(fdlrj5)+SUM(fdlrj6)-SUM(eswdl)+SUM(xwdlrr))/(SUM(fdlrj5)+SUM(fdlrj6))),0) as zhcydl3,
+   			ifnull(((SUM(ehql24)-(SUM(grlrr)*93/10000))/(SUM(fdlrj5)+SUM(fdlrj6))),0) as fdqh3
+   		</if>
+   		from pd_report where DATE_FORMAT(riqi,'%Y')=#{riqi,jdbcType=VARCHAR}
+   		group by DATE_FORMAT(riqi,'%m')
+   		order by id asc
+   </select>
+   <select id="selectTotalResult" resultMap="BaseResultMap" parameterType="java.util.Map"><!-- 月/年总和查询 -->
+   		select 
+   		ifnull(SUM(fdlrj1),0) as fdlrj1, ifnull(SUM(fdlrj2),0) as fdlrj2, ifnull(SUM(fdlrj3),0) as fdlrj3,
+   		ifnull(SUM(fdlrj4),0) as fdlrj4, ifnull(SUM(fdlrj5),0) as fdlrj5, ifnull(SUM(fdlrj6),0) as fdlrj6,
+   		ifnull(SUM(grlrr),0) as grlrr, ifnull((((SUM(grlrr)-SUM(esrl))/SUM(grlrr))*100),0) as grgs,
+   		ifnull(((SUM(fdlrj1)+SUM(fdlrj2)-SUM(fswdl)+SUM(xwdl))/(SUM(fdlrj1)+SUM(fdlrj2)))*100,0) as zhcydl1,
+   		ifnull((SUM(fhql24)/(SUM(fdlrj1)+SUM(fdlrj2))),0) as fdqh1,
+   		ifnull(((SUM(fdlrj3)+SUM(fdlrj4)-SUM(fswdl34)+SUM(xwdl34))/(SUM(fdlrj4)+SUM(fdlrj3)))*100,0) as zhcydl2,
+   		ifnull((SUM(fhql3424)/(SUM(fdlrj3)+SUM(fdlrj4))),0) as fdqh2,
+   		ifnull(((SUM(fdlrj5)+SUM(fdlrj6)-SUM(eswdl)+SUM(xwdlrr))/(SUM(fdlrj5)+SUM(fdlrj6)))*100,0) as zhcydl3,
+   		ifnull(((SUM(ehql24)-(SUM(grlrr)*93/10000))/(SUM(fdlrj5)+SUM(fdlrj6))),0) as fdqh3
+   		from pd_report  where
+   		<if test="type==0">
+	   		DATE_FORMAT(riqi,'%Y-%m-%d')=#{riqi,jdbcType=VARCHAR}
+   		</if>
+   		<if test="type==1">
+	   		DATE_FORMAT(riqi,'%Y-%m')=#{riqi,jdbcType=VARCHAR}
+   		</if>
+   		<if test="type==2">
+	   		DATE_FORMAT(riqi,'%Y')=#{riqi,jdbcType=VARCHAR}
+   		</if>
+   		    and riqi  &lt;= #{riqis,jdbcType=VARCHAR} 
+   </select>	
+</mapper>

@@ -1,0 +1,156 @@
+package com.benqzl.service.production;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.benqzl.dao.production.ReportMapper;
+import com.benqzl.pojo.production.Report;
+@Service("ReportService")
+public class ReportServiceImpl implements ReportService {
+  @Autowired
+  public ReportMapper rptmapper;
+	
+	@Override
+	public int deleteByPrimaryKey(String id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insert(Report record) {
+		rptmapper.deleteByPrimaryKey(record.getRiqi());
+		return rptmapper.insert(record);
+	}
+
+	@Override
+	public int insertSelective(Report record) {
+		rptmapper.deleteByPrimaryKey(record.getRiqi());
+		return rptmapper.insertSelective(record);
+	}
+
+	@Override
+	public Report selectByPrimaryKey(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(Report record) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateByPrimaryKey(Report record) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+/*	@Override
+	public HashMap<String, List<Report>> selectByYear() {
+		HashMap<String,List<Report>> map=new HashMap<String,List<Report>>();
+		List<Report> year=rptmapper.selectByYear();
+		List<Report> month=rptmapper.selectByMonth();
+		List<Report> day=rptmapper.selectByDay();
+		map.put("year",year);
+		map.put("month",month);
+		map.put("day", day);
+		return map;
+	}*/
+/*	@Override
+	public HashMap<String, List<Report>> selectByPicture() {
+		HashMap<String,List<Report>> map=new HashMap<String,List<Report>>();
+		List<Report> monthweek=rptmapper.selectByMonthWeek();
+		List<Report> monthyear=rptmapper.selectByYearMonth();
+		List<Report> monthday=rptmapper.selectByMonthDay();
+		map.put("monthday",monthday);
+		map.put("monthyear",monthyear);
+		map.put("monthweek", monthweek);
+		return map;
+		
+	}*/
+
+	@Override
+	public List<Report> findReportsByTime(Map<String, Object> map)
+			throws Exception {
+		return rptmapper.findReportsByTime(map);
+	}
+
+	@Override
+	public  List<Report> selectByPictureDay(Map<String,Object> map) {
+		
+		 List<Report> monthday=rptmapper.selectByMonthDay(map);
+	        return monthday;
+	}
+
+	@Override
+	public List<Report> selectByPictureWeek(Map<String,Object> map) {
+		List<Report> monthweek=rptmapper.selectByMonthWeek(map);
+		return monthweek;
+	}
+
+	@Override
+	public List<Report> selectByPictureMonth(Map<String,Object> map) {
+	    List<Report> month=rptmapper.selectByYearMonth(map);
+		return month;
+	}
+
+	@Override
+	public Report selectByTb(Map<String, Object> map) {
+		Report news=new Report();
+		Report now=rptmapper.selectByTb(map);
+		Report last=rptmapper.selectByLast(map);
+		if(last==null){
+			news.setFdlrj1(0.0);
+			news.setFdlrj2(0.0);
+			news.setFdlrj3(0.0);
+			news.setFdlrj4(0.0);
+			news.setFdlrj5(0.0);
+			news.setFdlrj6(0.0);
+			news.setFdqh1(0.0);
+			news.setFdqh2(0.0);
+			news.setFdqh3(0.0);
+			news.setGrlrr(0.0);
+			news.setGrgs(0.0);
+			news.setZhcydl1(0.0);
+			news.setZhcydl2(0.0);
+			news.setZhcydl3(0.0);
+			news.setZtb(0.0);
+		}else{
+	  Double sum1=now.getFdlrj1()+now.getFdlrj2()+now.getFdlrj3()+now.getFdlrj4()+now.getFdlrj5()+now.getFdlrj6();
+	  Double sum2=last.getFdlrj1()+last.getFdlrj2()+last.getFdlrj3()+last.getFdlrj4()+last.getFdlrj5()+last.getFdlrj6();
+		news.setFdlrj1(now.getFdlrj1()==last.getFdlrj1()?0.0:Math.round((now.getFdlrj1()/last.getFdlrj1())*100)/100.0);
+		news.setFdlrj2(now.getFdlrj2()==last.getFdlrj2()?0.0:Math.round((now.getFdlrj2()/last.getFdlrj2())*100)/100.0);
+		news.setFdlrj3(now.getFdlrj3()==last.getFdlrj3()?0.0:Math.round((now.getFdlrj3()/last.getFdlrj3())*100)/100.0);
+		news.setFdlrj4(now.getFdlrj4()==last.getFdlrj4()?0.0:Math.round((now.getFdlrj4()/last.getFdlrj4())*100)/100.0);
+		news.setFdlrj5(now.getFdlrj5()==last.getFdlrj5()?0.0:Math.round((now.getFdlrj5()/last.getFdlrj5())*100)/100.0);
+		news.setFdlrj6(now.getFdlrj6()==last.getFdlrj6()?0.0:Math.round((now.getFdlrj6()/last.getFdlrj6())*100)/100.0);
+		news.setFdqh1(now.getFdqh1()==last.getFdqh1()?0.0:Math.round((now.getFdqh1()/last.getFdqh1())*100)/100.0);
+		news.setFdqh2(now.getFdqh2()==last.getFdqh2()?0.0:Math.round((now.getFdqh2()/last.getFdqh2())*100)/100.0);
+		news.setFdqh3(now.getFdqh3()==last.getFdqh3()?0.0:Math.round((now.getFdqh3()/last.getFdqh3())*100)/100.0);
+		news.setGrlrr(now.getGrlrr()==last.getGrlrr()?0.0:Math.round((now.getGrlrr()/last.getGrlrr())*100)/100.0);
+		news.setGrgs(now.getGrgs()==last.getGrgs()?0.0:Math.round((now.getGrgs()/last.getGrgs())*100)/100.0);
+		news.setZhcydl1(now.getZhcydl1()==last.getZhcydl1()?0.0:Math.round((now.getZhcydl1()/last.getZhcydl1())*100)/100.0);
+		news.setZhcydl2(now.getZhcydl2()==last.getZhcydl2()?0.0:Math.round((now.getZhcydl2()/last.getZhcydl2())*100)/100.0);
+		news.setZhcydl3(now.getZhcydl3()==last.getZhcydl3()?0.0:Math.round((now.getZhcydl3()/last.getZhcydl3())*100)/100.0);
+		news.setZtb(sum1==sum2?0.0:Math.round((sum1/sum2)*100)/100.0);
+		}
+		return news;
+	}
+
+	@Override
+	public HashMap<String, List<Report>> selectByYear(Map<String, Object> map1) {
+		HashMap<String,List<Report>> map=new HashMap<String,List<Report>>();
+		List<Report> year=rptmapper.selectByYear(map1);
+		List<Report> month=rptmapper.selectByMonth(map1);
+		List<Report> day=rptmapper.selectByDay(map1);
+		map.put("year",year);
+		map.put("month",month);
+		map.put("day", day);
+		return map;
+	}
+}

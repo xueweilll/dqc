@@ -1,0 +1,53 @@
+package com.benqzl.dao.production;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import com.benqzl.pojo.production.Report;
+
+public interface ReportMapper {
+    int deleteByPrimaryKey(Date id);
+
+    int insert(Report record);
+
+    int insertSelective(Report record);
+
+    Report selectByPrimaryKey(String id);
+
+    int updateByPrimaryKeySelective(Report record);
+
+    int updateByPrimaryKey(Report record);
+
+	List<Report> selectByYear(Map<String, Object> map1);
+
+	List<Report> selectByMonth(Map<String, Object> map1);
+
+	List<Report> selectByDay(Map<String, Object> map1);
+
+	List<Report> selectByYearMonth(Map<String, Object> map);
+
+	List<Report> selectByMonthDay(Map<String, Object> map);
+
+	//List<Report> selectByMonthWeek();
+
+	List<Report> findReportsByTime(Map<String, Object> map);
+
+	Report selectByTb(Map<String, Object> map);
+
+	Report selectByLast(Map<String, Object> map);
+
+	//List<Report> selectByMonthDay();
+
+	List<Report> selectByMonthWeek(Map<String, Object> map);
+	
+	/**
+	 *综合报表查询功能
+	 */
+	List<Report> selectResultByDay(Map<String, Object> map);//日查询功能
+	List<Report> selectResultByWeek(Map<String, Object> map);//周查询功能
+	List<Report> selectResultByYear(Map<String, Object> map);//月查询功能
+	Report selectTotalResult(Map<String, Object> map);//月或年综合查询功能
+	Report selectResultByMonth(Map<String, Object> map);//月同比查询功能
+	int insertList(List<Report> list);
+}

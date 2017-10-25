@@ -1,0 +1,468 @@
+package com.benqzl.controller.production;
+
+import java.lang.reflect.Type;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.benqzl.controller.BasicController;
+import com.benqzl.pojo.production.Report;
+import com.benqzl.service.production.ReportService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+
+@Controller
+@RequestMapping("report")
+public class ReportController extends BasicController {
+
+	public ReportController() {
+		super(BasicController.class);
+	}
+
+	@Autowired
+	private ReportService rptservice;
+
+	@RequestMapping(value = "/reportList", method = RequestMethod.POST)
+	@ResponseBody
+	public String reportList(HttpServletResponse response,String time) {
+		HashMap<String, List<Report>> map = new HashMap<String, List<Report>>();
+		String strJson;
+		//response.setHeader("Access-Control-Allow-Origin", "*");
+		Map<String,Object> map1=new HashMap<>();
+		/*SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+		Date date=new Date();
+		String current=format.format(date);
+		if(current.equals(time)){
+			map1.put("current", "current");
+		}else{
+			map1.put("current",null);
+		}*/
+		map1.put("current", "current");
+		map1.put("time", time);
+		
+		map = rptservice.selectByYear(map1);
+		List<Report> year = map.get("year");
+		List<Report> month = map.get("month");
+		List<Report> day = map.get("day");
+		gson = new Gson();
+		Map<String, Object> jsonMap = new HashMap<String, Object>();
+		jsonMap.put("year", year);
+		jsonMap.put("month", month);
+		jsonMap.put("day", day);
+		gson = new GsonBuilder().registerTypeAdapter(Report.class,
+				new JsonSerializer<Report>() {
+					@Override
+					public JsonElement serialize(Report src, Type typeOfSrc,
+							JsonSerializationContext context) {
+						JsonObject o = new JsonObject();
+						// o.addProperty("id", src.getId());
+						o.addProperty("fdlrj1", Math.round(src.getFdlrj1()*100)/100.0);// 用电量
+						o.addProperty("fdlrj2", Math.round(src.getFdlrj2()*100)/100.0);
+						o.addProperty("sum12", Math.round((src.getFdlrj1()+src.getFdlrj2())*100)/100.0);
+						o.addProperty("fdlrj3", Math.round(src.getFdlrj3()*100)/100.0);
+						o.addProperty("fdlrj4", Math.round(src.getFdlrj4()*100)/100.0);
+						o.addProperty("sum34", Math.round((src.getFdlrj3()+src.getFdlrj4())*100)/100.0);
+						o.addProperty("fdlrj5", Math.round(src.getFdlrj5()*100)/100.0);
+						o.addProperty("fdlrj6", Math.round(src.getFdlrj6()*100)/100.0);
+						o.addProperty("sum56", Math.round((src.getFdlrj5()+src.getFdlrj6())*100)/100.0);
+						o.addProperty("fdqh1", Math.round(src.getFdqh1()*100)/100.0);// 发电气耗
+						o.addProperty("fdqh2", Math.round(src.getFdqh2()*100)/100.0);
+						o.addProperty("fdqh3", Math.round(src.getFdqh3()*100)/100.0);
+						o.addProperty("zhcydl1", Math.round(src.getZhcydl1()*100)/100.0);// 厂用电率
+						o.addProperty("zhcydl2", Math.round(src.getZhcydl2()*100)/100.0);
+						o.addProperty("zhcydl3", Math.round(src.getZhcydl3()*100)/100.0);
+						o.addProperty("grgs", Math.round(src.getGrgs()*100)/100.0);//管损
+						o.addProperty("grlrr", Math.round(src.getGrlrr()*100)/100.0);//供热
+						return o;
+					}
+				}).create();
+		strJson = gson.toJson(jsonMap);
+		logger.info("this report list strJson is " + strJson);
+		return strJson;
+	}	
+	
+	@RequestMapping(value = "/reportPictureDay", method = RequestMethod.POST)
+	@ResponseBody
+	public String reportPicture(String time,String type) {
+		String strJson="";	
+		 List<String> monthxlist=new ArrayList<>();//日期
+		 List<Object> monthdl=new ArrayList<>();//电率
+		 List<Object> monthqh=new ArrayList<>();//气耗
+		 List<Object> monthjz1=new ArrayList<>();//机组电率
+		 List<Object> monthjz2=new ArrayList<>();
+		 Map<String, Object> map=new HashMap<>();
+		 map.put("riqi", time);
+		if(type.equals("day")){
+			List<Report> monthday=rptservice.selectByPictureDay(map);
+			 for(Report monthdays:monthday){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthdl.add(Math.round(monthdays.getZhcydl1()*100)/100.0);
+				 monthqh.add(Math.round(monthdays.getFdqh1()*100)/100.0);//气耗
+				 monthjz1.add(Math.round(monthdays.getFdlrj1()*100)/100.0);
+				 monthjz2.add(Math.round(monthdays.getFdlrj2()*100)/100.0);
+			 }
+		}else if(type.equals("week")){
+			List<Report> monthweek=rptservice.selectByPictureWeek(map);
+			 for(Report monthdays:monthweek){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthdl.add(Math.round(monthdays.getZhcydl1()*100)/100.0);
+				 monthqh.add(Math.round(monthdays.getFdqh1()*100)/100.0);//气耗
+				 monthjz1.add(Math.round(monthdays.getFdlrj1()*100)/100.0);
+				 monthjz2.add(Math.round(monthdays.getFdlrj2()*100)/100.0);
+			 }
+		}else if(type.equals("month")){
+			List<Report> month=rptservice.selectByPictureMonth(map);
+			 for(Report monthdays:month){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthdl.add(Math.round(monthdays.getZhcydl1()*100)/100.0);
+				 monthqh.add(Math.round(monthdays.getFdqh1()*100)/100.0);//气耗
+				 monthjz1.add(Math.round(monthdays.getFdlrj1()*100)/100.0);
+				 monthjz2.add(Math.round(monthdays.getFdlrj2()*100)/100.0);
+			 }
+		}
+		gson = new Gson();
+		Map<String, Object> jsonMap = new HashMap<String, Object>();
+		jsonMap.put("monthxlist", monthxlist);
+		jsonMap.put("monthdl", monthdl);
+		jsonMap.put("monthqh", monthqh);
+		jsonMap.put("monthjz1",monthjz1);
+		jsonMap.put("monthjz2", monthjz2);
+		 jsonMap.put("xcode", monthxlist);	
+		strJson = gson.toJson(jsonMap);
+		logger.info("this report list strJson is " + strJson);
+		return strJson;
+	}
+	
+	/**
+	 * @param jzpd
+	 * @param type 类型 
+	 * @return 34号机组
+	 */
+	@RequestMapping(value = "/reportThree", method = RequestMethod.POST)
+	@ResponseBody
+	public String reportThree(String time,String type) {
+		String strJson="";	
+		 List<String> monthxlist=new ArrayList<>();//日期
+		 List<Object> monthdl=new ArrayList<>();//电率
+		 List<Object> monthqh=new ArrayList<>();//气耗
+		 List<Object> monthjz1=new ArrayList<>();//机组电率
+		 List<Object> monthjz2=new ArrayList<>();
+		 Map<String, Object> map=new HashMap<>();
+		 map.put("riqi", time);
+		if(type.equals("day")){
+			List<Report> monthday=rptservice.selectByPictureDay(map);
+			 for(Report monthdays:monthday){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthdl.add(Math.round(monthdays.getZhcydl2()*100)/100.0);
+				 monthqh.add(Math.round(monthdays.getFdqh2()*100)/100.0);//气耗
+				 monthjz1.add(Math.round(monthdays.getFdlrj3()*100)/100.0);
+				 monthjz2.add(Math.round(monthdays.getFdlrj4()*100)/100.0);
+			 }
+		}else if(type.equals("week")){
+			List<Report> monthweek=rptservice.selectByPictureWeek(map);
+			 for(Report monthdays:monthweek){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthdl.add(Math.round(monthdays.getZhcydl2()*100)/100.0);
+				 monthqh.add(Math.round(monthdays.getFdqh2()*100)/100.0);//气耗
+				 monthjz1.add(Math.round(monthdays.getFdlrj3()*100)/100.0);
+				 monthjz2.add(Math.round(monthdays.getFdlrj4()*100)/100.0);
+			 }
+		}else if(type.equals("month")){
+			List<Report> month=rptservice.selectByPictureMonth(map);
+			 for(Report monthdays:month){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthdl.add(Math.round(monthdays.getZhcydl2()*100)/100.0);
+				 monthqh.add(Math.round(monthdays.getFdqh2()*100)/100.0);//气耗
+				 monthjz1.add(Math.round(monthdays.getFdlrj3()*100)/100.0);
+				 monthjz2.add(Math.round(monthdays.getFdlrj4()*100)/100.0);
+			 }
+		}
+		gson = new Gson();
+		Map<String, Object> jsonMap = new HashMap<String, Object>();
+		jsonMap.put("monthxlist", monthxlist);
+		jsonMap.put("monthdl", monthdl);
+		jsonMap.put("monthqh", monthqh);
+		jsonMap.put("monthjz1",monthjz1);
+		jsonMap.put("monthjz2", monthjz2);
+		 jsonMap.put("xcode", monthxlist);	
+		strJson = gson.toJson(jsonMap);
+		logger.info("this report list strJson is " + strJson);
+		return strJson;
+	}
+	
+	/**
+	 * @param jzpd
+	 * @param type 类型 
+	 * @return 56号机组
+	 */
+	@RequestMapping(value = "/reportFive", method = RequestMethod.POST)
+	@ResponseBody
+	public String reportFive(String time,String type) {
+		String strJson="";	
+		System.out.println(time);
+		 List<String> monthxlist=new ArrayList<>();//日期
+		 List<Object> monthdl=new ArrayList<>();//电率
+		 List<Object> monthqh=new ArrayList<>();//气耗
+		 List<Object> monthjz1=new ArrayList<>();//机组电率
+		 List<Object> monthjz2=new ArrayList<>();
+		 Map<String, Object> map=new HashMap<>();
+		 map.put("riqi", time);
+		if(type.equals("day")){
+			List<Report> monthday=rptservice.selectByPictureDay(map);
+			 for(Report monthdays:monthday){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthdl.add(Math.round(monthdays.getZhcydl3()*100)/100.0);
+				 monthqh.add(Math.round(monthdays.getFdqh3()*100)/100.0);//气耗
+				 monthjz1.add(Math.round(monthdays.getFdlrj5()*100)/100.0);
+				 monthjz2.add(Math.round(monthdays.getFdlrj6()*100)/100.0);
+			 }
+		}else if(type.equals("week")){
+			List<Report> monthweek=rptservice.selectByPictureWeek(map);
+			 for(Report monthdays:monthweek){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthdl.add(Math.round(monthdays.getZhcydl3()*100)/100.0);
+				 monthqh.add(Math.round(monthdays.getFdqh3()*100)/100.0);//气耗
+				 monthjz1.add(Math.round(monthdays.getFdlrj5()*100)/100.0);
+				 monthjz2.add(Math.round(monthdays.getFdlrj6()*100)/100.0);
+			 }
+		}else if(type.equals("month")){
+			List<Report> month=rptservice.selectByPictureMonth(map);
+			 for(Report monthdays:month){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthdl.add(Math.round(monthdays.getZhcydl3()*100)/100.0);
+				 monthqh.add(Math.round(monthdays.getFdqh3()*100)/100.0);//气耗
+				 monthjz1.add(Math.round(monthdays.getFdlrj5()*100)/100.0);
+				 monthjz2.add(Math.round(monthdays.getFdlrj6()*100)/100.0);
+			 }
+		}
+		gson = new Gson();
+		Map<String, Object> jsonMap = new HashMap<String, Object>();
+		jsonMap.put("monthxlist", monthxlist);
+		jsonMap.put("monthdl", monthdl);
+		jsonMap.put("monthqh", monthqh);
+		jsonMap.put("monthjz1",monthjz1);
+		jsonMap.put("monthjz2", monthjz2);
+		 jsonMap.put("xcode", monthxlist);	
+		strJson = gson.toJson(jsonMap);
+		logger.info("this report list strJson is " + strJson);
+		return strJson;
+	}
+	
+	/**
+	 * @param jzpd
+	 * @param type 类型 
+	 * @return 供热
+	 */
+	@RequestMapping(value = "/reportPictureGr", method = RequestMethod.POST)
+	@ResponseBody
+	public String reportPictureGr(String time,String type) {
+		String strJson="";	
+		 List<String> monthxlist=new ArrayList<>();//日期
+		 List<Object> monthgr=new ArrayList<>();//供热
+		 List<Object> monthgs=new ArrayList<>();//管损
+		 Map<String, Object> map=new HashMap<>();
+		 map.put("riqi", time);
+		if(type.equals("day")){
+			List<Report> monthday=rptservice.selectByPictureDay(map);
+			 for(Report monthdays:monthday){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthgr.add(Math.round(monthdays.getGrlrr()*100)/100.0);
+				 monthgs.add(Math.round(monthdays.getGrgs()*100)/100.0);
+			 }
+		}else if(type.equals("week")){
+			List<Report> monthweek=rptservice.selectByPictureWeek(map);
+			 for(Report monthdays:monthweek){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthgr.add(Math.round(monthdays.getGrlrr()*100)/100.0);
+				 monthgs.add(Math.round(monthdays.getGrgs()*100)/100.0);
+			 }
+		}else if(type.equals("month")){
+			List<Report> month=rptservice.selectByPictureMonth(map);
+			 for(Report monthdays:month){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthgr.add(Math.round(monthdays.getGrlrr()*100)/100.0);
+				 monthgs.add(Math.round(monthdays.getGrgs()*100)/100.0);
+			 }
+		}
+		gson = new Gson();
+		Map<String, Object> jsonMap = new HashMap<String, Object>();
+		jsonMap.put("monthxlist", monthxlist);
+		jsonMap.put("monthgr", monthgr);
+		jsonMap.put("monthgs", monthgs);
+		strJson = gson.toJson(jsonMap);
+		logger.info("this report list strJson is " + strJson);
+		return strJson;
+	}
+	
+	/**
+	 * @param jzpd
+	 * @param type 类型 
+	 * @return 电量
+	 */
+	@RequestMapping(value = "/reportPictureDl", method = RequestMethod.POST)
+	@ResponseBody
+	public String reportPictureDl(String time,String type) {
+		String strJson="";	
+		 List<String> monthxlist=new ArrayList<>();//日期
+		 List<Object> monthjz1=new ArrayList<>();//机组1电率
+		 List<Object> monthjz2=new ArrayList<>();
+		 List<Object> monthjz3=new ArrayList<>();//机组1电率
+		 List<Object> monthjz4=new ArrayList<>();
+		 List<Object> monthjz5=new ArrayList<>();//机组1电率
+		 List<Object> monthjz6=new ArrayList<>();
+		 List<Object> monthjz7=new ArrayList<>();
+		 Map<String, Object> map=new HashMap<>();
+		 map.put("riqi", time);
+		if(type.equals("day")){
+			List<Report> monthday=rptservice.selectByPictureDay(map);
+			 for(Report monthdays:monthday){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthjz1.add(Math.round(monthdays.getFdlrj1()*100)/100.0);
+				 monthjz2.add(Math.round(monthdays.getFdlrj2()*100)/100.0);
+				 monthjz3.add(Math.round(monthdays.getFdlrj3()*100)/100.0);
+				 monthjz4.add(Math.round(monthdays.getFdlrj4()*100)/100.0);
+				 monthjz5.add(Math.round(monthdays.getFdlrj5()*100)/100.0);
+				 monthjz6.add(Math.round(monthdays.getFdlrj6()*100)/100.0);
+				 monthjz7.add(Math.round((monthdays.getFdlrj1()+monthdays.getFdlrj2()+monthdays.getFdlrj3()
+						 +monthdays.getFdlrj4()+monthdays.getFdlrj5()+monthdays.getFdlrj6())*100)/100.0
+						 );
+			 }
+		}else if(type.equals("week")){
+			List<Report> monthweek=rptservice.selectByPictureWeek(map);
+			 for(Report monthdays:monthweek){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthjz1.add(Math.round(monthdays.getFdlrj1()*100)/100.0);
+				 monthjz2.add(Math.round(monthdays.getFdlrj2()*100)/100.0);
+				 monthjz3.add(Math.round(monthdays.getFdlrj3()*100)/100.0);
+				 monthjz4.add(Math.round(monthdays.getFdlrj4()*100)/100.0);
+				 monthjz5.add(Math.round(monthdays.getFdlrj5()*100)/100.0);
+				 monthjz6.add(Math.round(monthdays.getFdlrj6()*100)/100.0);
+				 monthjz7.add(Math.round((monthdays.getFdlrj1()+monthdays.getFdlrj2()+monthdays.getFdlrj3()
+						 +monthdays.getFdlrj4()+monthdays.getFdlrj5()+monthdays.getFdlrj6())*100)/100.0
+						 );
+			 }
+		}else if(type.equals("month")){
+			List<Report> month=rptservice.selectByPictureMonth(map);
+			 for(Report monthdays:month){
+				 monthxlist.add(monthdays.getWeeks()+"");
+				 monthjz1.add(Math.round(monthdays.getFdlrj1()*100)/100.0);
+				 monthjz2.add(Math.round(monthdays.getFdlrj2()*100)/100.0);
+				 monthjz3.add(Math.round(monthdays.getFdlrj3()*100)/100.0);
+				 monthjz4.add(Math.round(monthdays.getFdlrj4()*100)/100.0);
+				 monthjz5.add(Math.round(monthdays.getFdlrj5()*100)/100.0);
+				 monthjz6.add(Math.round(monthdays.getFdlrj6()*100)/100.0);
+				 monthjz7.add(Math.round((monthdays.getFdlrj1()+monthdays.getFdlrj2()+monthdays.getFdlrj3()
+						 +monthdays.getFdlrj4()+monthdays.getFdlrj5()+monthdays.getFdlrj6())*100)/100.0
+						 );
+			 }
+		}
+		gson = new Gson();
+		Map<String, Object> jsonMap = new HashMap<String, Object>();
+		jsonMap.put("monthxlist", monthxlist);
+		jsonMap.put("monthjz1", monthjz1);
+		jsonMap.put("monthjz2", monthjz2);
+		jsonMap.put("monthjz3", monthjz3);
+		jsonMap.put("monthjz4", monthjz4);
+		jsonMap.put("monthjz5", monthjz5);
+		jsonMap.put("monthjz6", monthjz6);
+		jsonMap.put("monthjz7", monthjz7);
+		strJson = gson.toJson(jsonMap);
+		logger.info("this report list strJson is " + strJson);
+		return strJson;
+	}
+	
+	/**
+	 * @param time
+	 * @param riqis
+	 * @return 同比电量,气耗
+	 */
+	@SuppressWarnings("deprecation")
+	@RequestMapping(value="reportTb",method=RequestMethod.POST)
+	@ResponseBody
+	public String reportTb(String time,String riqis){
+		SimpleDateFormat format=new SimpleDateFormat("yyyyMM");
+		Date date=new Date();
+		Map<String, Object> map=new HashMap<>();
+		if(riqis.length()==1){
+			riqis="0"+riqis;
+		}
+		String times=time+riqis;
+		try {
+		 	date=format.parse(times);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		Date date1=new Date();
+		int comper=date1.getMonth()-date.getMonth();
+		if(comper==0){//判断闰年
+			int year=Integer.parseInt(time);
+			if(year%400==0||(year%4==0&&year%100!=0)){
+				if(Integer.parseInt(riqis)==2&&date1.getDate()==28){
+					map.put("day", null);
+				}else{
+					map.put("day",date1.getDate());
+				}
+			}
+			else{
+			map.put("day",date1.getDate());
+			}
+		}else{
+			map.put("day", null);
+		}
+		String lastdate="";
+		Calendar cal=Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.YEAR, -1);
+	  int lastyear=cal.get(Calendar.YEAR);
+	 lastdate=Integer.toString(lastyear)+riqis;
+		map.put("riqi", times);
+		map.put("last", lastdate);
+		Report tb=rptservice.selectByTb(map);
+		String strJson="";
+	    gson=new Gson();
+		gson = new GsonBuilder().registerTypeAdapter(Report.class,
+				new JsonSerializer<Report>() {
+					@Override
+					public JsonElement serialize(Report src, Type typeOfSrc,
+							JsonSerializationContext context) {
+						JsonObject o = new JsonObject();
+						o.addProperty("fdlrj1", Math.round(src.getFdlrj1()*100)/100.0);// 用电量
+						o.addProperty("fdlrj2", Math.round(src.getFdlrj2()*100)/100.0);
+						o.addProperty("fdlrj3", Math.round(src.getFdlrj3()*100)/100.0);
+						o.addProperty("fdlrj4", Math.round(src.getFdlrj4()*100)/100.0);
+						o.addProperty("fdlrj5", Math.round(src.getFdlrj5()*100)/100.0);
+						o.addProperty("fdlrj6", Math.round(src.getFdlrj6()*100)/100.0);
+						o.addProperty("sum",Math.round(src.getZtb()*100)/100.0);
+						o.addProperty("fdqh1", Math.round(src.getFdqh1()*100)/100.0);// 发电气耗
+						o.addProperty("fdqh2", Math.round(src.getFdqh2()*100)/100.0);
+						o.addProperty("fdqh3", Math.round(src.getFdqh3()*100)/100.0);
+						o.addProperty("zhcydl1", Math.round(src.getZhcydl1()*100)/100.0);// 厂用电率
+						o.addProperty("zhcydl2", Math.round(src.getZhcydl2()*100)/100.0);
+						o.addProperty("zhcydl3",Math.round(src.getZhcydl3()*100)/100.0);
+						o.addProperty("grgs", Math.round(src.getGrgs()*100)/100.0);//管损
+						o.addProperty("grlrr", Math.round(src.getGrlrr()*100)/100.0);//供热
+						return o;
+					}
+				}).create();
+		strJson = gson.toJson(tb);
+		return strJson;
+	}
+	
+}

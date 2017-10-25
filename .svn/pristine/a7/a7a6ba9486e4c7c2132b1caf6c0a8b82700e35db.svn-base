@@ -1,0 +1,172 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<base href="<%=basePath%>">
+<%@include file="../header.jsp"%>
+<title>My JSP 'userInfo.jsp' starting page</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+</head>
+
+<body>
+	<input id="userId" type="hidden" value="${user.getId()}" />
+	<input id="employeeId" type="hidden"
+		value="${user.getEmployee().getId()}" />
+	<form id="ffemp" method="post" style="margin:10px; ">
+		<table cellpadding="0" cellspacing="5" border="0">
+		<tr>
+			<td><label for="departmentName">部门名称:</label></td>
+			 <td><input id="departmentName"
+				name="departmentName" style="width:220px"
+				value="${user.getDepartmentid()}" /></td>
+		</tr>
+		<tr>
+			<td><label for="name">名称:</label></td> 
+			<td><input id="name" class="easyui-textbox"
+				name="name" style="width:220px"
+				data-options="required:true,
+			validType:['userName','length[1,20]']"
+				value="${user.getName()}" /></td>
+		</tr>
+		<tr>
+			<td><label for="userName">登录名:</label></td>
+			 <td><input id="userName"
+				class="easyui-textbox" name="userName" style="width:220px"
+				data-options="required:true,
+				validType:['userName','length[1,20]']"
+				value="${user.getUsername()}" />
+		    </td>
+		</tr>
+		<%-- <tr>
+			<td><label for="userpwd">登录密码:</label></td> 
+			<td><input id="userpwd"
+				class="easyui-textbox" name="userpwd" style="width:220px"
+				data-options="required:true,
+				validType:'length[1,20]'"
+				value="${user.getUserpwd()}" />
+		     </td>
+		</tr> --%>
+		<tr>
+			<td><label for="authority">权限:</label></td> 
+			<td><input id="authority"
+				class="easyui-combobox" name="authority"
+				data-options="required:true,editable:false" value="${user.getAuthority()}"
+				style="width:220px" />
+		     </td>
+		</tr>
+		<tr>
+			<td><label for="memo">描述:</label></td> 
+			<td><input id="memo" class="easyui-textbox"
+				name="memo" data-options="multiline:true,validType:['userName','length[1,100]']"
+				value="${user.getMemo()}" style="width:220px;height:60px" />
+		    </td>
+		</tr>
+		</table>
+		<div >
+			<div align="center" style="text-align: center;">
+				<a id="sub" href="javascript:void(0)" class="easyui-linkbutton"
+					data-options="iconCls:'icon-save'">保存</a>&nbsp;&nbsp;<a id="can"
+					href="javascript:void(0)" class="easyui-linkbutton"
+					data-options="iconCls:'icon-cancel'">取消</a>
+			</div>
+		</div>
+	</form>
+	<script type="text/javascript">
+
+		$(function(){
+			$("#authority").combobox({
+				url:'paramers/authority.html',
+				valueField:'id',
+				textField:'text'
+			});
+			$("#departmentName").combotree({
+				url : 'department/departmentsBind.html',
+				required : true
+			});
+			$("#userName").textbox({
+					onChange : function(newValue, oldValue) {
+						/* var id = $("#id").val();
+						if (id != null && id.length > 0) {
+							return false;
+						} */
+						if (newValue == null || newValue.lenth == 0) {
+							return false;
+						}
+						$.post("user/selectUser.html", {
+							id : $("#userId").val(),
+							name:newValue
+						}, function(msg) {
+							data = eval('(' + msg + ')');
+							console.info(data);
+							if (data==false) {
+								$("#userName").textbox("clear").textbox(
+										"textbox").focus();
+								$.messager.alert('操作提示','用户名已存在！！！请重新输入','error');
+							}
+						});
+				}
+				
+			});
+			$("#sub").bind("click",
+					function() {
+						var isValid = $("#ffemp").form('validate');
+						if (!isValid) {
+							$.messager.progress('close');
+							return false;
+						}
+						var data = {
+							"id" : ($("#userId").val() == "" ? 0 : $(
+									"#userId").val()),
+							"name" : $("#name").textbox("getText"),
+							 "departmentid" : $("#departmentName").combobox("getValue"),
+							"username":$("#userName").textbox("getText"),
+							"authority":$("#authority").textbox("getValue"),
+							"memo":$("#memo").textbox("getText")/* ,
+							"userpwd":$("#userpwd").textbox("getText") */
+						};
+						$.ajax({
+							type : "POST",
+							url : "user/save.html",
+							dataType : "text",
+							data : {
+								"jsonStr" : JSON.stringify(data)
+							},
+							success : function(msg) {
+								data = eval('(' + msg + ')');
+								if(data.result){reflush();}
+								else{$.messager.alert("操作提示",data.msg,"error");}
+								$('#dialog').window('close');
+							}
+						});
+					});
+			$("#can").bind("click", function() {
+				$("#ffemp").form("clear");
+			});
+		});
+
+		function reflush() {
+			document.getElementById('user.html').contentWindow.$('#user_list')
+			.datagrid('reload');
+			document.getElementById('user.html').contentWindow.$('#user_list')
+			.datagrid('unselectAll');
+		}
+		$.extend(
+			$.fn.validatebox.defaults.rules.remote.message="用户名已存在,请重新输入！"
+		);
+	</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+package com.benqzl.service.production;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.benqzl.dao.production.UnitParameterMapper;
+import com.benqzl.pojo.production.UnitParameter;
+@Service("unitParameter")
+public class UnitParameterServiceImpl implements UnitParameterService{
+	@Autowired
+	private UnitParameterMapper mapper;
+	@Override
+	public int deleteByPrimaryKey(String id) {
+		return mapper.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public int insertSelective(UnitParameter record) {
+		return mapper.insertSelective(record);
+	}
+
+	@Override
+	public UnitParameter selectByPrimaryKey(String id) {
+		return mapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(UnitParameter record) {
+		return mapper.updateByPrimaryKeySelective(record);
+	}
+
+	@Override
+	public List<UnitParameter> findByPage(Map<String, Object> map) {   
+		return mapper.findByPage(map);
+	}
+
+	@Override
+	public int pageCount(Map<String, Object> map) {
+		return mapper.pageCount(map);
+	}
+
+	@Override
+	public List<UnitParameter> selectAll() throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.selectAll();
+	}
+
+}

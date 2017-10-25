@@ -1,0 +1,299 @@
+package com.benqzl.controller.system;
+
+import java.lang.reflect.Type;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.benqzl.controller.BasicController;
+import com.benqzl.pojo.production.Aqyxts;
+import com.benqzl.pojo.production.UnitHisTimeDate;
+import com.benqzl.pojo.production.UnitParameter;
+import com.benqzl.pojo.system.SysParameter;
+import com.benqzl.service.production.AqyxtsService;
+import com.benqzl.service.production.UnitHisTimeDateService;
+import com.benqzl.service.production.UnitParameterService;
+import com.benqzl.service.system.SysParameterService;
+import com.benqzl.socket.MessageQueue;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+
+@Controller
+@RequestMapping("sysParmeter")
+public class SysParmeterController extends BasicController {
+
+	@Autowired
+	private SysParameterService service;
+
+	public SysParmeterController() {
+		super(SysParmeterController.class);
+	}
+	static DecimalFormat df = new DecimalFormat("0.00");
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ModelAndView index() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/system/sysParmeter");
+		return mv;
+	}
+
+	@RequestMapping(value = "sysParmeterInfo", method = RequestMethod.GET)
+	public ModelAndView userInfo(String id) {
+		ModelAndView mv = new ModelAndView();
+		SysParameter parameter = new SysParameter();
+		try {
+			parameter = service.selectByPrimaryKey(id);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		mv.addObject("parameter", parameter);
+		mv.setViewName("system/sysParmeterInfo");
+		return mv;
+	}
+
+	@RequestMapping(value = "bind", method = RequestMethod.GET)
+	@ResponseBody
+	public String bind() {
+		List<SysParameter> list = new ArrayList<>();
+		try {
+			list = service.selectAll();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		gson = new GsonBuilder().registerTypeAdapter(SysParameter.class,
+				new JsonSerializer<SysParameter>() {
+					@Override
+					public JsonElement serialize(SysParameter arg0, Type arg1,
+							JsonSerializationContext arg2) {
+						JsonObject json = new JsonObject();
+						json.addProperty("id", arg0.getId());
+						json.addProperty("pkey", arg0.getPkey());
+						json.addProperty("name", arg0.getName());
+						json.addProperty("memo", arg0.getMemo());
+						json.addProperty("rating", arg0.getRating());
+						return json;
+					}
+				}).create();
+		String jsonStr = null;
+		jsonStr = gson.toJson(list);
+		return jsonStr;
+	}
+
+	@Autowired
+	private MessageQueue messageQueue;
+
+	@Autowired
+	private AqyxtsService aqyxtsService;
+
+	@RequestMapping(value = "sysBind", method = RequestMethod.GET)
+	@ResponseBody
+	public String sysBind() {
+		List<SysParameter> list = new ArrayList<>();
+		List<SysParameter> list1 = new ArrayList<>();
+		Aqyxts aqyxts = new Aqyxts();
+		try {
+			list1 = service.selectAll();
+			for (SysParameter sysParameter : list1) {
+				SysParameter parameter = sysParameter;
+				parameter.setPvalue(messageQueue.currentData.get(sysParameter
+						.getId()));
+				list.add(parameter);
+			}
+			aqyxts = aqyxtsService.selectByPrimaryKey();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		Map<String, Object> jsonMap = new HashMap<String, Object>();
+		jsonMap.put("list", list);
+		String str = "无数据";
+		if (aqyxts != null) {
+			str = (int) ((new Date().getTime() - aqyxts.getQcaqts().getTime()) / (1000 * 60 * 60 * 24))
+					+ "";
+		}
+		jsonMap.put("dateTime", str);
+		gson = new GsonBuilder().registerTypeAdapter(SysParameter.class,
+				new JsonSerializer<SysParameter>() {
+					@Override
+					public JsonElement serialize(SysParameter arg0, Type arg1,
+							JsonSerializationContext arg2) {
+						JsonObject json = new JsonObject();
+						json.addProperty("id", arg0.getId());
+						json.addProperty("name", arg0.getName());
+						json.addProperty("rating",
+								Float.parseFloat(arg0.getRating()));
+						float pvalue = 0;
+						if (Float.parseFloat(arg0.getRating()) <= Float
+								.parseFloat(arg0.getPvalue())) {
+							pvalue = Float.parseFloat(arg0.getRating());
+						} else {
+							pvalue = Float.parseFloat(arg0.getPvalue());
+						}
+						json.addProperty("pvalue", df.format(pvalue));
+						return json;
+					}
+				}).create();
+		String jsonStr = null;
+		jsonStr = gson.toJson(jsonMap);
+		return jsonStr;
+	}
+	@Autowired
+	private UnitHisTimeDateService hisTimeDateService;
+	@RequestMapping(value = "sysBindByUnit", method = RequestMethod.GET)
+	@ResponseBody
+	public String sysBindByUnit(String id) {
+		SysParameter sysParameter = new SysParameter();
+		Aqyxts aqyxts = new Aqyxts();
+		try {
+			sysParameter = service.selectByPrimaryKey(id);
+			sysParameter.setPvalue(messageQueue.currentData.get(sysParameter
+					.getId()));
+			aqyxts = aqyxtsService.selectByPrimaryKey();
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+		}
+		String str = "无数据";
+		if (aqyxts != null) {
+			switch (sysParameter.getId()) {
+			case "46664689-a550-4ee0-ab63-05587f0e538e":
+				str = (int) ((new Date().getTime() - aqyxts.getRj1aqqsr()
+						.getTime()) / (1000 * 60 * 60 * 24)) + "";
+				break;
+			case "e3476aa7-e0a2-4aa5-a13a-e7c9ea6ca747":
+				str = (int) ((new Date().getTime() - aqyxts.getRj2aqqsr()
+						.getTime()) / (1000 * 60 * 60 * 24)) + "";
+				break;
+			case "ea960703-821e-4ff1-b704-64787ddf80ec":
+				str = (int) ((new Date().getTime() - aqyxts.getRj3aqqsr()
+						.getTime()) / (1000 * 60 * 60 * 24)) + "";
+				break;
+			case "fcf32bb0-20b9-4d43-8fa0-bcbd7fc16875":
+				str = (int) ((new Date().getTime() - aqyxts.getRj4aqqsr()
+						.getTime()) / (1000 * 60 * 60 * 24)) + "";
+				break;
+			case "f28a17e7-82a2-48aa-8b5e-7cb04b24f9b4":
+				str = (int) ((new Date().getTime() - aqyxts.getRr5aqqsr()
+						.getTime()) / (1000 * 60 * 60 * 24)) + "";
+				break;
+			case "07cc63f8-50f7-4489-8403-a2c69b63fa7a":
+				str = (int) ((new Date().getTime() - aqyxts.getRr6aqqsr()
+						.getTime()) / (1000 * 60 * 60 * 24)) + "";
+				break;
+			default:
+				break;
+			}
+		}
+		sysParameter.setMemo(str);
+		Map<String, Object> map = new HashMap<>();
+		map.put("id", sysParameter.getId());
+		map.put("name", sysParameter.getName());
+		map.put("rating", Float.parseFloat(sysParameter.getRating()));
+		float pvalue = 0;
+		if (Float.parseFloat(sysParameter.getRating()) <= Float
+				.parseFloat(sysParameter.getPvalue())) {
+			pvalue = Float.parseFloat(sysParameter.getRating());
+		} else {
+			pvalue = Float.parseFloat(sysParameter.getPvalue());
+		}
+		map.put("pvalue", df.format(pvalue));
+		map.put("cdate", sysParameter.getMemo());
+		SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+		List<String> times = new ArrayList<>();
+		List<Float> values = new ArrayList<>();
+		List<UnitHisTimeDate> getUtilDatas = new ArrayList<>();
+		try {
+			getUtilDatas=hisTimeDateService.selectByPrimaryKey(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+		}
+		if (getUtilDatas.size()!=0) {
+			for (UnitHisTimeDate utilData : getUtilDatas) {
+				times.add(format.format(utilData.getCdate()));
+				values.add(Float.parseFloat(df.format(utilData.getPvalue())));
+			}
+		}else{
+			long date = new Date().getTime();
+			for (int i = 24; i > 0; i--) {
+				times.add(format.format(new Date(date-(1000*60*60*i))));
+				values.add(Float.parseFloat("0"));
+			}
+		}
+		map.put("times", times);
+		map.put("values", values);
+		String jsonStr = null;
+		jsonStr = gson.toJson(map);
+		return jsonStr;
+	}
+
+	/**
+	 * 
+	 * @param jsonStr
+	 * @return
+	 */
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	@ResponseBody
+	public String update(String jsonStr) {
+		SysParameter parameter = gson.fromJson(jsonStr, SysParameter.class);
+		try {
+			service.updateByPrimaryKeySelective(parameter);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			return "{'result':false,'msg':'修改失敗！'}";
+		}
+		return "{'result':true}";
+	}
+
+	@Autowired
+	private UnitParameterService unitservice;
+
+	@RequestMapping(value = "synchronizationdata", method = RequestMethod.POST)
+	@ResponseBody
+	public String synchronizationdata() {
+		try {
+			StringBuffer pkeybuffer = new StringBuffer();
+			StringBuffer idbuffer = new StringBuffer();
+			List<SysParameter> sysParameters = service.selectAll();
+			for (SysParameter sysParameter : sysParameters) {
+				pkeybuffer.append(sysParameter.getPkey());
+				pkeybuffer.append(",");
+				idbuffer.append(sysParameter.getId());
+				idbuffer.append(",");
+			}
+			List<UnitParameter> unitParameters = unitservice.selectAll();
+			for (UnitParameter unitParameter : unitParameters) {
+				pkeybuffer.append(unitParameter.getPkey());
+				pkeybuffer.append(",");
+				idbuffer.append(unitParameter.getId());
+				idbuffer.append(",");
+			}
+			pkeybuffer.delete(pkeybuffer.length() - 1, pkeybuffer.length());
+			idbuffer.delete(idbuffer.length() - 1, idbuffer.length());
+			/*
+			 * messageQueue.parameterMap.put("id",pkeybuffer.toString());
+			 * messageQueue.parameterMap.put("key",idbuffer.toString());
+			 * messageQueue
+			 * .parameterMap.put("guid",UUID.randomUUID().toString());
+			 */
+			messageQueue.writeParameter(idbuffer.toString(),
+					pkeybuffer.toString());
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			return "{'result':false,'msg':'同步失败'}";
+		}
+		return "{'result':true}";
+	}
+}

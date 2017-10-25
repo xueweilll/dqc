@@ -1,0 +1,35 @@
+package com.benqzl.service.production;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.benqzl.pojo.production.Report;
+
+public interface ReportService {
+    int deleteByPrimaryKey(String id);
+
+    int insert(Report record);
+
+    int insertSelective(Report record);
+
+    Report selectByPrimaryKey(String id);
+
+    int updateByPrimaryKeySelective(Report record);
+
+    int updateByPrimaryKey(Report record);
+
+	HashMap<String, List<Report>> selectByYear(Map<String, Object> map1);
+
+	//HashMap<String, List<Report>> selectByPicture();
+
+	List<Report> findReportsByTime(Map<String, Object> map) throws Exception;
+
+	List<Report> selectByPictureDay(Map<String, Object> map);
+
+	List<Report> selectByPictureWeek(Map<String, Object> map);
+
+	List<Report> selectByPictureMonth(Map<String, Object> map);
+
+	Report selectByTb(Map<String, Object> map);
+}

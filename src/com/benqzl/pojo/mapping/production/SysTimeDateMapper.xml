@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.production.SysTimeDateMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.production.SysTimeDate" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="sysid" property="sysid" jdbcType="VARCHAR" />
+    <result column="cdate" property="cdate" jdbcType="TIMESTAMP" />
+    <result column="pvalue" property="pvalue" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sysid, cdate, pvalue
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_timedate
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_timedate
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.benqzl.pojo.production.SysTimeDate" >
+    insert into sys_timedate (id, sysid, cdate, 
+      pvalue)
+    values (#{id,jdbcType=VARCHAR}, #{sysid,jdbcType=VARCHAR}, #{cdate,jdbcType=TIMESTAMP}, 
+      #{pvalue,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.benqzl.pojo.production.SysTimeDate" >
+    insert into sys_timedate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sysid != null" >
+        sysid,
+      </if>
+      <if test="cdate != null" >
+        cdate,
+      </if>
+      <if test="pvalue != null" >
+        pvalue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="sysid != null" >
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+      <if test="cdate != null" >
+        #{cdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pvalue != null" >
+        #{pvalue,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.benqzl.pojo.production.SysTimeDate" >
+    update sys_timedate
+    <set >
+      <if test="sysid != null" >
+        sysid = #{sysid,jdbcType=VARCHAR},
+      </if>
+      <if test="cdate != null" >
+        cdate = #{cdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pvalue != null" >
+        pvalue = #{pvalue,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.benqzl.pojo.production.SysTimeDate" >
+    update sys_timedate
+    set sysid = #{sysid,jdbcType=VARCHAR},
+      cdate = #{cdate,jdbcType=TIMESTAMP},
+      pvalue = #{pvalue,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

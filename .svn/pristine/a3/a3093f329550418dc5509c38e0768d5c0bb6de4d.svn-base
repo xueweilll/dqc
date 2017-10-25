@@ -1,0 +1,12 @@
+package com.benqzl.unit;
+
+import java.text.DecimalFormat;
+
+public class Test {
+	public static void main(String[] args) {
+		//SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+		//System.out.println(sf.format(new Date()));
+		DecimalFormat df = new DecimalFormat("0.00");
+		System.out.println(df.format(Double.parseDouble("44.64566666")));
+	}
+}

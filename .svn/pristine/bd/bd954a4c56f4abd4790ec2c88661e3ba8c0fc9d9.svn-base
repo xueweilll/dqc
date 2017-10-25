@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.production.DefectMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.production.Defect" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="bh" property="bh" jdbcType="VARCHAR" />
+    <result column="starttime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="endtime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="zrbm" property="zrbm" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="fenlei" property="fenlei" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.benqzl.pojo.production.Defect" extends="BaseResultMap" >
+    <result column="memo" property="memo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, bh, starttime, endtime, zrbm, state, fenlei, unit, title
+  </sql>
+  <sql id="Blob_Column_List" >
+    memo
+  </sql>
+  
+  <select id="findByPage" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from view_yh
+    <where>
+    	<if test="unit != null">
+    		unit = #{unit,jdbcType=VARCHAR}
+    	</if>
+    	<if test="fenlei !=null">
+    		fenlei = #{fenlei,jdbcType=VARCHAR}
+    	</if>
+    </where>
+    order by starttime desc
+    limit #{p1}, #{p2}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from view_yh
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey">
+    delete from view_yh
+    where 1=1
+     
+  </delete>
+  <insert id="insert" parameterType="java.util.List" >
+    insert into view_yh (id, bh, starttime, 
+      endtime, zrbm, state, 
+      fenlei, unit, title, 
+      memo)
+    values 
+      <foreach collection="list" item="item" index="index" separator="," >  
+      (#{item.id,jdbcType=INTEGER}, #{item.bh,jdbcType=VARCHAR}, #{item.starttime,jdbcType=TIMESTAMP}, 
+      #{item.endtime,jdbcType=TIMESTAMP}, #{item.zrbm,jdbcType=VARCHAR}, #{item.state,jdbcType=VARCHAR}, 
+      #{item.fenlei,jdbcType=VARCHAR}, #{item.unit,jdbcType=VARCHAR}, #{item.title,jdbcType=VARCHAR}, 
+      #{item.memo,jdbcType=VARCHAR}) 
+    </foreach>
+  </insert>
+</mapper>

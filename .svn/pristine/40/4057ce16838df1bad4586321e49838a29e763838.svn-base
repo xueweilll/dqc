@@ -1,0 +1,119 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"
+	contentType="text/html; charset=utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<base href="<%=basePath%>">
+<%@include file="../header.jsp"%>
+<title>My JSP 'main.jsp' starting page</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<script type="text/javascript">
+$(function () {
+    $('a[title]').click(function () {
+              var src = $(this).attr('title');
+              var title = $(this).html();
+              if ($('#tt').tabs('exists', title)) {
+              $('#tt').tabs('select', title);
+           } else {
+               $('#tt').tabs('add', {
+               title: title,
+               content: '<iframe frameborder=0 style=width:100%;height:100% src=' + src + ' ></iframe>',
+               closable: true
+           });
+       }
+	});
+});
+</script>
+<style type="text/css">
+body {
+	font-family: 微软雅黑 !important;
+}
+
+.accordion-header,.accordion-body {
+	border-left: 0px !important;
+	border-right: 0px !important;
+}
+
+a:link {
+	color: #fff;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+a:active {
+	color: #CF0000;
+}
+
+.xx a {
+	font-size: 12px;
+	height: 25px;
+	line-height: 25px;
+	background-color: #54aef6;
+	display: block;
+	padding-left: 0px;
+	border-bottom: 0px solid #99BBE8;
+	text-align: center;
+	border: 1px solid #8DB2E3;
+}
+
+.xx a:hover {
+	background-color: #ff6600 !important;
+	border: 1px solid #ff6600;
+}
+</style>
+</head>
+<body style="height: 100%">
+	<div id="cc" class="easyui-layout" fit="true"
+		style="width: 100%; height: 100%">
+		<div region="north" split="true" style="height:81px;">
+		</div>
+		<div region="west" iconcls="icon-tip" split="true" title="功能菜单"
+			style="width: 150px;">
+			<div id="aa" class="easyui-accordion" fit="true"
+				style=" background-color:#fff; background-image:url(./images/end_bg.gif)">
+				<div title="用户管理" class="xx" iconcls="icon-save"
+					style="overflow: auto; padding: 10px;">
+					<a title="001.htm">添加用户</a> <br /> <a title="002.htm">编辑信息</a> <br />
+					<a title="003.htm">用户权限</a> <br /> <a title="004.htm">用户排班</a>
+				</div>
+				<div title="权限管理" class="xx" iconcls="icon-reload" selected="true"
+					style="padding: 10px;">
+					<a title="001.htm">添加用户</a> <br /> <a title="002.htm">编辑信息</a> <br />
+					<a title="003.htm">用户权限</a> <br /> <a title="004.htm">用户排班</a>
+				</div>
+				<div title="库存管理" class="xx" iconcls="icon-reload" selected="true"
+					style="padding: 10px;">
+					<a title="001.htm">添加用户</a> <br /> <a title="002.htm">编辑信息</a> <br />
+					<a title="003.htm">用户权限</a> <br /> <a title="004.htm">用户排班</a>
+				</div>
+			</div>
+		</div>
+		<div region="center" title="当前内容" iconcls="icon-save"
+			style="padding: 5px; background: #fff;">
+			<div id="tt" class="easyui-tabs" fit="true"></div>
+		</div>
+	</div>
+</body>
+</html>

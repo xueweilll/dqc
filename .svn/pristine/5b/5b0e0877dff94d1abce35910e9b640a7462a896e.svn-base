@@ -1,0 +1,14 @@
+package com.benqzl.dao.production;
+
+import java.util.List;
+import java.util.Map;
+
+import com.benqzl.pojo.production.Qxlb;
+
+public interface QxlbMapper {
+    int insert(List<Qxlb> list);
+
+    Qxlb selectByPrimaryKey(String qxbh);
+
+	List<Qxlb> selectQxlbs(Map<String, Object> map);
+}

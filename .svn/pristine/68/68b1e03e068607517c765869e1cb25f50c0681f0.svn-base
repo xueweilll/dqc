@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.system.EmployeeMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.system.Employee" >
+    <id column="Id" property="id" jdbcType="VARCHAR" />
+    <result column="departmentId" property="departmentid" jdbcType="VARCHAR" />
+    <result column="crateTime" property="cratetime" jdbcType="TIMESTAMP" />
+    <result column="Name" property="name" jdbcType="VARCHAR" />
+    <result column="editTime" property="edittime" jdbcType="TIMESTAMP" />
+    <result column="moblie" property="moblie" jdbcType="VARCHAR" />
+    <result column="phs" property="phs" jdbcType="VARCHAR" />
+    <result column="cornet" property="cornet" jdbcType="VARCHAR" />
+    <result column="memo" property="memo" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <association property="department" javaType="com.benqzl.pojo.system.Department">
+    <id property="id" column="did"/>
+    <result column="dname" property="name" jdbcType="VARCHAR"/>
+    </association>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, departmentId, crateTime, Name, editTime, moblie, phs, cornet, memo, state
+  </sql>
+  <sql id="Base_Column_List1" >
+    e.id as id, e.departmentid as departmentid, e.cratetime as cratetime, e.name as name,
+    e.edittime as edittime, e.moblie as moblie, 
+    e.phs as phs, e.cornet as cornet,e.memo as memo, e.state as state,d.name as dname
+  </sql>
+    <select id="findByPage" resultMap="BaseResultMap" parameterType="java.util.Map">
+		select 
+		<include refid="Base_Column_List1" />
+		from sys_employee e
+		left join sys_department d on d.Id=e.departmentId
+		<where> 
+		 e.state!=9
+		<if test="departmentid != null and departmentid !='0'.toString()" >
+		and e.departmentid=#{departmentid,jdbcType=VARCHAR}
+      	</if>
+      	<if test="name != null and name !=''" >
+		 and e.name like concat('%',#{name,jdbcType=VARCHAR},'%')
+      	</if>
+      	</where>		 
+		
+		limit #{p1}, #{p2}
+	</select>
+	<select id="pageCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+		select count(*) from
+		(
+		select 
+		<include refid="Base_Column_List1" />
+		from sys_employee e
+		left join sys_department d on d.Id=e.departmentId
+		<where> 
+		 e.state!=9
+		<if test="departmentid != null and departmentid !='0'.toString()" >
+		and e.departmentid=#{departmentid,jdbcType=VARCHAR}
+      	</if>
+      	<if test="name != null and name !=''" >
+		 and e.name like concat('%',#{name,jdbcType=VARCHAR},'%')
+      	</if>
+      	</where>
+      	limit #{p1},#{p2}		 
+		) a
+		
+	</select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_employee
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <update id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    update sys_employee set state=9
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <insert id="insert" parameterType="com.benqzl.pojo.system.Employee" >
+    insert into sys_employee (Id, departmentId, crateTime, 
+      Name, editTime, moblie, 
+      phs, cornet, memo, 
+      state)
+    values (#{id,jdbcType=VARCHAR}, #{departmentid,jdbcType=VARCHAR}, #{cratetime,jdbcType=TIMESTAMP}, 
+      #{name,jdbcType=VARCHAR}, #{edittime,jdbcType=TIMESTAMP}, #{moblie,jdbcType=VARCHAR}, 
+      #{phs,jdbcType=VARCHAR}, #{cornet,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.benqzl.pojo.system.Employee" >
+    insert into sys_employee
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="departmentid != null" >
+        departmentId,
+      </if>
+      <if test="cratetime != null" >
+        crateTime,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+      <if test="edittime != null" >
+        editTime,
+      </if>
+      <if test="moblie != null" >
+        moblie,
+      </if>
+      <if test="phs != null" >
+        phs,
+      </if>
+      <if test="cornet != null" >
+        cornet,
+      </if>
+      <if test="memo != null" >
+        memo,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentid != null" >
+        #{departmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="cratetime != null" >
+        #{cratetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="edittime != null" >
+        #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moblie != null" >
+        #{moblie,jdbcType=VARCHAR},
+      </if>
+      <if test="phs != null" >
+        #{phs,jdbcType=VARCHAR},
+      </if>
+      <if test="cornet != null" >
+        #{cornet,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.benqzl.pojo.system.Employee" >
+    update sys_employee
+    <set >
+      <if test="departmentid != null" >
+        departmentId = #{departmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="cratetime != null" >
+        crateTime = #{cratetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="edittime != null" >
+        editTime = #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moblie != null" >
+        moblie = #{moblie,jdbcType=VARCHAR},
+      </if>
+      <if test="phs != null" >
+        phs = #{phs,jdbcType=VARCHAR},
+      </if>
+      <if test="cornet != null" >
+        cornet = #{cornet,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.benqzl.pojo.system.Employee" >
+    update sys_employee
+    set departmentId = #{departmentid,jdbcType=VARCHAR},
+      crateTime = #{cratetime,jdbcType=TIMESTAMP},
+      Name = #{name,jdbcType=VARCHAR},
+      editTime = #{edittime,jdbcType=TIMESTAMP},
+      moblie = #{moblie,jdbcType=VARCHAR},
+      phs = #{phs,jdbcType=VARCHAR},
+      cornet = #{cornet,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,52 @@
+package com.benqzl.service.production;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.benqzl.dao.production.QxclxxMapper;
+import com.benqzl.dao.production.QxlbMapper;
+import com.benqzl.dao.production.QxlzxxMapper;
+import com.benqzl.pojo.production.Qxclxx;
+import com.benqzl.pojo.production.Qxlb;
+import com.benqzl.pojo.production.Qxlzxx;
+
+@Service("qxlbService")
+public class QxlbServiceImpl implements QxlbService{
+	@Autowired
+	private QxlbMapper qxlbMapper;
+	@Autowired
+	private QxclxxMapper qxclxxMapper;
+	@Autowired
+	private QxlzxxMapper qxlzxxMapper;
+	@Override
+	public List<Qxlb> selectQxlbs(Map<String, Object> map) throws Exception {
+		return qxlbMapper.selectQxlbs(map);
+	}
+	@Override
+	public Qxlb selectQxlbByQxbh(String qxbh) throws Exception {
+		return qxlbMapper.selectByPrimaryKey(qxbh);
+	}
+	@Override
+	public Qxclxx selectQxclxxByQxbh(String qxbh) throws Exception {
+		return qxclxxMapper.selectByPrimaryKey(qxbh);
+	}
+	@Override
+	public List<Qxlzxx> selectQxlzxxsByQxbh(String qxbh) throws Exception {
+		return qxlzxxMapper.selectQxlzxxsByQxbh(qxbh);
+	}
+	@Override
+	public int insertQxlbs(List<Qxlb> qxlbs) throws Exception {
+		return qxlbMapper.insert(qxlbs);
+	}
+	@Override
+	public int insertQxclxxs(List<Qxclxx> qxclxxs) throws Exception {
+		return qxclxxMapper.insert(qxclxxs);
+	}
+	@Override
+	public int insertQxlzxxs(List<Qxlzxx> qxlzxxs) throws Exception {
+		return qxlzxxMapper.insert(qxlzxxs);
+	}
+}

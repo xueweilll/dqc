@@ -1,0 +1,12 @@
+package com.benqzl.dao.production;
+
+import java.util.List;
+
+import com.benqzl.pojo.production.Qxlzxx;
+
+public interface QxlzxxMapper {
+
+    int insert(List<Qxlzxx> list);
+
+    List<Qxlzxx> selectQxlzxxsByQxbh(String qxbh);
+}

@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.production.ReportMapper">
+	<resultMap id="BaseResultMap" type="com.benqzl.pojo.production.Report">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="fdlrj1" property="fdlrj1" jdbcType="DOUBLE" />
+		<result column="fdlrj2" property="fdlrj2" jdbcType="DOUBLE" />
+		<result column="fdlrj3" property="fdlrj3" jdbcType="DOUBLE" />
+		<result column="fdlrj4" property="fdlrj4" jdbcType="DOUBLE" />
+		<result column="fdlrj5" property="fdlrj5" jdbcType="DOUBLE" />
+		<result column="fdlrj6" property="fdlrj6" jdbcType="DOUBLE" />
+		<result column="zhcydl1" property="zhcydl1" jdbcType="DOUBLE" />
+		<result column="zhcydl2" property="zhcydl2" jdbcType="DOUBLE" />
+		<result column="zhcydl3" property="zhcydl3" jdbcType="DOUBLE" />
+		<result column="fdqh1" property="fdqh1" jdbcType="DOUBLE" />
+		<result column="fdqh2" property="fdqh2" jdbcType="DOUBLE" />
+		<result column="fdqh3" property="fdqh3" jdbcType="DOUBLE" />
+		<result column="grlrr" property="grlrr" jdbcType="DOUBLE" />
+		<result column="grgs" property="grgs" jdbcType="DOUBLE" />
+		<result column="riqi" property="riqi" jdbcType="TIMESTAMP" />
+		<result column="weeks" property="weeks" jdbcType="VARCHAR"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, fdlrj1, fdlrj2, fdlrj3, fdlrj4, fdlrj5, fdlrj6, zhcydl1, zhcydl2,
+		zhcydl3, fdqh1,
+		fdqh2, fdqh3, grlrr, grgs, riqi
+	</sql>
+	<sql id="Base_Column_List1">
+		sum(fdlrj1) as fdlrj1, sum(fdlrj2) as fdlrj2, sum(fdlrj3) as fdlrj3, sum(fdlrj4)
+		as fdlrj4,
+		sum(fdlrj5) as fdlrj5, sum(fdlrj6) as fdlrj6, avg(zhcydl1) as zhcydl1,
+		avg(zhcydl2) as zhcydl2, avg(zhcydl3) as zhcydl3,
+		avg(fdqh1) as fdqh1, avg(fdqh2) as fdqh2, avg(fdqh3) as fdqh3,
+		avg(grlrr) as grlrr,avg(grgs) as grgs
+	</sql>
+	<sql id="Base_Column_List2">
+		fdlrj1 as fdlrj1, fdlrj2 as fdlrj2, fdlrj3 as fdlrj3, fdlrj4
+		as fdlrj4,
+		fdlrj5 as fdlrj5, fdlrj6 as fdlrj6, zhcydl1 as zhcydl1,
+		zhcydl2 as zhcydl2, zhcydl3 as zhcydl3,
+		fdqh1 as fdqh1, fdqh2 as fdqh2, fdqh3 as fdqh3,
+		grlrr as grlrr,grgs as grgs
+	</sql>
+	
+	<select id="findReportsByTime" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from pd_report
+		where riqi &gt;= #{startTime,jdbcType=TIMESTAMP} and riqi &lt;
+		#{endTime,jdbcType=TIMESTAMP}
+		order by riqi desc
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from pd_report
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.util.Date">
+		delete from pd_report
+		where riqi = #{id,jdbcType=DATE}
+	</delete>
+	<insert id="insert" parameterType="com.benqzl.pojo.production.Report">
+		insert into pd_report (id, fdlrj1, fdlrj2,
+		fdlrj3, fdlrj4, fdlrj5,
+		fdlrj6, zhcydl1, zhcydl2,
+		zhcydl3, fdqh1, fdqh2,
+		fdqh3, grlrr, grgs, riqi
+		)
+		values (#{id,jdbcType=VARCHAR}, #{fdlrj1,jdbcType=DOUBLE},
+		#{fdlrj2,jdbcType=DOUBLE},
+		#{fdlrj3,jdbcType=DOUBLE}, #{fdlrj4,jdbcType=DOUBLE}, #{fdlrj5,jdbcType=DOUBLE},
+		#{fdlrj6,jdbcType=DOUBLE}, #{zhcydl1,jdbcType=DOUBLE},
+		#{zhcydl2,jdbcType=DOUBLE},
+		#{zhcydl3,jdbcType=DOUBLE}, #{fdqh1,jdbcType=DOUBLE}, #{fdqh2,jdbcType=DOUBLE},
+		#{fdqh3,jdbcType=DOUBLE}, #{grlrr,jdbcType=DOUBLE},
+		#{grgs,jdbcType=DOUBLE}, #{riqi,jdbcType=TIMESTAMP}
+		)
+	</insert>
+	<insert id="insertList" parameterType="java.util.List">
+		insert into pd_report (id, fdlrj1, fdlrj2,
+		fdlrj3, fdlrj4, fdlrj5,
+		fdlrj6, zhcydl1, zhcydl2,
+		zhcydl3, fdqh1, fdqh2,
+		fdqh3, grlrr, grgs, riqi
+		)
+		values
+		<foreach collection="list" item="item" index="index" separator="," >  
+	        (#{item.id,jdbcType=VARCHAR}, #{item.fdlrj1,jdbcType=DOUBLE},
+			#{item.fdlrj2,jdbcType=DOUBLE},
+			#{item.fdlrj3,jdbcType=DOUBLE}, #{item.fdlrj4,jdbcType=DOUBLE}, #{item.fdlrj5,jdbcType=DOUBLE},
+			#{item.fdlrj6,jdbcType=DOUBLE}, #{item.zhcydl1,jdbcType=DOUBLE},
+			#{item.zhcydl2,jdbcType=DOUBLE},
+			#{item.zhcydl3,jdbcType=DOUBLE}, #{item.fdqh1,jdbcType=DOUBLE}, #{item.fdqh2,jdbcType=DOUBLE},
+			#{item.fdqh3,jdbcType=DOUBLE}, #{item.grlrr,jdbcType=DOUBLE},
+			#{item.grgs,jdbcType=DOUBLE}, #{item.riqi,jdbcType=TIMESTAMP}
+			)  
+	    </foreach>  
+	</insert>
+	<insert id="insertSelective" parameterType="com.benqzl.pojo.production.Report">
+		insert into pd_report
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="fdlrj1 != null">
+				fdlrj1,
+			</if>
+			<if test="fdlrj2 != null">
+				fdlrj2,
+			</if>
+			<if test="fdlrj3 != null">
+				fdlrj3,
+			</if>
+			<if test="fdlrj4 != null">
+				fdlrj4,
+			</if>
+			<if test="fdlrj5 != null">
+				fdlrj5,
+			</if>
+			<if test="fdlrj6 != null">
+				fdlrj6,
+			</if>
+			<if test="zhcydl1 != null">
+				zhcydl1,
+			</if>
+			<if test="zhcydl2 != null">
+				zhcydl2,
+			</if>
+			<if test="zhcydl3 != null">
+				zhcydl3,
+			</if>
+			<if test="fdqh1 != null">
+				fdqh1,
+			</if>
+			<if test="fdqh2 != null">
+				fdqh2,
+			</if>
+			<if test="fdqh3 != null">
+				fdqh3,
+			</if>
+			<if test="grlrr != null">
+				grlrr,
+			</if>
+			<if test="grgs != null">
+				grgs,
+			</if>
+			<if test="riqi != null">
+				riqi,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="fdlrj1 != null">
+				#{fdlrj1,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj2 != null">
+				#{fdlrj2,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj3 != null">
+				#{fdlrj3,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj4 != null">
+				#{fdlrj4,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj5 != null">
+				#{fdlrj5,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj6 != null">
+				#{fdlrj6,jdbcType=DOUBLE},
+			</if>
+			<if test="zhcydl1 != null">
+				#{zhcydl1,jdbcType=DOUBLE},
+			</if>
+			<if test="zhcydl2 != null">
+				#{zhcydl2,jdbcType=DOUBLE},
+			</if>
+			<if test="zhcydl3 != null">
+				#{zhcydl3,jdbcType=DOUBLE},
+			</if>
+			<if test="fdqh1 != null">
+				#{fdqh1,jdbcType=DOUBLE},
+			</if>
+			<if test="fdqh2 != null">
+				#{fdqh2,jdbcType=DOUBLE},
+			</if>
+			<if test="fdqh3 != null">
+				#{fdqh3,jdbcType=DOUBLE},
+			</if>
+			<if test="grlrr != null">
+				#{grlrr,jdbcType=DOUBLE},
+			</if>
+			<if test="grgs != null">
+				#{grgs,jdbcType=DOUBLE},
+			</if>
+			<if test="riqi != null">
+				#{riqi,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.benqzl.pojo.production.Report">
+		update pd_report
+		<set>
+			<if test="fdlrj1 != null">
+				fdlrj1 = #{fdlrj1,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj2 != null">
+				fdlrj2 = #{fdlrj2,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj3 != null">
+				fdlrj3 = #{fdlrj3,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj4 != null">
+				fdlrj4 = #{fdlrj4,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj5 != null">
+				fdlrj5 = #{fdlrj5,jdbcType=DOUBLE},
+			</if>
+			<if test="fdlrj6 != null">
+				fdlrj6 = #{fdlrj6,jdbcType=DOUBLE},
+			</if>
+			<if test="zhcydl1 != null">
+				zhcydl1 = #{zhcydl1,jdbcType=DOUBLE},
+			</if>
+			<if test="zhcydl2 != null">
+				zhcydl2 = #{zhcydl2,jdbcType=DOUBLE},
+			</if>
+			<if test="zhcydl3 != null">
+				zhcydl3 = #{zhcydl3,jdbcType=DOUBLE},
+			</if>
+			<if test="fdqh1 != null">
+				fdqh1 = #{fdqh1,jdbcType=DOUBLE},
+			</if>
+			<if test="fdqh2 != null">
+				fdqh2 = #{fdqh2,jdbcType=DOUBLE},
+			</if>
+			<if test="fdqh3 != null">
+				fdqh3 = #{fdqh3,jdbcType=DOUBLE},
+			</if>
+			<if test="grlrr != null">
+				grlrr = #{grlrr,jdbcType=DOUBLE},
+			</if>
+			<if test="grgs != null">
+				grgs = #{grgs,jdbcType=DOUBLE},
+			</if>
+			<if test="riqi != null">
+				riqi = #{riqi,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.benqzl.pojo.production.Report">
+		update pd_report
+		set fdlrj1 = #{fdlrj1,jdbcType=DOUBLE},
+		fdlrj2 = #{fdlrj2,jdbcType=DOUBLE},
+		fdlrj3 = #{fdlrj3,jdbcType=DOUBLE},
+		fdlrj4 = #{fdlrj4,jdbcType=DOUBLE},
+		fdlrj5 = #{fdlrj5,jdbcType=DOUBLE},
+		fdlrj6 = #{fdlrj6,jdbcType=DOUBLE},
+		zhcydl1 = #{zhcydl1,jdbcType=DOUBLE},
+		zhcydl2 = #{zhcydl2,jdbcType=DOUBLE},
+		zhcydl3 = #{zhcydl3,jdbcType=DOUBLE},
+		fdqh1 = #{fdqh1,jdbcType=DOUBLE},
+		fdqh2 = #{fdqh2,jdbcType=DOUBLE},
+		fdqh3 = #{fdqh3,jdbcType=DOUBLE},
+		grlrr = #{grlrr,jdbcType=DOUBLE},
+		grgs = #{grgs,jdbcType=DOUBLE},
+		riqi = #{riqi,jdbcType=TIMESTAMP}
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+
+	<select id="selectByYear" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List1" />
+		from pd_report
+		<where>
+			(EXTRACT(YEAR FROM riqi)) = (
+			EXTRACT(YEAR FROM(#{time}))
+			)
+		</where>
+		order by riqi asc
+	</select>
+	<select id="selectByMonth" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List1" />
+		from pd_report
+		<where>
+			(EXTRACT(YEAR_Month FROM riqi)) = (
+			EXTRACT(YEAR_Month FROM(#{time}))
+			)
+		</where>
+		order by riqi asc
+	</select>
+	<select id="selectByDay" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List2" />
+		from pd_report
+		where 1 =1
+		<if test="current !=current">
+		and riqi =#{time}
+		</if>
+		<if test="current ==current">
+		and  EXTRACT(YEAR_MONTH FROM riqi)=EXTRACT(YEAR_MONTH FROM #{time})
+		</if>
+		order by riqi desc limit 1
+	</select>
+	<select id="selectByMonthDay" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select 
+		DAYOFMONTH(riqi) as weeks,
+		<include refid="Base_Column_List" />
+		from pd_report
+		where
+		DATE_FORMAT(riqi,'%Y-%m') = #{riqi}
+		
+		order by riqi asc
+	</select>
+		<select id="selectByMonthWeek" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		DATE_ADD(
+		'1900-01-01',
+		INTERVAL FLOOR(
+		DATEDIFF(riqi, '1900-01-01') / 7
+		) * 7 DAY
+		) AS weeks,
+        <include refid="Base_Column_List1"/>
+		FROM
+		pd_report 
+		WHERE
+		DATE_FORMAT(riqi,'%Y-%m')=
+		#{riqi}
+		GROUP BY
+		FLOOR(
+		DATEDIFF(riqi, '1900-01-01') / 7
+		)
+	</select>
+	<select id="selectByYearMonth" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+	    select month(riqi) as weeks,
+	    <include refid="Base_Column_List1"/>
+	    from pd_report
+	    WHERE DATE_FORMAT(riqi,'%Y')=#{riqi}
+	    GROUP BY
+	    MONTH(riqi)
+	</select>
+	<select id="selectByTb" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		 <include refid="Base_Column_List1"/>
+		 from pd_report
+		 Where EXTRACT(YEAR_MONTH FROM riqi)=#{riqi}
+		</select>
+	<select id="selectByLast" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		 <include refid="Base_Column_List1"/>
+		 from pd_report
+		 Where EXTRACT(YEAR_MONTH FROM riqi)=#{last}
+		 <if test="day !=null">
+		 and EXTRACT(DAY FROM riqi)&lt;=#{day}
+		 </if>
+   </select>
+   <!-- <sql id="Base_Column_List">
+		id, fdlrj1, fdlrj2, fdlrj3, fdlrj4, fdlrj5, fdlrj6, zhcydl1, zhcydl2,
+		zhcydl3, fdqh1,
+		fdqh2, fdqh3, grlrr, grgs, riqi
+	</sql> -->
+   <select id="selectResultByDay" resultMap="BaseResultMap" parameterType="java.util.Map"><!-- 日查询 -->
+   		select riqi,
+   		<if test="type==0"><!-- 查询全厂机组电量 -->
+   			fdlrj1, fdlrj2, fdlrj3, fdlrj4, fdlrj5, fdlrj6
+   		</if>
+   		<if test="type==1"><!-- 查询供热管损电量 -->
+   			grlrr, grgs
+   		</if>
+   		<if test="type==2"><!-- 查询#1/2电量、厂用电率、气耗 -->
+   			fdlrj1, fdlrj2, zhcydl1, fdqh1
+   		</if>
+   		<if test="type==3"><!-- 查询#3/4电量、厂用电率、气耗 -->
+   			fdlrj3, fdlrj4, zhcydl2, fdqh2
+   		</if>
+   		<if test="type==4"><!-- 查询#56/78电量、厂用电率、气耗 -->
+   			fdlrj5, fdlrj6, zhcydl3, fdqh3
+   		</if>
+   		from pd_report where DATE_FORMAT(riqi,'%Y-%m')=#{riqi,jdbcType=VARCHAR}
+   		order by riqi asc
+   </select>
+   <select id="selectResultByWeek" resultMap="BaseResultMap" parameterType="java.util.Map"><!-- 周查询 -->
+   		select DATE_FORMAT(riqi,'%u') as id,
+   		<if test="type==0"><!-- 查询全厂机组电量 -->
+   			SUM(fdlrj1) as fdlrj1, SUM(fdlrj2) as fdlrj2, SUM(fdlrj3) as fdlrj3,
+   			SUM(fdlrj4) as fdlrj4, SUM(fdlrj5) as fdlrj5, SUM(fdlrj6) as fdlrj6
+   		</if>
+   		<if test="type==1"><!-- 查询供热管损电量 -->
+   			SUM(grlrr) as grlrr, AVG(grgs) as grgs
+   		</if>
+   		<if test="type==2"><!-- 查询#1/2电量、厂用电率、气耗 -->
+   			SUM(fdlrj1) as fdlrj1, SUM(fdlrj2) as fdlrj2, AVG(zhcydl1) as zhcydl1, SUM(fdqh1) as fdqh1
+   		</if>
+   		<if test="type==3"><!-- 查询#3/4电量、厂用电率、气耗 -->
+   			SUM(fdlrj3) as fdlrj3, SUM(fdlrj4) as fdlrj4, AVG(zhcydl2) as zhcydl2, SUM(fdqh2) as fdqh2
+   		</if>
+   		<if test="type==4"><!-- 查询#56/78电量、厂用电率、气耗 -->
+   			SUM(fdlrj5) as fdlrj5, SUM(fdlrj6) as fdlrj6, AVG(zhcydl3) as zhcydl3, SUM(fdqh3) as fdqh3
+   		</if>
+   		from pd_report where DATE_FORMAT(riqi,'%Y')=#{riqi,jdbcType=VARCHAR}
+   		group by DATE_FORMAT(riqi,'%u')
+   		order by id asc
+   </select>
+   <select id="selectResultByMonth" resultMap="BaseResultMap" parameterType="java.util.Map"><!-- 月同比查询 -->
+   		select 
+   		<if test="type==0"><!-- 查询全厂机组电量 -->
+   			SUM(fdlrj1) as fdlrj1, SUM(fdlrj2) as fdlrj2, SUM(fdlrj3) as fdlrj3,
+   			SUM(fdlrj4) as fdlrj4, SUM(fdlrj5) as fdlrj5, SUM(fdlrj6) as fdlrj6
+   		</if>
+   		<if test="type==1"><!-- 查询供热管损电量 -->
+   			SUM(grlrr) as grlrr, AVG(grgs) as grgs
+   		</if>
+   		<if test="type==2"><!-- 查询#1/2电量、厂用电率、气耗 -->
+   			SUM(fdlrj1) as fdlrj1, SUM(fdlrj2) as fdlrj2, AVG(zhcydl1) as zhcydl1, SUM(fdqh1) as fdqh1
+   		</if>
+   		<if test="type==3"><!-- 查询#3/4电量、厂用电率、气耗 -->
+   			SUM(fdlrj3) as fdlrj3, SUM(fdlrj4) as fdlrj4, AVG(zhcydl2) as zhcydl2, SUM(fdqh2) as fdqh2
+   		</if>
+   		<if test="type==4"><!-- 查询#56/78电量、厂用电率、气耗 -->
+   			SUM(fdlrj5) as fdlrj5, SUM(fdlrj6) as fdlrj6, AVG(zhcydl3) as zhcydl3, SUM(fdqh3) as fdqh3
+   		</if>
+   		from pd_report where
+   		<if test="month == null">
+   			riqi BETWEEN #{startTime,jdbcType=DATE} and #{endTime,jdbcType=DATE}
+   		</if>
+   		<if test="month != null">
+	   		DATE_FORMAT(riqi,'%Y-%m')=#{month,jdbcType=VARCHAR}
+   		</if>
+   </select>
+   <select id="selectResultByYear" resultMap="BaseResultMap" parameterType="java.util.Map"><!-- 月查询 -->
+   		select DATE_FORMAT(riqi,'%m') as id,
+   		<if test="type==0"><!-- 查询全厂机组电量 -->
+   			SUM(fdlrj1) as fdlrj1, SUM(fdlrj2) as fdlrj2, SUM(fdlrj3) as fdlrj3,
+   			SUM(fdlrj4) as fdlrj4, SUM(fdlrj5) as fdlrj5, SUM(fdlrj6) as fdlrj6
+   		</if>
+   		<if test="type==1"><!-- 查询供热管损电量 -->
+   			SUM(grlrr) as grlrr, AVG(grgs) as grgs
+   		</if>
+   		<if test="type==2"><!-- 查询#1/2电量、厂用电率、气耗 -->
+   			SUM(fdlrj1) as fdlrj1, SUM(fdlrj2) as fdlrj2, AVG(zhcydl1) as zhcydl1, SUM(fdqh1) as fdqh1
+   		</if>
+   		<if test="type==3"><!-- 查询#3/4电量、厂用电率、气耗 -->
+   			SUM(fdlrj3) as fdlrj3, SUM(fdlrj4) as fdlrj4, AVG(zhcydl2) as zhcydl2, SUM(fdqh2) as fdqh2
+   		</if>
+   		<if test="type==4"><!-- 查询#56/78电量、厂用电率、气耗 -->
+   			SUM(fdlrj5) as fdlrj5, SUM(fdlrj6) as fdlrj6, AVG(zhcydl3) as zhcydl3, SUM(fdqh3) as fdqh3
+   		</if>
+   		from pd_report where DATE_FORMAT(riqi,'%Y')=#{riqi,jdbcType=VARCHAR}
+   		group by DATE_FORMAT(riqi,'%m')
+   		order by id asc
+   </select>
+   <select id="selectTotalResult" resultMap="BaseResultMap" parameterType="java.util.Map"><!-- 月/年总和查询 -->
+   		select 
+   		SUM(fdlrj1) as fdlrj1, SUM(fdlrj2) as fdlrj2, SUM(fdlrj3) as fdlrj3,
+   		SUM(fdlrj4) as fdlrj4, SUM(fdlrj5) as fdlrj5, SUM(fdlrj6) as fdlrj6,
+   		SUM(grlrr) as grlrr, AVG(grgs) as grgs,
+   		AVG(zhcydl1) as zhcydl1, SUM(fdqh1) as fdqh1,
+   		AVG(zhcydl2) as zhcydl2, SUM(fdqh2) as fdqh2,
+   		AVG(zhcydl3) as zhcydl3, SUM(fdqh3) as fdqh3
+   		from pd_report where
+   		<if test="type==0">
+	   		DATE_FORMAT(riqi,'%Y-%m-%d')=#{riqi,jdbcType=VARCHAR}
+   		</if>
+   		<if test="type==1">
+	   		DATE_FORMAT(riqi,'%Y-%m')=#{riqi,jdbcType=VARCHAR}
+   		</if>
+   		<if test="type==2">
+	   		DATE_FORMAT(riqi,'%Y')=#{riqi,jdbcType=VARCHAR}
+   		</if> 
+   </select>	
+</mapper>

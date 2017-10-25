@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.production.QxlbMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.production.Qxlb" >
+    <id column="qxbh" property="qxbh" jdbcType="VARCHAR" />
+    <result column="yzdw" property="yzdw" jdbcType="VARCHAR" />
+    <result column="sbmc" property="sbmc" jdbcType="VARCHAR" />
+    <result column="qxms" property="qxms" jdbcType="VARCHAR" />
+    <result column="qxlb" property="qxlb" jdbcType="VARCHAR" />
+    <result column="zrbm" property="zrbm" jdbcType="VARCHAR" />
+    <result column="dlsj" property="dlsj" jdbcType="TIMESTAMP" />
+    <result column="dqzt" property="dqzt" jdbcType="VARCHAR" />
+    <result column="jz" property="jz" jdbcType="VARCHAR" />
+    <association property="qxclxx" javaType="com.benqzl.pojo.production.Qxclxx">
+    	<!-- <id column="cid" property="id" jdbcType="VARCHAR" /> -->
+	    <result column="cqxbh" property="qxbh" jdbcType="VARCHAR" />
+	    <result column="clgc" property="clgc" jdbcType="VARCHAR" />
+	    <result column="clwcsj" property="clwcsj" jdbcType="TIMESTAMP" />
+	    <result column="clbz" property="clbz" jdbcType="VARCHAR" />
+	    <result column="gzfzr" property="gzfzr" jdbcType="VARCHAR" />
+	    <result column="ysqk" property="ysqk" jdbcType="VARCHAR" />
+	    <result column="yssj" property="yssj" jdbcType="TIMESTAMP" />
+	    <result column="ysr" property="ysr" jdbcType="VARCHAR" />
+	    <result column="jxyj" property="jxyj" jdbcType="VARCHAR" />
+	    <result column="yxyj" property="yxyj" jdbcType="VARCHAR" />
+	    <result column="sjbyj" property="sjbyj" jdbcType="VARCHAR" />
+	    <result column="zgyj" property="zgyj" jdbcType="VARCHAR" />
+    </association>
+    <collection property="qxlzxxs" ofType="com.benqzl.pojo.production.Qxlzxx">
+    	<!-- <id column="zid" property="id" jdbcType="VARCHAR" /> -->
+	    <result column="zqxbh" property="qxbh" jdbcType="VARCHAR" />
+	    <result column="clsj" property="clsj" jdbcType="TIMESTAMP" />
+	    <result column="czmc" property="czmc" jdbcType="VARCHAR" />
+	    <result column="czbm" property="czbm" jdbcType="VARCHAR" />
+	    <result column="czr" property="czr" jdbcType="VARCHAR" />
+    </collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    qxbh, yzdw, sbmc, qxms, qxlb, zrbm, dlsj, dqzt, jz
+  </sql>
+  <sql id="Base_Column_List1" >
+    q.qxbh as qxbh, q.yzdw as yzdw, q.sbmc as sbmc, q.qxms as qxms, q.qxlb as qxlb,
+    q.zrbm as zrbm, q.dlsj as dlsj, q.dqzt as dqzt, q.jz as jz,
+    <!-- c.id as cid , --> c.qxbh as cqxbh , c.clgc as clgc, c.clwcsj as clwcsj,
+    c.clbz as clbz, c.gzfzr as gzfzr, c.ysqk as ysqk, c.yssj as yssj, c.ysr as ysr,
+    c.jxyj as jxyj, c.yxyj as yxyj, c.sjbyj as sjbyj, c.zgyj as zgyj,
+    <!-- z.id as zid, -->z.qxbh as zqxbh, z.clsj as clsj, z.czmc as czmc, z.czbm as czbm, z.czr as czr
+  </sql>
+  <select id="selectQxlbs" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from qx_qxlb
+    <where>
+    <if test="qxlb !=null">
+    	qxlb = #{qxlb,jdbcType=VARCHAR}
+    </if>
+    <if test="zrbm !=null">
+    	and zrbm = #{zrbm,jdbcType=VARCHAR}
+    </if>
+    </where>
+    order by dlsj desc
+    limit #{p1}, #{p2}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List1" />
+    from qx_qxlb q left join qx_qxclxx c on q.qxbh=c.qxbh left join qx_qxlzxx z  on q.qxbh=z.qxbh
+    where q.qxbh = #{qxbh,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="java.util.List" >
+    insert into qx_qxlb (qxbh, yzdw, sbmc, 
+      qxms, qxlb, zrbm, dlsj, 
+      dqzt, jz) values 
+    <foreach collection="list" item="item" index="index" separator="," >  
+        (#{item.qxbh,jdbcType=VARCHAR}, #{item.yzdw,jdbcType=VARCHAR}, #{item.sbmc,jdbcType=VARCHAR}, 
+      #{item.qxms,jdbcType=VARCHAR}, #{item.qxlb,jdbcType=VARCHAR}, #{item.zrbm,jdbcType=VARCHAR}, #{item.dlsj,jdbcType=TIMESTAMP}, 
+      #{item.dqzt,jdbcType=VARCHAR}, #{item.jz,jdbcType=VARCHAR})  
+    </foreach>  
+  </insert>
+</mapper>

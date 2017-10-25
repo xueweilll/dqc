@@ -1,0 +1,135 @@
+package com.benqzl.pojo.production;
+
+import java.util.Date;
+
+public class Qxclxx {
+    private String id;
+
+    private String qxbh;
+
+    private String clgc;
+
+    private Date clwcsj;
+
+    private String clbz;
+
+    private String gzfzr;
+
+    private String ysqk;
+
+    private Date yssj;
+
+    private String ysr;
+
+    private String jxyj;
+
+    private String yxyj;
+
+    private String sjbyj;
+
+    private String zgyj;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
+
+    public String getQxbh() {
+        return qxbh;
+    }
+
+    public void setQxbh(String qxbh) {
+        this.qxbh = qxbh == null ? null : qxbh.trim();
+    }
+
+    public String getClgc() {
+        return clgc;
+    }
+
+    public void setClgc(String clgc) {
+        this.clgc = clgc == null ? null : clgc.trim();
+    }
+
+    public Date getClwcsj() {
+        return clwcsj;
+    }
+
+    public void setClwcsj(Date clwcsj) {
+        this.clwcsj = clwcsj;
+    }
+
+    public String getClbz() {
+        return clbz;
+    }
+
+    public void setClbz(String clbz) {
+        this.clbz = clbz == null ? null : clbz.trim();
+    }
+
+    public String getGzfzr() {
+        return gzfzr;
+    }
+
+    public void setGzfzr(String gzfzr) {
+        this.gzfzr = gzfzr == null ? null : gzfzr.trim();
+    }
+
+    public String getYsqk() {
+        return ysqk;
+    }
+
+    public void setYsqk(String ysqk) {
+        this.ysqk = ysqk == null ? null : ysqk.trim();
+    }
+
+    public Date getYssj() {
+        return yssj;
+    }
+
+    public void setYssj(Date yssj) {
+        this.yssj = yssj;
+    }
+
+    public String getYsr() {
+        return ysr;
+    }
+
+    public void setYsr(String ysr) {
+        this.ysr = ysr == null ? null : ysr.trim();
+    }
+
+    public String getJxyj() {
+        return jxyj;
+    }
+
+    public void setJxyj(String jxyj) {
+        this.jxyj = jxyj == null ? null : jxyj.trim();
+    }
+
+    public String getYxyj() {
+        return yxyj;
+    }
+
+    public void setYxyj(String yxyj) {
+        this.yxyj = yxyj == null ? null : yxyj.trim();
+    }
+
+    public String getSjbyj() {
+        return sjbyj;
+    }
+
+    public void setSjbyj(String sjbyj) {
+        this.sjbyj = sjbyj == null ? null : sjbyj.trim();
+    }
+
+    public String getZgyj() {
+        return zgyj;
+    }
+
+    public void setZgyj(String zgyj) {
+        this.zgyj = zgyj == null ? null : zgyj.trim();
+    }
+}

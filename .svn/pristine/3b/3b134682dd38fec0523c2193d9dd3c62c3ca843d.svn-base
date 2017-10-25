@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.production.QxclxxMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.production.Qxclxx" >
+    <!-- <id column="id" property="id" jdbcType="VARCHAR" /> -->
+    <result column="qxbh" property="qxbh" jdbcType="VARCHAR" />
+    <result column="clgc" property="clgc" jdbcType="VARCHAR" />
+    <result column="clwcsj" property="clwcsj" jdbcType="TIMESTAMP" />
+    <result column="clbz" property="clbz" jdbcType="VARCHAR" />
+    <result column="gzfzr" property="gzfzr" jdbcType="VARCHAR" />
+    <result column="ysqk" property="ysqk" jdbcType="VARCHAR" />
+    <result column="yssj" property="yssj" jdbcType="TIMESTAMP" />
+    <result column="ysr" property="ysr" jdbcType="VARCHAR" />
+    <result column="jxyj" property="jxyj" jdbcType="VARCHAR" />
+    <result column="yxyj" property="yxyj" jdbcType="VARCHAR" />
+    <result column="sjbyj" property="sjbyj" jdbcType="VARCHAR" />
+    <result column="zgyj" property="zgyj" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+   <!--  id, --> qxbh, clgc, clwcsj, clbz, gzfzr, ysqk, yssj, ysr, jxyj, yxyj, sjbyj, zgyj
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from qx_qxclxx
+    where qxbh = #{qxbh,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="java.util.List" >
+    insert into qx_qxclxx (<!-- id, --> qxbh, clgc, 
+      clwcsj, clbz, gzfzr, 
+      ysqk, yssj, ysr, 
+      jxyj, yxyj, sjbyj, 
+      zgyj)
+    values 
+    <foreach collection="list" item="item" index="index" separator="," >  
+      (<!-- #{item.id,jdbcType=VARCHAR}, --> #{item.qxbh,jdbcType=VARCHAR}, #{item.clgc,jdbcType=VARCHAR}, 
+      #{item.clwcsj,jdbcType=TIMESTAMP}, #{item.clbz,jdbcType=VARCHAR}, #{item.gzfzr,jdbcType=VARCHAR}, 
+      #{item.ysqk,jdbcType=VARCHAR}, #{item.yssj,jdbcType=TIMESTAMP}, #{item.ysr,jdbcType=VARCHAR}, 
+      #{item.jxyj,jdbcType=VARCHAR}, #{item.yxyj,jdbcType=VARCHAR}, #{item.sjbyj,jdbcType=VARCHAR}, 
+      #{item.zgyj,jdbcType=VARCHAR})  
+    </foreach>
+  </insert>
+</mapper>

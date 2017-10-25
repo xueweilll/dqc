@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.system.SysDeviceMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.system.SysDevice" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="isdel" property="isdel" jdbcType="DECIMAL" />
+    <result column="authority" property="authority" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userid, name, version, isdel, authority
+  </sql>
+  <select id="findByPage" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    sys_device.id, sys_user.name as userid,  sys_device.name, version, isdel, sys_device.authority
+    from sys_device left join sys_user on  sys_user.id=sys_device.userid
+    <where>
+    	<if test="name != null">
+    		sys_user.name like CONCAT('%',#{name,jdbcType=VARCHAR},'%')
+    	</if>
+    	and isdel=0
+    </where>
+    limit #{p1},#{p2}
+  </select>  
+  <select id="pageCount" resultType="java.lang.Integer" parameterType="java.util.Map" >
+    select count(*)
+    from sys_device join sys_user on  sys_user.id=sys_device.userid
+    <where>
+    	<if test="name != null">
+    	</if>
+    	and isdel=0
+    </where>
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_device
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <update id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    update  sys_device set isdel=1
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <insert id="insertSelective" parameterType="com.benqzl.pojo.system.SysDevice" >
+    insert into sys_device
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="isdel != null" >
+        isdel,
+      </if>
+      <if test="authority != null" >
+        authority,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        #{isdel,jdbcType=DECIMAL},
+      </if>
+      <if test="authority != null" >
+        #{authority,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.benqzl.pojo.system.SysDevice" >
+    update sys_device
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        isdel = #{isdel,jdbcType=DECIMAL},
+      </if>
+      <if test="authority != null" >
+        authority = #{authority,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

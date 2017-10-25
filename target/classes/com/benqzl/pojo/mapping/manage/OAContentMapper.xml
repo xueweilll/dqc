@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.manage.OAContentMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.manage.OAContent" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="fbdw" property="fbdw" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="yxri" property="yxri" jdbcType="TIMESTAMP" />
+    <result column="fbri" property="fbri" jdbcType="TIMESTAMP" />
+    <result column="reads" property="reads" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.benqzl.pojo.manage.OAContent" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, fbdw, name, yxri, fbri, `reads`
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByAll" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from oa_content 
+    order by fbri desc 
+    limit #{p1}, #{p2}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from oa_content
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="java.util.List" >
+    insert into oa_content (id, title, fbdw, 
+      name, yxri, fbri, `reads`, 
+      content)
+    values
+     <foreach collection="list" item="item" index="index" separator="," >  
+     (#{item.id,jdbcType=VARCHAR}, #{item.title,jdbcType=VARCHAR}, #{item.fbdw,jdbcType=VARCHAR}, 
+      #{item.name,jdbcType=VARCHAR}, #{item.yxri,jdbcType=TIMESTAMP}, #{item.fbri,jdbcType=TIMESTAMP}, #{item.reads,jdbcType=VARCHAR}, 
+      #{item.content,jdbcType=LONGVARCHAR}) 
+    </foreach>
+  </insert>
+</mapper>

@@ -1,0 +1,376 @@
+package com.benqzl.controller.system;
+
+import java.lang.reflect.Type;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.benqzl.controller.BasicController;
+import com.benqzl.pojo.production.UnitHisTimeDate;
+import com.benqzl.pojo.production.UnitParameter;
+import com.benqzl.pojo.system.SysParameter;
+import com.benqzl.service.production.UnitHisTimeDateService;
+import com.benqzl.service.production.UnitParameterService;
+import com.benqzl.service.system.SysParameterService;
+import com.benqzl.socket.MessageQueue;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+
+@Controller
+@RequestMapping("unitParmeter")
+public class UnitParmeterController extends BasicController {
+	@Autowired
+	private UnitParameterService service;
+
+	public UnitParmeterController() {
+		super(UnitParmeterController.class);
+	}
+
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ModelAndView index() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/system/unitParmeter");
+		return mv;
+	}
+
+	@RequestMapping(value = "unitParmeterInfo", method = RequestMethod.GET)
+	public ModelAndView userInfo(String id) {
+		ModelAndView mv = new ModelAndView();
+		UnitParameter parameter = new UnitParameter();
+		if (id != null) {
+			try {
+				parameter = service.selectByPrimaryKey(id);
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+		}
+		mv.addObject("id", id);
+		mv.addObject("parameter", parameter);
+		mv.setViewName("system/unitParmeterInfo");
+		return mv;
+	}
+
+	@RequestMapping(value = "bind", method = RequestMethod.POST)
+	@ResponseBody
+	public String bind(int page, int rows, String name, String pkey,String sysid) {
+		String strJson = "";
+		page = (page == 0 ? 1 : page);
+		rows = (rows == 0 ? 15 : rows);
+		int start = (page - 1) * rows;
+		//rows = start + rows;
+		logger.info("this page rows is " + page + "|" + rows);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("p1", start);
+		map.put("p2", rows);
+		if (name == null || name.trim().equals("")) {
+			map.put("name", null);
+		} else {
+			map.put("name", name);
+		}
+		if (pkey == null || pkey.trim().equals("")) {
+			map.put("pkey", null);
+		} else {
+			map.put("pkey", pkey);
+		}
+		if (sysid == null || sysid.trim().equals("")) {
+			map.put("sysid", null);
+		} else {
+			map.put("sysid", sysid);
+		}
+		List<UnitParameter> list = null;
+		int count = 0;
+		try {
+			list = service.findByPage(map);
+			count = service.pageCount(map);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+		}
+		Map<String, Object> jsonMap = new HashMap<String, Object>();
+		jsonMap.put("total", count);
+		jsonMap.put("rows", list);
+		gson = new GsonBuilder().registerTypeAdapter(UnitParameter.class,
+				new JsonSerializer<UnitParameter>() {
+					@Override
+					public JsonElement serialize(UnitParameter arg0, Type arg1,
+							JsonSerializationContext arg2) {
+						JsonObject json = new JsonObject();
+						json.addProperty("id", arg0.getId());
+						json.addProperty("pkey", arg0.getPkey());
+						json.addProperty("name", arg0.getName());
+						json.addProperty("memo", arg0.getMemo());
+						json.addProperty("type", arg0.getType());
+						json.addProperty("sort", arg0.getSort());
+						json.addProperty("measurement", arg0.getMeasurement());
+						switch (arg0.getSysid()) {
+						case "46664689-a550-4ee0-ab63-05587f0e538e":
+							json.addProperty("sysid", "#1号机");
+							break;
+						case "e3476aa7-e0a2-4aa5-a13a-e7c9ea6ca747":
+							json.addProperty("sysid", "#2号机");
+							break;
+						case "ea960703-821e-4ff1-b704-64787ddf80ec":
+							json.addProperty("sysid", "#3号机");	
+							break;
+						case "fcf32bb0-20b9-4d43-8fa0-bcbd7fc16875":
+							json.addProperty("sysid", "#4号机");
+							break;
+						case "f28a17e7-82a2-48aa-8b5e-7cb04b24f9b4":
+							json.addProperty("sysid", "#5/6号机组");
+							break;
+						case "07cc63f8-50f7-4489-8403-a2c69b63fa7a":
+							json.addProperty("sysid", "#7/8号机组");
+							break;
+						default:
+							json.addProperty("sysid", "");
+							break;
+						}
+						return json;
+					}
+				}).create();
+		strJson = gson.toJson(jsonMap);
+		return strJson;
+	}
+	static DecimalFormat df = new DecimalFormat("0.00");
+	@Autowired
+	private MessageQueue messageQueue;
+
+	@RequestMapping(value = "unitBind", method = RequestMethod.POST)
+	@ResponseBody
+	public String unitBind(int page, int rows,String sysid,int type) {
+		page = (page == 0 ? 1 : page);
+		rows = (rows == 0 ? 15 : rows);
+		int start = (page - 1) * rows;
+		//rows = start + rows;
+		logger.info("this page rows is " + page + "|" + rows);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("p1", start);
+		map.put("p2", rows);
+		if (sysid == null || sysid.trim().equals("")) {
+			map.put("sysid", null);
+		} else {
+			map.put("sysid", sysid);
+		}
+		map.put("type", type);
+		List<UnitParameter> list = new ArrayList<>();
+		List<UnitParameter> list1 = new ArrayList<>();
+		try {
+			list1 = service.findByPage(map);
+			for (UnitParameter unitParameter : list1) {
+				UnitParameter parameter = unitParameter;
+				parameter.setPvalue(messageQueue.currentData.get(unitParameter.getId()));
+				list.add(parameter);
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		List<UnitParameter> resultList1 = new ArrayList<>();
+		List<UnitParameter> resultList2 = new ArrayList<>();
+		List<UnitParameter> resultList3 = new ArrayList<>();
+		List<UnitParameter> resultList4 = new ArrayList<>();
+		List<UnitParameter> resultList5 = new ArrayList<>();
+		List<UnitParameter> resultList6 = new ArrayList<>();
+		for (UnitParameter unitParameter : list) {
+			switch (unitParameter.getSysid()) {
+			case "46664689-a550-4ee0-ab63-05587f0e538e":
+				resultList1.add(unitParameter);
+				break;
+			case "e3476aa7-e0a2-4aa5-a13a-e7c9ea6ca747":
+				resultList2.add(unitParameter);
+				break;
+			case "ea960703-821e-4ff1-b704-64787ddf80ec":
+				resultList3.add(unitParameter);
+				break;
+			case "fcf32bb0-20b9-4d43-8fa0-bcbd7fc16875":
+				resultList4.add(unitParameter);
+				break;
+			case "f28a17e7-82a2-48aa-8b5e-7cb04b24f9b4":
+				resultList5.add(unitParameter);
+				break;
+			case "07cc63f8-50f7-4489-8403-a2c69b63fa7a":
+				resultList6.add(unitParameter);
+				break;
+			default:
+				break;
+			}
+		}
+		Collections.sort(resultList1);
+		Collections.sort(resultList2);
+		Collections.sort(resultList3);
+		Collections.sort(resultList4);
+		Collections.sort(resultList5);
+		Collections.sort(resultList6);
+		Map<String, Object> resultMap = new HashMap<>();
+		resultMap.put("unit1", resultList1);
+		resultMap.put("unit2", resultList2);
+		resultMap.put("unit3", resultList3);
+		resultMap.put("unit4", resultList4);
+		resultMap.put("unit5", resultList5);
+		resultMap.put("unit6", resultList6);
+		gson = new GsonBuilder().registerTypeAdapter(UnitParameter.class,
+				new JsonSerializer<UnitParameter>() {
+					@Override
+					public JsonElement serialize(UnitParameter arg0, Type arg1,
+							JsonSerializationContext arg2) {
+						JsonObject json = new JsonObject();
+						json.addProperty("id", arg0.getId());
+						if(arg0.getPvalue()!=null){
+							json.addProperty("pvalue", Math.ceil(Float.parseFloat(arg0.getPvalue())));
+						}else{
+							json.addProperty("pvalue",0);
+						}
+						json.addProperty("measurement", arg0.getMeasurement().replaceAll("DEG C", "℃"));
+						json.addProperty("name", arg0.getName());
+						return json;
+					}
+				}).create();
+		String strJson = gson.toJson(resultMap);
+		return strJson;
+	}
+
+	@Autowired
+	private UnitHisTimeDateService hisTimeDateService;
+
+	@RequestMapping(value = "unitBindById", method = RequestMethod.POST)
+	@ResponseBody
+	public String unitBindById(String id) {
+		List<UnitHisTimeDate> list = new ArrayList<>();
+		try {
+			list = hisTimeDateService.selectByPrimaryKey(id);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		SimpleDateFormat sf = new SimpleDateFormat("hh:mm");
+		List<String> strings =new ArrayList<>();
+		List<String> strings1 =new ArrayList<>();
+		Map<String, Object> jsonStr = new HashMap<>();
+		for (UnitHisTimeDate unitHisTimeDate : list) {
+			strings1.add(unitHisTimeDate.getPvalue()+"");
+			strings.add(sf.format(unitHisTimeDate.getCdate()));
+		}
+		if(list.size()==0){
+			for (int i = 0; i < 60; i++) {
+				strings1.add(0+"");
+			}
+			long date = new Date().getTime();
+			for (int i = 60; i >0; i--) {
+				strings.add(sf.format(new Date(date-(1000*60*i))));
+			}
+		}
+		jsonStr.put("dateTime", strings);
+		jsonStr.put("rows", strings1);
+		gson = new Gson();
+		String strJson = gson.toJson(jsonStr);
+		return strJson;
+	}
+
+	@RequestMapping(value = "sysBind", method = RequestMethod.GET)
+	@ResponseBody
+	public String sysBind() {
+		List<SysParameter> list = new ArrayList<>();
+		try {
+			list = sysservice.selectAll();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		gson = new GsonBuilder().registerTypeAdapter(SysParameter.class,
+				new JsonSerializer<SysParameter>() {
+					@Override
+					public JsonElement serialize(SysParameter arg0, Type arg1,
+							JsonSerializationContext arg2) {
+						JsonObject json = new JsonObject();
+						json.addProperty("id", arg0.getId());
+						json.addProperty("name", arg0.getName());
+						return json;
+					}
+				}).create();
+		String jsonStr = null;
+		jsonStr = gson.toJson(list);
+		return jsonStr;
+	}
+
+	@RequestMapping(value = "save", method = RequestMethod.POST)
+	@ResponseBody
+	public String save(String jsonStr) {
+		UnitParameter parameter = gson.fromJson(jsonStr, UnitParameter.class);
+		try {
+			if (parameter.getId().equals("0")) {
+				parameter.setId(UUID.randomUUID().toString());
+				parameter.setIsdel(0);
+				service.insertSelective(parameter);
+			} else {
+				service.updateByPrimaryKeySelective(parameter);
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			return "{'result':false,'msg':'修改失敗！'}";
+		}
+		return "{'result':true}";
+	}
+
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	@ResponseBody
+	public String delete(String id) {
+		try {
+			service.deleteByPrimaryKey(id);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			return "{'result':false,'msg':'删除失敗！'}";
+		}
+		return "{'result':true}";
+	}
+
+	@Autowired
+	private SysParameterService sysservice;
+
+	@RequestMapping(value = "synchronizationdata", method = RequestMethod.POST)
+	@ResponseBody
+	public String synchronizationdata() {
+		try {
+			StringBuffer pkeybuffer = new StringBuffer();
+			StringBuffer idbuffer = new StringBuffer();
+			List<SysParameter> sysParameters = sysservice.selectAll();
+			for (SysParameter sysParameter : sysParameters) {
+				pkeybuffer.append(sysParameter.getPkey());
+				pkeybuffer.append(",");
+				idbuffer.append(sysParameter.getId());
+				idbuffer.append(",");
+			}
+			List<UnitParameter> unitParameters = service.selectAll();
+			for (UnitParameter unitParameter : unitParameters) {
+				pkeybuffer.append(unitParameter.getPkey());
+				pkeybuffer.append(",");
+				idbuffer.append(unitParameter.getId());
+				idbuffer.append(",");
+			}
+			pkeybuffer.delete(pkeybuffer.length() - 1, pkeybuffer.length());
+			idbuffer.delete(idbuffer.length() - 1, idbuffer.length());
+			/*messageQueue.parameterMap.put("id", pkeybuffer.toString());
+			messageQueue.parameterMap.put("key", idbuffer.toString());
+			messageQueue.parameterMap.put("guid", UUID.randomUUID().toString());*/
+			messageQueue.writeParameter(idbuffer.toString(),pkeybuffer.toString());
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			return "{'result':false,'msg':'同步失败！'}";
+		}
+		return "{'result':true}";
+	}
+
+}

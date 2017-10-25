@@ -1,0 +1,8 @@
+#mssql version database druid setting
+
+validationQuery=SELECT 1
+#jdbc.driverClassName=com.microsoft.jdbc.sqlserver.SQLServerDriver
+jdbc.url=jdbc:mysql://192.168.1.44:3306/qdc?useUnicode=true&characterEncoding=utf-8
+#jdbc.url=jdbc:mysql://localhost:3306/qdc?useUnicode=true&characterEncoding=utf-8
+jdbc.username=root
+jdbc.password=root

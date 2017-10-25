@@ -1,0 +1,137 @@
+package com.benqzl.controller.system;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.benqzl.controller.BasicController;
+import com.benqzl.pojo.production.UnitParameter;
+import com.benqzl.service.production.UnitParameterService;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+@Controller
+@RequestMapping("unitParmeter")
+public class UnitParmeterController extends BasicController{
+	@Autowired
+	private UnitParameterService service;
+	public UnitParmeterController() {
+		super(UnitParmeterController.class);
+	}
+
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ModelAndView index() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/system/unitParmeter");
+		return mv;
+	}
+	
+	@RequestMapping(value = "unitParmeterInfo", method = RequestMethod.GET)
+	public ModelAndView userInfo(String id) {
+		ModelAndView mv = new ModelAndView();
+		UnitParameter parameter = new UnitParameter();
+		if(id != null){
+			try {
+				parameter=service.selectByPrimaryKey(id);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		mv.addObject("id", id);
+		mv.addObject("parameter", parameter);
+		mv.setViewName("system/unitParmeterInfo");
+		return mv;
+	}
+	@RequestMapping(value = "bind", method = RequestMethod.POST)
+	@ResponseBody
+	public String bind(int page,int rows,String name,String pkey){
+		String strJson = "";
+		page = (page == 0 ? 1 : page);
+		rows = (rows == 0 ? 15 : rows);
+		int start = (page - 1) * rows;
+		rows = start+rows;
+		logger.info("this page rows is " + page + "|" + rows);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("p1", start);
+		map.put("p2", rows);
+		if(name==null||name.trim().equals("")){
+			map.put("name", null);
+		}else{
+			map.put("name", name);
+		}
+		if(pkey==null||pkey.trim().equals("")){
+			map.put("pkey", null);
+		}else{
+			map.put("pkey", pkey);
+		}
+		List<UnitParameter> list = null;
+		int count = 0;
+		try {
+			list = service.findByPage(map);
+			count=service.pageCount(map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Map<String, Object> jsonMap = new HashMap<String, Object>();
+		jsonMap.put("total", count);
+		jsonMap.put("rows", list);
+		gson = new GsonBuilder().registerTypeAdapter(UnitParameter.class, new JsonSerializer<UnitParameter>() {
+			@Override
+			public JsonElement serialize(UnitParameter arg0, Type arg1,
+					JsonSerializationContext arg2) {
+				JsonObject json = new JsonObject();
+				json.addProperty("id", arg0.getId());
+				json.addProperty("pkey", arg0.getPkey());
+				json.addProperty("name", arg0.getName());
+				json.addProperty("memo", arg0.getMemo());
+				json.addProperty("measurement", arg0.getMeasurement());
+				return json;
+			}
+		}).create();
+		strJson = gson.toJson(jsonMap);
+		return strJson;
+	}
+	
+	@RequestMapping(value = "save", method = RequestMethod.POST)
+	@ResponseBody
+	public String save(String jsonStr){
+		UnitParameter parameter  =gson.fromJson(jsonStr, UnitParameter.class);
+		try {
+			if(parameter.getId().equals("0")){
+				parameter.setId(UUID.randomUUID().toString());
+				parameter.setIsdel(0);
+				service.insertSelective(parameter);
+			}else{
+				service.updateByPrimaryKeySelective(parameter);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "{'result':false,'msg':'修改失敗！'}";
+		}
+		return "{'result':true}";
+	}
+	
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	@ResponseBody
+	public String delete(String id){
+		try {
+			service.deleteByPrimaryKey(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "{'result':false,'msg':'删除失敗！'}";
+		}
+		return "{'result':true}";
+	}
+	
+}

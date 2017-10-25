@@ -1,0 +1,39 @@
+package com.benqzl.dao.system;
+
+import java.util.List;
+import java.util.Map;
+
+import com.benqzl.pojo.system.Employee;
+import com.benqzl.pojo.system.User;
+
+public interface UserMapper {
+    int deleteByPrimaryKey(String id);
+
+    int insert(User record);
+
+    int insertSelective(User record);
+
+    User selectByPrimaryKey(String id);
+
+    int updateByPrimaryKeySelective(User record);
+
+    int updateByPrimaryKey(User record);
+
+	void deleteByEmployeeid(String id);
+
+	List<User> findByPage(Map<String, Object> map);
+
+	int pageCount(Map<String, Object> map);
+
+	List<Employee> selectEmployeebyParentID(Map<String, String> map);
+
+	User selectUserByName(String userName);
+
+	void update_reloadpwdbyid(Map<String, Object> map);
+
+	List<User> selectByName(String userid, String userName);
+
+	int validatepwd(Map<String, Object> map);
+
+	void editpwd(Map<String, Object> map);
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.production.UnitHisTimeDateMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.production.UnitHisTimeDate" >
+    <id column="Id" property="id" jdbcType="VARCHAR" />
+    <result column="unitid" property="unitid" jdbcType="VARCHAR" />
+    <result column="pvalue" property="pvalue" jdbcType="DECIMAL" />
+    <result column="cdate" property="cdate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, unitid, pvalue, cdate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    MAX(pvalue) as pvalue,DATE_FORMAT(cdate,'%k:%i') as id
+    from unit_histimedate
+    where unitid = #{id,jdbcType=VARCHAR} and cdate BETWEEN #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP}
+    group by DATE_FORMAT(cdate,'%Y-%m-%d %k:%i')
+    order by cdate asc
+    <!-- limit 0,100 -->
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.util.Map" >
+    delete from unit_histimedate
+    where cdate &lt; #{endTime,jdbcType=TIMESTAMP}
+    and unitid in
+    <foreach collection="ids" item="item" index="index"  open="(" separator="," close=")" >  
+      #{item,jdbcType=VARCHAR}  
+    </foreach>
+  </delete>
+  <insert id="insert" parameterType="java.util.List" >
+    insert into unit_histimedate (Id, unitid, pvalue, 
+      cdate)
+    values 
+    <foreach collection="list" item="item" index="index" separator="," >  
+      (#{item.id,jdbcType=VARCHAR}, #{item.unitid,jdbcType=VARCHAR}, #{item.pvalue,jdbcType=DECIMAL}, 
+      #{item.cdate,jdbcType=TIMESTAMP})  
+    </foreach>
+  </insert>
+</mapper>

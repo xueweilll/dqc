@@ -1,0 +1,30 @@
+package com.benqzl.dao.system;
+
+import java.util.List;
+import java.util.Map;
+
+import com.benqzl.pojo.system.Employee;
+
+public interface EmployeeMapper {
+    int deleteByPrimaryKey(String id);
+
+    int insert(Employee record);
+
+    int insertSelective(Employee record);
+
+    Employee selectByPrimaryKey(String id);
+
+    int updateByPrimaryKeySelective(Employee record);
+
+    int updateByPrimaryKey(Employee record);
+
+	List<Employee> findByPage(Map<String, Object> map);
+
+	int pageCount(Map<String, Object> map);
+
+	Employee selectByUser(String userid);
+
+	List<Employee> findEmployeeName();
+
+	List<Employee> findAll(Map<String, Object> map);
+}

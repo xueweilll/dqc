@@ -1,0 +1,105 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<base href="<%=basePath%>">
+<%@include file="../header.jsp"%>
+<title>My JSP 'reflush.jsp' starting page</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+<script type="text/javascript">
+	$(function() {
+		parent.addGrid($("#reflush_list").datagrid({
+			width : 'auto',
+			height : 'auto',
+			pageSize : 20,
+			nowrap : false,
+			striped : true,
+			border : true,
+			collapsible : false,
+			fit : true,
+			url : 'reflush/reflushInfo.html',
+			remoteSort : false,
+			idField : 'id',
+			singleSelect : true,
+			pagination : true,
+			rownumbers : true,
+		}));
+		
+		var p = $("#reflush_list").datagrid('getPager');
+		$(p).pagination({
+			pageList : [ 5, 10, 15, 20 ],
+			beforePageText : '第',
+			afterPageText : '页        共{pages}页',
+			displayMsg : '当前显示{from}-{to}条记录      共{total}条记录'
+		});
+		$("#btnEdit").bind("click", function() {
+			var row = $("#reflush_list").datagrid("getSelected");
+		/* 	if (row == null) {
+				$.messager.alert("操作提示", "请选择一条记录再进行操作！", "error");
+				return false;
+			} */
+			console.info(row);
+			showDialogWH("编辑参数信息", "reflush/reflushInfo.html?reflushtime=",400,300);
+		});
+		$("#btnDelete").bind("click", function() {
+			var row = $("#reflush_list").datagrid("getSelected");
+			if (row == null) {
+				$.messager.alert("操作提示", "请选择一条记录再进行操作！", "error");
+				return false;
+			}
+			$.messager.confirm("删除提示", "您确定要执行删除吗？", function(data) {
+				if (data) {
+					$.messager.progress();
+					$.ajax({
+						type : 'POST',
+						url : "reflush/delete.html",
+						data : {
+							"id" : row.reflushtime
+						},
+						success : function() {
+							$.messager.progress('close');
+							$("#reflush_list").datagrid("unselectAll");
+							$("#reflush_list").datagrid("reload");
+						}
+					});
+				}
+			})
+		})
+	});
+</script>
+</head>
+
+<body class="easyui-layout" id="cc">
+	<table id="reflush_list" cellspacing="0" cellpadding="0"
+		data-options="toolbar:'#tb'">
+		<thead>
+			<tr>
+				<th data-options="field:'reflushtime',width:130">刷新时间</th>
+			
+			</tr>
+		</thead>
+	</table>
+	<div id="tb">
+		<div class="cz_div_title">
+			<a id="btnEdit" class="easyui-linkbutton"
+				data-options="plain:false,iconCls:'icon-edit'">修改</a>
+		</div>
+	</div>
+
+</body>
+</html>

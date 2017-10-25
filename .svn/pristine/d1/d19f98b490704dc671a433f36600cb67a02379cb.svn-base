@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.benqzl.dao.production.QxlzxxMapper" >
+  <resultMap id="BaseResultMap" type="com.benqzl.pojo.production.Qxlzxx" >
+    <!-- <id column="id" property="id" jdbcType="VARCHAR" /> -->
+    <result column="qxbh" property="qxbh" jdbcType="VARCHAR" />
+    <result column="clsj" property="clsj" jdbcType="TIMESTAMP" />
+    <result column="czmc" property="czmc" jdbcType="VARCHAR" />
+    <result column="czbm" property="czbm" jdbcType="VARCHAR" />
+    <result column="czr" property="czr" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!-- id, --> qxbh, clsj, czmc, czbm, czr
+  </sql>
+  <select id="selectQxlzxxsByQxbh" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from qx_qxlzxx
+    where qxbh = #{qxbh,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="java.util.List" >
+    insert into qx_qxlzxx (<!-- id, --> qxbh, clsj, 
+      czmc, czbm, czr)
+    values 
+    <foreach collection="list" item="item" index="index" separator="," >  
+      (<!-- #{item.id,jdbcType=VARCHAR}, --> #{item.qxbh,jdbcType=VARCHAR}, #{item.clsj,jdbcType=TIMESTAMP}, 
+      #{item.czmc,jdbcType=VARCHAR}, #{item.czbm,jdbcType=VARCHAR}, #{item.czr,jdbcType=VARCHAR})  
+    </foreach>
+  </insert>
+</mapper>

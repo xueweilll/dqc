@@ -1,0 +1,102 @@
+package com.benqzl.socket;
+
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Crypt {
+	int key = 9000;
+
+	public int getKey() {
+		return key;
+	}
+	
+	public Crypt(){
+		Date dt = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		this.key = Integer.parseInt(sdf.format(dt));
+	}
+
+	public int generationKey(int oldKey) {
+		while (key < 100000 && key != oldKey) {
+			key = (int) (Math.random() * 1000000);
+			System.out.println(key);
+		}
+		return key;
+	}
+
+	String encrypt(String str) {
+		byte[] buff = new byte[0];
+		try {
+			buff = str.getBytes("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		byte[] buffer = new byte[buff.length];
+		int i = 0;
+		for (byte b : buff) {
+			buffer[i] = (byte) (b ^ key);
+			i++;
+		}
+		str = byteToHexString(buffer);
+		return str;
+	}
+
+	String decrypt(String str) {
+		byte[] buff = hexStringToByte(str);
+		byte[] buffer = new byte[buff.length];
+		int i = 0;
+		for (byte b : buff) {
+			buffer[i] = (byte) (b ^ key);
+			i++;
+		}
+		try {
+			str = new String(buffer,"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return str;
+	}
+
+	private String byteToHexString(byte[] buff) {
+		String hex = "", str = "";
+		for (int i = 0; i < buff.length; i++) {
+			hex = Integer.toHexString(buff[i] & 0xFF);
+			if (hex.length() == 1) {
+				hex = '0' + hex;
+			}
+			str += hex.toUpperCase();
+		}
+		return str;
+	}
+
+	private byte[] hexStringToByte(String str) {
+		int len = str.length() / 2;
+		byte[] buff = new byte[len];
+		char[] hexChars = str.toCharArray();
+		for (int i = 0; i < len; i++) {
+			int pos = i * 2;
+			buff[i] = (byte) (charToByte(hexChars[pos]) << 4 | charToByte(hexChars[pos + 1]));
+		}
+		return buff;
+	}
+
+	private byte charToByte(char c) {
+		return (byte) "0123456789ABCDEF".indexOf(c);
+	}
+
+	public static void main(String[] args) throws UnsupportedEncodingException {
+		/*Crypt crypt = new Crypt();
+		String msg = "111F1A1E1D1954181F4B4B1E1B4E10051D184E1F051C1C101105101C181B05491A4B1E114A1E1B4E491F49041C1E1E1E1C1E101105491D1D18051C4D4D1805494A1E1B05181D1D101F4E184D1D1B104D044D1B1C1F1E49491F054D18491A051C49491D0549191B49054D1F4B114D491E4B491F1C1F044D49111E181F181B05101A194D051C4E4E19054A1F181C051E1C1F101F4C4C4E10184D4B044E1A1049191F4D1F05101A491A051C10494905104A1D4D051F4B4A181C4A1A1C4E114A1C044E4B4E1B1A4A4A18051A184A11051C4C1C1B05104E4918054A4B4A4C1F4E4B191E101F1D041B1C4D1F1A1C1B11051A1D1A4C051C181149054A101910054A184B1C1C10491C494E4C1A041E4B101A4B4B194B054A491D10051C4E4E1A054A1B181B051C1F184911191F4A10194E4C04104E1B1A4E4B101A05101C491F051C4A49180510491F4A051F4D4B1B1111104E4E4C4A1F044A101A4D4B1C1A4E05194B4E4A051C4B1F1E051111184E054C4A1B10184B1D4A4A1C4949";
+		//msg = crypt.encrypt(msg);
+		//System.out.println(msg);
+		msg = crypt.decrypt(msg);
+		System.out.println(msg);*/
+		/*buff = msg.getBytes("UTF-8");
+		buff = crypt.decrypt(buff);
+		msg = new String(buff, "UTF-8");
+		System.out.println(msg);
+		crypt.generationKey(0);*/
+		
+	}
+}

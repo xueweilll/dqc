@@ -1,0 +1,4310 @@
+<?xml version="1.0" encoding="GB2312"?>
+<CTOXML>
+
+<DataModels>
+  <TableCount>13</TableCount>
+  <Count>1</Count>
+</DataModels>
+
+
+<DataModels_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>jshdqdc</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:01:49</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <GraphWidth>0</GraphWidth>
+  <GraphHeight>0</GraphHeight>
+  <DefDbEngine></DefDbEngine>
+  <DbConnectStr></DbConnectStr>
+  <ConfigStr></ConfigStr>
+</DataModels_item1>
+
+
+<DataModels_item1_item0>
+  <Count>13</Count>
+</DataModels_item1_item0>
+
+
+<DataModels_item1_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>sys_user</Name>
+  <Caption>用户表</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:02:06</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc>Left=239.00
+Top=203.00</GraphDesc>
+</DataModels_item1_item0_item1>
+
+
+<DataModels_item1_item0_item1_item0>
+  <Count>10</Count>
+</DataModels_item1_item0_item1_item0>
+
+
+<DataModels_item1_item0_item1_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>Id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:02:06</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>1</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item1_item0_item1>
+
+
+<DataModels_item1_item0_item1_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>crateTime</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:02:06</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>创建时间</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item1_item0_item2>
+
+
+<DataModels_item1_item0_item1_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>departmentId</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:10:02</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName>机关ID</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>3</KeyFieldType>
+  <RelateTable>sys_department</RelateTable>
+  <RelateField>Id</RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc>P1=268.50,128.00
+P2=239.00,128.00
+P3=239.00,124.00
+P4=209.50,124.00
+HookP1=95.00,22.50
+HookP2=105.00,22.50
+Mod_OP1=0
+Mod_OP2=0
+Mod_CP=0
+Horz1=1
+Horz2=1</GraphDesc>
+</DataModels_item1_item0_item1_item0_item3>
+
+
+<DataModels_item1_item0_item1_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>editTime</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:02:06</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>修改时间</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item1_item0_item4>
+
+
+<DataModels_item1_item0_item1_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>name</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:03:24</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>20</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item1_item0_item5>
+
+
+<DataModels_item1_item0_item1_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>username</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:03:38</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>6</OrderNo>
+  <DisplayName>登陆名</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>20</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item1_item0_item6>
+
+
+<DataModels_item1_item0_item1_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>userpwd</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:04:28</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>7</OrderNo>
+  <DisplayName>密码</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>20</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item1_item0_item7>
+
+
+<DataModels_item1_item0_item1_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>authority</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo>0 普通用户  1 超级管理员</Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:04:51</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>8</OrderNo>
+  <DisplayName>权限</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item1_item0_item8>
+
+
+<DataModels_item1_item0_item1_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>memo</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:05:48</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>9</OrderNo>
+  <DisplayName>描述</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>200</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item1_item0_item9>
+
+
+<DataModels_item1_item0_item1_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>70</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>state</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:23:20</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>10</OrderNo>
+  <DisplayName>状态</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item1_item0_item10>
+
+
+<DataModels_item1_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>sys_department</Name>
+  <Caption>机关联系表</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:06:50</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc>Left=537.00
+Top=211.00</GraphDesc>
+</DataModels_item1_item0_item2>
+
+
+<DataModels_item1_item0_item2_item0>
+  <Count>9</Count>
+</DataModels_item1_item0_item2_item0>
+
+
+<DataModels_item1_item0_item2_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>Id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:06:50</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>1</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item2_item0_item1>
+
+
+<DataModels_item1_item0_item2_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>parent</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:06:50</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>父Id</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item2_item0_item2>
+
+
+<DataModels_item1_item0_item2_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>crateTime</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:02:06</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName>创建时间</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item2_item0_item3>
+
+
+<DataModels_item1_item0_item2_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>name</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:06:50</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>20</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item2_item0_item4>
+
+
+<DataModels_item1_item0_item2_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>editTime</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:02:06</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <DisplayName>修改时间</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item2_item0_item5>
+
+
+<DataModels_item1_item0_item2_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>memo</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:05:48</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>6</OrderNo>
+  <DisplayName>描述</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>200</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item2_item0_item6>
+
+
+<DataModels_item1_item0_item2_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>15</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>phone</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:08:26</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>7</OrderNo>
+  <DisplayName>固定电话</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>12</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item2_item0_item7>
+
+
+<DataModels_item1_item0_item2_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>16</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>cornet</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:09:02</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>8</OrderNo>
+  <DisplayName>短号</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>10</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item2_item0_item8>
+
+
+<DataModels_item1_item0_item2_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>70</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>state</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:23:20</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>9</OrderNo>
+  <DisplayName>状态</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item2_item0_item9>
+
+
+<DataModels_item1_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>sys_employee</Name>
+  <Caption>员工联系表</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:10:02</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc>Left=805.00
+Top=211.00</GraphDesc>
+</DataModels_item1_item0_item3>
+
+
+<DataModels_item1_item0_item3_item0>
+  <Count>10</Count>
+</DataModels_item1_item0_item3_item0>
+
+
+<DataModels_item1_item0_item3_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>Id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:10:02</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>1</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item3_item0_item1>
+
+
+<DataModels_item1_item0_item3_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>departmentId</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:10:02</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>机关ID</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>3</KeyFieldType>
+  <RelateTable>sys_department</RelateTable>
+  <RelateField>Id</RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc>P1=360.50,136.00
+P2=382.00,136.00
+P3=382.00,128.00
+P4=402.50,128.00
+HookP1=103.00,30.50
+HookP2=105.00,22.50
+Mod_OP1=0
+Mod_OP2=0
+Mod_CP=0
+Horz1=1
+Horz2=1</GraphDesc>
+</DataModels_item1_item0_item3_item0_item2>
+
+
+<DataModels_item1_item0_item3_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>crateTime</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:02:06</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName>创建时间</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item3_item0_item3>
+
+
+<DataModels_item1_item0_item3_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>Name</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:10:02</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>20</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item3_item0_item4>
+
+
+<DataModels_item1_item0_item3_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>editTime</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:02:06</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <DisplayName>修改时间</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item3_item0_item5>
+
+
+<DataModels_item1_item0_item3_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>23</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>moblie</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:13:38</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>6</OrderNo>
+  <DisplayName>电话</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>11</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item3_item0_item6>
+
+
+<DataModels_item1_item0_item3_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>24</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>phs</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:13:57</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>7</OrderNo>
+  <DisplayName>小灵通</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>12</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item3_item0_item7>
+
+
+<DataModels_item1_item0_item3_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>25</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>cornet</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:14:29</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>8</OrderNo>
+  <DisplayName>短号</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>10</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item3_item0_item8>
+
+
+<DataModels_item1_item0_item3_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>26</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>memo</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:14:44</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>9</OrderNo>
+  <DisplayName>备注</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>200</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item3_item0_item9>
+
+
+<DataModels_item1_item0_item3_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>70</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>state</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:23:20</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>10</OrderNo>
+  <DisplayName>状态</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item3_item0_item10>
+
+
+<DataModels_item1_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>sys_parameter</Name>
+  <Caption>系统参数设置</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/5 9:34:02</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc>Left=581.00
+Top=26.00</GraphDesc>
+</DataModels_item1_item0_item4>
+
+
+<DataModels_item1_item0_item4_item0>
+  <Count>5</Count>
+</DataModels_item1_item0_item4_item0>
+
+
+<DataModels_item1_item0_item4_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/5 9:34:02</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>1</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item4_item0_item1>
+
+
+<DataModels_item1_item0_item4_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>name</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/5 9:57:48</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>20</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item4_item0_item2>
+
+
+<DataModels_item1_item0_item4_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>98</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>pkey</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/5 9:58:32</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName>键</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>100</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item4_item0_item3>
+
+
+<DataModels_item1_item0_item4_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>101</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>memo</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/5 10:00:01</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>描述</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>200</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item4_item0_item4>
+
+
+<DataModels_item1_item0_item4_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>rating</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/11 15:54:59</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <DisplayName>额定功率</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>20</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item4_item0_item5>
+
+
+<DataModels_item1_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>11</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>unit_parameter</Name>
+  <Caption>机组参数设置</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/5 9:57:48</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc>Left=278.00
+Top=10.00</GraphDesc>
+</DataModels_item1_item0_item5>
+
+
+<DataModels_item1_item0_item5_item0>
+  <Count>7</Count>
+</DataModels_item1_item0_item5_item0>
+
+
+<DataModels_item1_item0_item5_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>Id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/5 9:57:48</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>1</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item5_item0_item1>
+
+
+<DataModels_item1_item0_item5_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>Name</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/5 9:57:48</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>20</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item5_item0_item2>
+
+
+<DataModels_item1_item0_item5_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>98</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>pkey</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/5 9:58:32</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName>键</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>100</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item5_item0_item3>
+
+
+<DataModels_item1_item0_item5_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>99</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>measurement</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/5 9:59:05</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>计量单位</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>10</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item5_item0_item4>
+
+
+<DataModels_item1_item0_item5_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>100</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>isdel</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/5 9:59:34</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <DisplayName>是否删除</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item5_item0_item5>
+
+
+<DataModels_item1_item0_item5_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>101</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>memo</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/5 10:00:01</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>6</OrderNo>
+  <DisplayName>描述</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>200</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item5_item0_item6>
+
+
+<DataModels_item1_item0_item5_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>sysid</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/15 8:40:45</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>7</OrderNo>
+  <DisplayName>机组ID</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>3</KeyFieldType>
+  <RelateTable>sys_parameter</RelateTable>
+  <RelateField>id</RelateField>
+  <IndexType>2</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc>P1=581.00,77.00
+P2=532.00,77.00
+P3=532.00,77.00
+P4=482.00,77.00
+HookP1=49.00,51.00
+HookP2=156.00,67.00
+Mod_OP1=1
+Mod_OP2=1
+Mod_CP=0
+Horz1=1
+Horz2=1</GraphDesc>
+</DataModels_item1_item0_item5_item0_item7>
+
+
+<DataModels_item1_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>ma_watch</Name>
+  <Caption>值班表</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/6 12:44:42</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>6</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc>Left=816.50
+Top=491.00</GraphDesc>
+</DataModels_item1_item0_item6>
+
+
+<DataModels_item1_item0_item6_item0>
+  <Count>6</Count>
+</DataModels_item1_item0_item6_item0>
+
+
+<DataModels_item1_item0_item6_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/6 12:44:42</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>ID</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>1</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item6_item0_item1>
+
+
+<DataModels_item1_item0_item6_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>bm</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/6 12:44:42</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>部门</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>50</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item6_item0_item2>
+
+
+<DataModels_item1_item0_item6_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>riqi</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/6 12:46:35</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName>日期</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item6_item0_item3>
+
+
+<DataModels_item1_item0_item6_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>shijian</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/6 12:46:57</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>时间</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item6_item0_item4>
+
+
+<DataModels_item1_item0_item6_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>renyuan</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/6 12:47:24</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <DisplayName>人员</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>100</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item6_item0_item5>
+
+
+<DataModels_item1_item0_item6_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>sort</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/6 12:47:38</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>6</OrderNo>
+  <DisplayName>排序</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>4</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item6_item0_item6>
+
+
+<DataModels_item1_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>11</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>ma_content</Name>
+  <Caption>通告新闻</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:19:34</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>7</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc>Left=20.50
+Top=492.00</GraphDesc>
+</DataModels_item1_item0_item7>
+
+
+<DataModels_item1_item0_item7_item0>
+  <Count>11</Count>
+</DataModels_item1_item0_item7_item0>
+
+
+<DataModels_item1_item0_item7_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:19:34</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>ID</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>1</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item7_item0_item1>
+
+
+<DataModels_item1_item0_item7_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>sort</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:19:34</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item7_item0_item2>
+
+
+<DataModels_item1_item0_item7_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>93</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>title1</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:20:35</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName>标题</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>100</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item7_item0_item3>
+
+
+<DataModels_item1_item0_item7_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>94</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>title2</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:20:36</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>副标题</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>100</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item7_item0_item4>
+
+
+<DataModels_item1_item0_item7_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>95</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>color</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:20:36</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <DisplayName>颜色</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>10</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item7_item0_item5>
+
+
+<DataModels_item1_item0_item7_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>96</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>content</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:20:36</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>6</OrderNo>
+  <DisplayName>内容</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>2000</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item7_item0_item6>
+
+
+<DataModels_item1_item0_item7_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>97</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>name</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:20:37</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>7</OrderNo>
+  <DisplayName>作者</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>10</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item7_item0_item7>
+
+
+<DataModels_item1_item0_item7_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>98</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>ctop</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:20:37</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>8</OrderNo>
+  <DisplayName>排序</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item7_item0_item8>
+
+
+<DataModels_item1_item0_item7_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>99</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>viewnum</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:20:37</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>9</OrderNo>
+  <DisplayName>浏览量</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item7_item0_item9>
+
+
+<DataModels_item1_item0_item7_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>100</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>ding</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:20:38</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>10</OrderNo>
+  <DisplayName>点赞量</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item7_item0_item10>
+
+
+<DataModels_item1_item0_item7_item0_item11>
+  <CTVER>43543230</CTVER>
+  <ID>101</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>cdate</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:20:38</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>11</OrderNo>
+  <DisplayName>时间</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item7_item0_item11>
+
+
+<DataModels_item1_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>pd_report</Name>
+  <Caption>综合日报表</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 13:56:20</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>8</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc>Left=235.00
+Top=490.00</GraphDesc>
+</DataModels_item1_item0_item8>
+
+
+<DataModels_item1_item0_item8_item0>
+  <Count>16</Count>
+</DataModels_item1_item0_item8_item0>
+
+
+<DataModels_item1_item0_item8_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 13:56:20</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>主键</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>1</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item1>
+
+
+<DataModels_item1_item0_item8_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>fdlrj1</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 13:56:20</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>1号机发电量</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item2>
+
+
+<DataModels_item1_item0_item8_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>fdlrj2</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 13:58:20</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName>2号机发电量</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item3>
+
+
+<DataModels_item1_item0_item8_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>fdlrj3</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 13:59:10</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>3号机发电量</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item4>
+
+
+<DataModels_item1_item0_item8_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>fdlrj4</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 13:59:12</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <DisplayName>4号机发电量</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item5>
+
+
+<DataModels_item1_item0_item8_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>fdlrj5</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 13:59:12</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>6</OrderNo>
+  <DisplayName>56号机发电量</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item6>
+
+
+<DataModels_item1_item0_item8_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>fdlrj6</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 13:59:12</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>7</OrderNo>
+  <DisplayName>78号机发电量</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item7>
+
+
+<DataModels_item1_item0_item8_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>11</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>zhcydl1</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 13:59:13</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>8</OrderNo>
+  <DisplayName>12号机综合厂用电率</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item8>
+
+
+<DataModels_item1_item0_item8_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>12</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>zhcydl2</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 13:59:13</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>9</OrderNo>
+  <DisplayName>34号机综合厂用电率</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item9>
+
+
+<DataModels_item1_item0_item8_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>13</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>zhcydl3</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 13:59:14</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>10</OrderNo>
+  <DisplayName>5678号机综合厂用电率</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item10>
+
+
+<DataModels_item1_item0_item8_item0_item11>
+  <CTVER>43543230</CTVER>
+  <ID>14</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>fdqh1</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:01:26</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>11</OrderNo>
+  <DisplayName>12号机发电气耗</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item11>
+
+
+<DataModels_item1_item0_item8_item0_item12>
+  <CTVER>43543230</CTVER>
+  <ID>15</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>fdqh2</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:01:27</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>12</OrderNo>
+  <DisplayName>34号机发电气耗</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item12>
+
+
+<DataModels_item1_item0_item8_item0_item13>
+  <CTVER>43543230</CTVER>
+  <ID>16</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>fdqh3</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:01:28</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>13</OrderNo>
+  <DisplayName>5678号机发电气耗</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item13>
+
+
+<DataModels_item1_item0_item8_item0_item14>
+  <CTVER>43543230</CTVER>
+  <ID>18</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>grlrr</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:04:19</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>14</OrderNo>
+  <DisplayName>供热</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item14>
+
+
+<DataModels_item1_item0_item8_item0_item15>
+  <CTVER>43543230</CTVER>
+  <ID>19</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>grgs</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:04:21</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>15</OrderNo>
+  <DisplayName>管损</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item15>
+
+
+<DataModels_item1_item0_item8_item0_item16>
+  <CTVER>43543230</CTVER>
+  <ID>20</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>riqi</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/8 14:14:26</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>16</OrderNo>
+  <DisplayName>报表日期</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item8_item0_item16>
+
+
+<DataModels_item1_item0_item9>
+  <CTVER>43543230</CTVER>
+  <ID>14</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>pd_aqyxts</Name>
+  <Caption>安全运行天数</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/15 16:25:57</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>9</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc>Left=545.00
+Top=487.00</GraphDesc>
+</DataModels_item1_item0_item9>
+
+
+<DataModels_item1_item0_item9_item0>
+  <Count>8</Count>
+</DataModels_item1_item0_item9_item0>
+
+
+<DataModels_item1_item0_item9_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/15 16:25:57</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>1</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item9_item0_item1>
+
+
+<DataModels_item1_item0_item9_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>qcaqts</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/15 16:25:57</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>全厂安全运行天数</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item9_item0_item2>
+
+
+<DataModels_item1_item0_item9_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>rj1aqqsr</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/15 16:27:32</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName>#1机时间  </DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item9_item0_item3>
+
+
+<DataModels_item1_item0_item9_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>rj2aqqsr</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/15 16:27:33</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>#2机时间 </DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item9_item0_item4>
+
+
+<DataModels_item1_item0_item9_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>rj3aqqsr</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/15 16:27:34</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <DisplayName>#3机时间 </DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item9_item0_item5>
+
+
+<DataModels_item1_item0_item9_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>rj4aqqsr</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/15 16:27:34</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>6</OrderNo>
+  <DisplayName>#4机时间 </DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item9_item0_item6>
+
+
+<DataModels_item1_item0_item9_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>rr5aqqsr</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/15 16:27:35</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>7</OrderNo>
+  <DisplayName>#56机时间 </DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item9_item0_item7>
+
+
+<DataModels_item1_item0_item9_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>rr6aqqsr</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/15 16:27:36</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>8</OrderNo>
+  <DisplayName>#78机时间 </DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item9_item0_item8>
+
+
+<DataModels_item1_item0_item10>
+  <CTVER>43543230</CTVER>
+  <ID>15</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>unit_histimedate</Name>
+  <Caption>历史趋势数据</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/18 10:31:43</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>10</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc>Left=19.00
+Top=42.00</GraphDesc>
+</DataModels_item1_item0_item10>
+
+
+<DataModels_item1_item0_item10_item0>
+  <Count>4</Count>
+</DataModels_item1_item0_item10_item0>
+
+
+<DataModels_item1_item0_item10_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>Id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/18 10:31:43</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>1</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item10_item0_item1>
+
+
+<DataModels_item1_item0_item10_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>unitid</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/18 10:31:43</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>外键</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>3</KeyFieldType>
+  <RelateTable>unit_parameter</RelateTable>
+  <RelateField>Id</RelateField>
+  <IndexType>2</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc>P1=278.00,85.00
+P2=233.00,85.00
+P3=233.00,85.00
+P4=188.00,85.00
+HookP1=26.50,75.00
+HookP2=142.00,43.00
+Mod_OP1=1
+Mod_OP2=1
+Mod_CP=0
+Horz1=1
+Horz2=1</GraphDesc>
+</DataModels_item1_item0_item10_item0_item2>
+
+
+<DataModels_item1_item0_item10_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>pvalue</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/18 10:31:43</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName>值</DisplayName>
+  <DataType>3</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item10_item0_item3>
+
+
+<DataModels_item1_item0_item10_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>cdate</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/4/18 10:33:03</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>时间</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item10_item0_item4>
+
+
+<DataModels_item1_item0_item11>
+  <CTVER>43543230</CTVER>
+  <ID>21</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>sys_device</Name>
+  <Caption>用户手机设备信息</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/5/13 15:56:59</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>11</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc>Left=7.00
+Top=243.00</GraphDesc>
+</DataModels_item1_item0_item11>
+
+
+<DataModels_item1_item0_item11_item0>
+  <Count>6</Count>
+</DataModels_item1_item0_item11_item0>
+
+
+<DataModels_item1_item0_item11_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/5/13 15:56:59</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>ID</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>1</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item11_item0_item1>
+
+
+<DataModels_item1_item0_item11_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>userid</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/5/13 15:56:59</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>用户ID</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>3</KeyFieldType>
+  <RelateTable>sys_user</RelateTable>
+  <RelateField>Id</RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>36</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc>P1=239.00,302.00
+P2=218.00,302.00
+P3=218.00,302.00
+P4=197.00,302.00
+HookP1=31.50,99.00
+HookP2=158.00,59.00
+Mod_OP1=1
+Mod_OP2=1
+Mod_CP=0
+Horz1=1
+Horz2=1</GraphDesc>
+</DataModels_item1_item0_item11_item0_item2>
+
+
+<DataModels_item1_item0_item11_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>name</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/5/13 15:56:59</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName>设备名称</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>20</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item11_item0_item3>
+
+
+<DataModels_item1_item0_item11_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>version</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/5/13 15:58:49</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>版本</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>20</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item11_item0_item4>
+
+
+<DataModels_item1_item0_item11_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>isdel</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/5/13 15:59:12</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <DisplayName>状态</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>10</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item11_item0_item5>
+
+
+<DataModels_item1_item0_item11_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>authority</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/5/13 15:59:41</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>6</OrderNo>
+  <DisplayName>权限</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>10</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item11_item0_item6>
+
+
+<DataModels_item1_item0_item12>
+  <CTVER>43543230</CTVER>
+  <ID>12</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>view_scd</Name>
+  <Caption>缺陷详细表</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/7/18 8:52:15</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>12</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item12>
+
+
+<DataModels_item1_item0_item12_item0>
+  <Count>8</Count>
+</DataModels_item1_item0_item12_item0>
+
+
+<DataModels_item1_item0_item12_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/7/18 8:52:15</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>主键</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item12_item0_item1>
+
+
+<DataModels_item1_item0_item12_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>parentId</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/7/18 8:53:47</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>父ID</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item12_item0_item2>
+
+
+<DataModels_item1_item0_item12_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>5</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>op</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/7/18 8:54:13</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName></DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>100</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item12_item0_item3>
+
+
+<DataModels_item1_item0_item12_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>6</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>ip</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/7/18 8:54:45</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>地址</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>50</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item12_item0_item4>
+
+
+<DataModels_item1_item0_item12_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>7</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>username</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/7/18 8:54:51</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <DisplayName>接收人</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>100</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item12_item0_item5>
+
+
+<DataModels_item1_item0_item12_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>8</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>memo</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/7/18 8:54:58</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>6</OrderNo>
+  <DisplayName>备注</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>2000</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item12_item0_item6>
+
+
+<DataModels_item1_item0_item12_item0_item7>
+  <CTVER>43543230</CTVER>
+  <ID>9</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>rectime</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/7/18 8:55:03</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>7</OrderNo>
+  <DisplayName>接收时间</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item12_item0_item7>
+
+
+<DataModels_item1_item0_item12_item0_item8>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>bm</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/7/18 8:55:08</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>8</OrderNo>
+  <DisplayName>部门</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>1</Nullable>
+  <DataLength>100</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item12_item0_item8>
+
+
+<DataModels_item1_item0_item13>
+  <CTVER>43543230</CTVER>
+  <ID>13</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>sys_menu</Name>
+  <Caption>菜单表</Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/8/22 11:06:40</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>13</OrderNo>
+  <CellTreeId>0</CellTreeId>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item13>
+
+
+<DataModels_item1_item0_item13_item0>
+  <Count>6</Count>
+</DataModels_item1_item0_item13_item0>
+
+
+<DataModels_item1_item0_item13_item0_item1>
+  <CTVER>43543230</CTVER>
+  <ID>1</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>id</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/8/22 11:06:40</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>1</OrderNo>
+  <DisplayName>编号</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>1</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue>{auto_increment}</DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item13_item0_item1>
+
+
+<DataModels_item1_item0_item13_item0_item2>
+  <CTVER>43543230</CTVER>
+  <ID>2</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>cratetime</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:02:06</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>2</OrderNo>
+  <DisplayName>创建时间</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item13_item0_item2>
+
+
+<DataModels_item1_item0_item13_item0_item3>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>name</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/8/22 11:06:40</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>3</OrderNo>
+  <DisplayName>名称</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>20</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item13_item0_item3>
+
+
+<DataModels_item1_item0_item13_item0_item4>
+  <CTVER>43543230</CTVER>
+  <ID>3</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>edittime</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/3/14 10:02:06</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>4</OrderNo>
+  <DisplayName>修改时间</DisplayName>
+  <DataType>4</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item13_item0_item4>
+
+
+<DataModels_item1_item0_item13_item0_item5>
+  <CTVER>43543230</CTVER>
+  <ID>4</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>url</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo></Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/8/22 11:07:40</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>5</OrderNo>
+  <DisplayName>链接url</DisplayName>
+  <DataType>1</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>200</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item13_item0_item5>
+
+
+<DataModels_item1_item0_item13_item0_item6>
+  <CTVER>43543230</CTVER>
+  <ID>10</ID>
+  <PID>0</PID>
+  <RID>0</RID>
+  <Name>classes</Name>
+  <Caption></Caption>
+  <TypeName></TypeName>
+  <Memo>0 生产 1 管理</Memo>
+  <Creator>0</Creator>
+  <CreateDate>2016/8/22 11:09:23</CreateDate>
+  <CreatorName></CreatorName>
+  <Modifier>0</Modifier>
+  <ModifyDate>1899/12/30</ModifyDate>
+  <ModifierName></ModifierName>
+  <VersionNo>0</VersionNo>
+  <HistoryID>0</HistoryID>
+  <LockStamp></LockStamp>
+  <DataLevel>0</DataLevel>
+  <OrderNo>6</OrderNo>
+  <DisplayName>类型</DisplayName>
+  <DataType>2</DataType>
+  <DataTypeName></DataTypeName>
+  <KeyFieldType>0</KeyFieldType>
+  <RelateTable></RelateTable>
+  <RelateField></RelateField>
+  <IndexType>0</IndexType>
+  <Hint></Hint>
+  <DefaultValue></DefaultValue>
+  <Nullable>0</Nullable>
+  <DataLength>0</DataLength>
+  <DataScale>0</DataScale>
+  <GraphDesc></GraphDesc>
+</DataModels_item1_item0_item13_item0_item6>
+
+
+</CTOXML>
